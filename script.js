@@ -1,79 +1,32 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    text-align: center;
-}
+// Thèmes et éléments
+const themes = {
+    calme: { banners: [...], dicemanImages: [...], music: [...], background: "linear-gradient(to bottom, #a2d5f2, #e3fdfd)" },
+    angoissant: { banners: [...], dicemanImages: [...], music: [...], background: "linear-gradient(to bottom, #2b2b2b, #4a0000)" },
+    entrainant: { banners: [...], dicemanImages: [...], music: [...], background: "linear-gradient(to bottom, #ffafbd, #ffc3a0)" }
+};
 
-.banner-container img {
-    width: 70%; /* Réduction de la taille à 70% */
-    max-height: 300px;
-    object-fit: contain; /* Empêcher les coupures */
-    margin: 10px auto;
-}
+// Choisir un thème aléatoire
+const themeKeys = Object.keys(themes);
+const randomTheme = themes[themeKeys[Math.floor(Math.random() * themeKeys.length)]];
 
-.diceman-container img {
-    width: 50%; /* Réduction de la taille à 50% */
-    max-height: 400px;
-    object-fit: contain;
-    margin: 20px auto;
-}
+// Appliquer les éléments du thème
+document.body.style.background = randomTheme.background;
+document.getElementById("banner-image").src = randomTheme.banners[Math.floor(Math.random() * randomTheme.banners.length)];
+document.getElementById("diceman-image").src = randomTheme.dicemanImages[Math.floor(Math.random() * randomTheme.dicemanImages.length)];
 
-.phrase-container {
-    margin: 20px auto;
-    font-size: 1.5em;
-    font-style: italic;
-}
+// Lecture d'une phrase aléatoire
+fetch("Phrase_accroche.csv")
+    .then(response => response.text())
+    .then(data => {
+        const phrases = data.split("\n").map(line => line.trim());
+        const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+        document.getElementById("diceman-phrase").innerText = randomPhrase;
+    });
 
-.choices-container {
-    margin: 30px auto;
-    text-align: center;
-}
+// Musique
+const audio = new Audio(randomTheme.music[Math.floor(Math.random() * randomTheme.music.length)]);
+audio.loop = true;
 
-.choices-container select,
-.choices-container button {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 1em;
-}
-
-.chaos-container p {
-    margin: 20px 0 10px;
-    font-size: 1.5em;
-    font-style: italic;
-}
-
-#chaos-btn {
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    font-size: 1.5em;
-    padding: 20px 40px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#chaos-btn:hover {
-    background-color: #ff1a1a;
-}
-
-.music-control {
-    margin: 20px auto;
-    text-align: center;
-}
-
-.music-control button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.music-control button:hover {
-    background-color: #555;
-}
+// Boutons de contrôle
+document.getElementById("play-music").addEventListener("click", () => audio.play());
+document.getElementById("pause-music").addEventListener("click", () => audio.pause());
