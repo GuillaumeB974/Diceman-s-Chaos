@@ -7,7 +7,7 @@ body {
 }
 
 .banner-container img {
-    width: 70%;
+    width: 90%;
     max-height: 300px;
     object-fit: contain;
     margin: 10px auto;
