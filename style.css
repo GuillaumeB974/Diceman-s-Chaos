@@ -6,22 +6,35 @@ body {
     text-align: center;
 }
 
-.banner-container img,
-.diceman-container img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
+.banner-container {
+    text-align: center;
+    overflow: hidden;
+    margin-top: 10px;
 }
 
-.phrase-container {
-    margin: 20px auto;
-    font-size: 1.5em;
-    font-style: italic;
+.banner-container img {
+    width: 70%;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 0 auto;
 }
+
 
 .choices-container {
     margin: 30px auto;
     text-align: center;
+}
+
+.diceman-container {
+    text-align: center; /* Centrer l'image */
+    margin-top: 20px; /* Espacement entre la bannière et l'image */
+}
+
+.diceman-container img {
+    width: 50%; /* Réduction de la taille à 50% */
+    max-height: 400px; /* Limite la hauteur */
+    object-fit: contain; /* S'assurer que l'image complète est visible */
+    margin: 0 auto; /* Centrer horizontalement */
 }
 
 .choices-container select,
