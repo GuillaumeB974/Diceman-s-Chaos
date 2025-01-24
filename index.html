@@ -7,18 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Conteneur principal -->
     <div id="app">
         <!-- Bannière -->
-       <div class="diceman-container">
-    <img id="diceman-image" src="" alt="Image du DiceMan">
-</div>
-
-<!-- Contrôle de la musique -->
-<div class="music-control">
-    <button id="play-music">▶️ Play Music</button>
-    <button id="pause-music">⏸ Pause Music</button>
-</div>
+        <div class="banner-container">
+            <img id="banner-image" src="" alt="Bannière thématique">
+        </div>
 
         <!-- Image du DiceMan -->
         <div class="diceman-container">
@@ -30,7 +23,7 @@
             <p id="diceman-phrase">Loading...</p>
         </div>
 
-        <!-- Choix des catégories et difficulté -->
+        <!-- Section de choix -->
         <div class="choices-container">
             <p>Choose an easier path...</p>
             <select id="category">
@@ -40,18 +33,26 @@
                 <option value="Physical Activity">Physical Activity</option>
                 <option value="Nature & Adventure">Nature & Adventure</option>
             </select>
-
             <select id="difficulty">
                 <option value="Easy">Easy</option>
                 <option value="Hard">Hard</option>
             </select>
-
             <button id="generate-btn">Generate</button>
+        </div>
+
+        <!-- Section Chaos -->
+        <div class="chaos-container">
+            <p>Or...</p>
             <button id="chaos-btn">CHAOS !!</button>
+        </div>
+
+        <!-- Contrôle de la musique -->
+        <div class="music-control">
+            <button id="play-music">▶️ Play Music</button>
+            <button id="pause-music">⏸ Pause Music</button>
         </div>
     </div>
 
-    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
