@@ -6,35 +6,29 @@ body {
     text-align: center;
 }
 
-.banner-container {
-    text-align: center;
-    overflow: hidden;
-    margin-top: 10px;
-}
-
 .banner-container img {
-    width: 70%;
+    width: 70%; /* Réduction de la taille à 70% */
     max-height: 300px;
-    object-fit: contain;
-    margin: 0 auto;
-}
-
-
-.choices-container {
-    margin: 30px auto;
-    text-align: center;
-}
-
-.diceman-container {
-    text-align: center; /* Centrer l'image */
-    margin-top: 20px; /* Espacement entre la bannière et l'image */
+    object-fit: contain; /* Empêcher les coupures */
+    margin: 10px auto;
 }
 
 .diceman-container img {
     width: 50%; /* Réduction de la taille à 50% */
-    max-height: 400px; /* Limite la hauteur */
-    object-fit: contain; /* S'assurer que l'image complète est visible */
-    margin: 0 auto; /* Centrer horizontalement */
+    max-height: 400px;
+    object-fit: contain;
+    margin: 20px auto;
+}
+
+.phrase-container {
+    margin: 20px auto;
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.choices-container {
+    margin: 30px auto;
+    text-align: center;
 }
 
 .choices-container select,
@@ -44,10 +38,19 @@ body {
     font-size: 1em;
 }
 
+.chaos-container p {
+    margin: 20px 0 10px;
+    font-size: 1.5em;
+    font-style: italic;
+}
+
 #chaos-btn {
     background-color: #ff4d4d;
     color: white;
     border: none;
+    font-size: 1.5em;
+    padding: 20px 40px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
