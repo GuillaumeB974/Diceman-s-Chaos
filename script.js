@@ -1,59 +1,123 @@
-// Thèmes et éléments
-const themes = {
-    calme: {
-        banners: ["images/BannièresCalme (1).jpg", "images/BannièresCalme (2).jpg"],
-        dicemanImages: ["images/DicemanCalme (1).jpg", "images/DicemanCalme (2).jpg"],
-        music: ["audio/SoundCalme (1).mp3", "audio/SoundCalme (2).mp3"],
-        backgrounds: [
-            "linear-gradient(to bottom, #bde0fe, #caffbf)",
-            "linear-gradient(to bottom, #d0f4de, #a9def9)",
-            "linear-gradient(to bottom, #e3f2fd, #ffdde1)"
-        ]
-    },
-    angoissant: {
-        banners: ["images/BannièresAngoissant (1).jpg", "images/BannièresAngoissant (2).jpg"],
-        dicemanImages: ["images/DicemanAngoissant (1).jpg", "images/DicemanAngoissant (2).jpg"],
-        music: ["audio/SoundAngoissant (1).mp3", "audio/SoundAngoissant (2).mp3"],
-        backgrounds: [
-            "linear-gradient(to bottom, #ffcccc, #d8bfd8)",
-            "linear-gradient(to bottom, #ffdfba, #ffc3a0)",
-            "linear-gradient(to bottom, #f3d5c0, #fad4c0)"
-        ]
-    },
-    entrainant: {
-        banners: ["images/BannièresEntrainant (1).jpg", "images/BannièresEntrainant (2).jpg"],
-        dicemanImages: ["images/DicemanEntrainant (1).jpg", "images/DicemanEntrainant (2).jpg"],
-        music: ["audio/SoundEntrainant (1).mp3", "audio/SoundEntrainant (2).mp3"],
-        backgrounds: [
-            "linear-gradient(to bottom, #ffafbd, #ffc3a0)",
-            "linear-gradient(to bottom, #f5d0c5, #d5c8f2)",
-            "linear-gradient(to bottom, #ffdae3, #ffc4e1)"
-        ]
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+.banner-container img {
+    width: 90%;
+    max-height: 300px;
+    object-fit: contain;
+    margin: 10px auto;
+}
+
+.diceman-container img {
+    width: 50%;
+    max-height: 400px;
+    object-fit: contain;
+    margin: 20px auto;
+}
+
+.phrase-container p {
+    margin: 10px auto;
+    margin-bottom: 50px; /* Ajoute plus d'espace en bas */
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: bold; /* Texte en gras */
+}
+
+.choices-container {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.choices-container select,
+.choices-container button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+.chaos-container p {
+    margin: 20px 0 10px;
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+#chaos-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    font-size: 2.5em;
+    padding: 30px 60px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#chaos-btn:hover {
+    background-color: #ff1a1a;
+}
+
+.music-control {
+    display: flex;
+    justify-content: center; /* Centrer les boutons */
+    gap: 20px; /* Espacement entre les boutons */
+    margin: 20px auto; /* Espacement entre la bannière et le DiceMan */
+}
+
+.music-control button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.music-control button:hover {
+    background-color: #555; /* Couleur au survol */
+}
+
+.dice-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 40px auto; /* Plus d'espace au-dessus et en dessous */
+    max-width: 800px;
+}
+
+.dice {
+    text-align: center;
+    margin: 20px; /* Plus d'espace autour de chaque dé */
+}
+
+.dice img {
+    width: 100px; /* Taille des images des dés */
+    height: 100px;
+    object-fit: contain;
+}
+
+.dice-phrase {
+    max-width: 120px; /* Limite la largeur des phrases */
+    margin: 10px auto;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    word-wrap: break-word; /* Casse les mots longs */
+}
+
+/* Responsivité pour petits écrans */
+@media (max-width: 600px) {
+    .dice img {
+        width: 80px; /* Réduit la taille des dés */
+        height: 80px;
     }
-};
 
-// Sélection aléatoire d'un thème
-const themeKeys = Object.keys(themes);
-const randomTheme = themes[themeKeys[Math.floor(Math.random() * themeKeys.length)]];
-
-// Appliquer les éléments du thème
-document.body.style.background = randomTheme.backgrounds[Math.floor(Math.random() * randomTheme.backgrounds.length)];
-document.getElementById("banner-image").src = randomTheme.banners[Math.floor(Math.random() * randomTheme.banners.length)];
-document.getElementById("diceman-image").src = randomTheme.dicemanImages[Math.floor(Math.random() * randomTheme.dicemanImages.length)];
-
-// Phrase aléatoire depuis Phrase_accroche.csv
-fetch("Phrase_accroche.csv")
-    .then(response => response.text())
-    .then(data => {
-        const phrases = data.split("\n").map(line => line.trim());
-        const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-        document.getElementById("diceman-phrase").innerText = randomPhrase;
-    });
-
-// Musique
-const audio = new Audio(randomTheme.music[Math.floor(Math.random() * randomTheme.music.length)]);
-audio.loop = true;
-
-// Boutons musique
-document.getElementById("play-music").addEventListener("click", () => audio.play());
-document.getElementById("pause-music").addEventListener("click", () => audio.pause());
+    .music-control button {
+        padding: 10px 20px; /* Réduit la taille des boutons */
+        font-size: 1em;
+    }
+}
