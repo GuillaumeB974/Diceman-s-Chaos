@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diceman's Chaos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Conteneur principal -->
+    <div id="app">
+        <!-- Bannière -->
+        <div class="banner-container">
+            <img id="banner-image" src="" alt="Bannière thématique">
+        </div>
+
+        <!-- Image du DiceMan -->
+        <div class="diceman-container">
+            <img id="diceman-image" src="" alt="Image du DiceMan">
+        </div>
+
+        <!-- Phrase d'accroche -->
+        <div class="phrase-container">
+            <p id="diceman-phrase">Loading...</p>
+        </div>
+
+        <!-- Choix des catégories et difficulté -->
+        <div class="choices-container">
+            <p>Choose an easier path...</p>
+            <select id="category">
+                <option value="Everyday Actions">Everyday Actions</option>
+                <option value="Creative Activity">Creative Activity</option>
+                <option value="Social Interaction">Social Interaction</option>
+                <option value="Physical Activity">Physical Activity</option>
+                <option value="Nature & Adventure">Nature & Adventure</option>
+            </select>
+
+            <select id="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Hard">Hard</option>
+            </select>
+
+            <button id="generate-btn">Generate</button>
+            <button id="chaos-btn">CHAOS !!</button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
