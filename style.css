@@ -85,13 +85,13 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 20px auto;
+    margin: 40px auto; /* Plus d'espace au-dessus et en dessous */
     max-width: 800px;
 }
 
 .dice {
     text-align: center;
-    margin: 15px;
+    margin: 20px; /* Plus d'espace autour de chaque dé */
 }
 
 .dice img {
@@ -101,7 +101,23 @@ body {
 }
 
 .dice-phrase {
-    margin-top: 10px;
+    max-width: 120px; /* Limite la largeur des phrases */
+    margin: 10px auto;
     font-size: 1em;
     font-weight: bold;
+    text-align: center;
+    word-wrap: break-word; /* Casse les mots longs */
+}
+
+/* Responsivité pour petits écrans */
+@media (max-width: 600px) {
+    .dice img {
+        width: 80px; /* Réduit la taille des dés */
+        height: 80px;
+    }
+
+    .music-control button {
+        padding: 10px 20px; /* Réduit la taille des boutons */
+        font-size: 1em;
+    }
 }
