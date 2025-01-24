@@ -80,3 +80,28 @@ body {
 .music-control button:hover {
     background-color: #555; /* Couleur au survol */
 }
+
+.dice-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.dice {
+    text-align: center;
+    margin: 15px;
+}
+
+.dice img {
+    width: 100px; /* Taille des images des dés */
+    height: 100px;
+    object-fit: contain;
+}
+
+.dice-phrase {
+    margin-top: 10px;
+    font-size: 1em;
+    font-weight: bold;
+}
