@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+.banner-container img,
+.diceman-container img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.phrase-container {
+    margin: 20px auto;
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.choices-container {
+    margin: 30px auto;
+    text-align: center;
+}
+
+.choices-container select,
+.choices-container button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+#chaos-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#chaos-btn:hover {
+    background-color: #ff1a1a;
+}
