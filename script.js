@@ -100,7 +100,15 @@ document.body.style.background = randomTheme.background;
 document.getElementById("banner-image").src = randomTheme.banners[Math.floor(Math.random() * randomTheme.banners.length)];
 document.getElementById("diceman-image").src = randomTheme.dicemanImages[Math.floor(Math.random() * randomTheme.dicemanImages.length)];
 
-// Jouer la musique
+// Musique aléatoire pour le thème
 const audio = new Audio(randomTheme.music[Math.floor(Math.random() * randomTheme.music.length)]);
-setTimeout(() => audio.play(), 2000); // Commence après 2 secondes
 audio.loop = true;
+
+// Boutons pour contrôler la musique
+document.getElementById("play-music").addEventListener("click", () => {
+    audio.play();
+});
+
+document.getElementById("pause-music").addEventListener("click", () => {
+    audio.pause();
+});
