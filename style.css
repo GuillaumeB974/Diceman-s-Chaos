@@ -60,9 +60,10 @@ body {
 }
 
 .music-control {
-    text-align: left;
-    margin-left: 10%;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between; /* Les boutons sont positionnés aux extrémités */
+    align-items: center; /* Aligner verticalement avec le conteneur du DiceMan */
+    margin: 0 10%; /* Marges horizontales */
 }
 
 .music-control button {
@@ -71,7 +72,6 @@ body {
     border: none;
     padding: 15px 30px;
     font-size: 1.2em;
-    margin: 5px;
     border-radius: 5px;
     cursor: pointer;
 }
