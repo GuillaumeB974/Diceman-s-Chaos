@@ -22,7 +22,7 @@ body {
 
 .phrase-container p {
     margin: 10px auto;
-    margin-bottom: 50px; /* Ajoute plus d'espace en bas */
+    margin-bottom: 100px; /* Ajoute plus d'espace en bas */
     font-size: 1.5em;
     font-style: italic;
     font-weight: bold; /* Texte en gras */
