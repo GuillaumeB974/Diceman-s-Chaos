@@ -39,6 +39,16 @@ document.body.style.background = randomTheme.backgrounds[Math.floor(Math.random(
 document.getElementById("banner-image").src = randomTheme.banners[Math.floor(Math.random() * randomTheme.banners.length)];
 document.getElementById("diceman-image").src = randomTheme.dicemanImages[Math.floor(Math.random() * randomTheme.dicemanImages.length)];
 
+// Gestion de la musique
+const audio = new Audio();
+document.getElementById("play-music").addEventListener("click", () => {
+    audio.src = randomTheme.music[Math.floor(Math.random() * randomTheme.music.length)];
+    audio.play().catch(err => console.error("Erreur de lecture audio :", err));
+});
+document.getElementById("pause-music").addEventListener("click", () => {
+    audio.pause();
+});
+
 // Phrase aléatoire depuis Phrase_accroche.csv
 fetch("Phrase_accroche.csv")
     .then(response => response.text())
@@ -48,29 +58,54 @@ fetch("Phrase_accroche.csv")
         document.getElementById("diceman-phrase").innerText = randomPhrase;
     });
 
-// Gestion des dés et phrases associées
-fetch("The_True_DiceMan.csv")
-    .then(response => response.text())
-    .then(data => {
-        const rows = data.split("\n").map(row => row.split(","));
-        const headers = rows.shift(); // En-têtes du fichier CSV
+// Gestion des dés et sons associés
+const generateSounds = [
+    "audio/SoundGenerate (1).mp3", "audio/SoundGenerate (2).mp3", "audio/SoundGenerate (3).mp3",
+    "audio/SoundGenerate (4).mp3", "audio/SoundGenerate (5).mp3", "audio/SoundGenerate (6).mp3",
+    "audio/SoundGenerate (7).mp3", "audio/SoundGenerate (8).mp3"
+];
 
-        const getRandomRow = () => rows[Math.floor(Math.random() * rows.length)];
-        const diceImages = {
-            1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg", "images/Dice1 rose.jpg", "images/Dice1 vert.jpg"],
-            2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg", "images/Dice2 rose.jpg", "images/Dice2 vert.jpg"],
-            3: ["images/Dice3 blanc.jpg", "images/Dice3 bleu.jpg", "images/Dice3 rose.jpg", "images/Dice3 vert.jpg"],
-            4: ["images/Dice4 blanc.jpg", "images/Dice4 bleu.jpg", "images/Dice4 rose.jpg", "images/Dice4 vert.jpg"],
-            5: ["images/Dice5 blanc.jpg", "images/Dice5 bleu.jpg", "images/Dice5 rose.jpg", "images/Dice5 vert.jpg"],
-            6: ["images/Dice6 blanc.jpg", "images/Dice6 bleu.jpg", "images/Dice6 rose.jpg", "images/Dice6 vert.jpg"]
-        };
+document.getElementById("generate-btn").addEventListener("click", () => handleGenerate("generate"));
+document.getElementById("chaos-btn").addEventListener("click", () => handleGenerate("chaos"));
 
-        for (let i = 1; i <= 6; i++) {
-            const randomRow = getRandomRow();
-            const phrase = `${randomRow[headers.indexOf("Verb")]} ${randomRow[headers.indexOf("Object")]} ${randomRow[headers.indexOf("Temporalité")]}`;
-            const randomImage = diceImages[i][Math.floor(Math.random() * diceImages[i].length)];
+function handleGenerate(mode) {
+    // Lecture d'un son aléatoire
+    const sound = new Audio(generateSounds[Math.floor(Math.random() * generateSounds.length)]);
+    sound.play();
 
-            document.querySelector(`#dice-${i} .dice-image`).src = randomImage;
-            document.querySelector(`#dice-${i} .dice-phrase`).innerText = phrase;
-        }
-    });
+    // Masquer les boutons après 1 seconde
+    setTimeout(() => {
+        document.querySelector(".choices-container").style.display = "none";
+        document.querySelector(".chaos-container").style.display = "none";
+        displayDice(mode);
+    }, 1000);
+}
+
+function displayDice(mode) {
+    fetch("The_True_DiceMan.csv")
+        .then(response => response.text())
+        .then(data => {
+            const rows = data.split("\n").map(row => row.split(","));
+            const headers = rows.shift();
+
+            const getRandomRow = () => rows[Math.floor(Math.random() * rows.length)];
+
+            const diceImages = {
+                1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg", "images/Dice1 rose.jpg", "images/Dice1 vert.jpg"],
+                2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg", "images/Dice2 rose.jpg", "images/Dice2 vert.jpg"],
+                3: ["images/Dice3 blanc.jpg", "images/Dice3 bleu.jpg", "images/Dice3 rose.jpg", "images/Dice3 vert.jpg"],
+                4: ["images/Dice4 blanc.jpg", "images/Dice4 bleu.jpg", "images/Dice4 rose.jpg", "images/Dice4 vert.jpg"],
+                5: ["images/Dice5 blanc.jpg", "images/Dice5 bleu.jpg", "images/Dice5 rose.jpg", "images/Dice5 vert.jpg"],
+                6: ["images/Dice6 blanc.jpg", "images/Dice6 bleu.jpg", "images/Dice6 rose.jpg", "images/Dice6 vert.jpg"]
+            };
+
+            for (let i = 1; i <= 6; i++) {
+                const randomRow = getRandomRow();
+                const phrase = `${randomRow[headers.indexOf("Verb")]} ${randomRow[headers.indexOf("Object")]} ${randomRow[headers.indexOf("Temporalité")]}`;
+                const randomImage = diceImages[i][Math.floor(Math.random() * diceImages[i].length)];
+
+                document.querySelector(`#dice-${i} .dice-image`).src = randomImage;
+                document.querySelector(`#dice-${i} .dice-phrase`).innerText = phrase;
+            }
+        });
+}
