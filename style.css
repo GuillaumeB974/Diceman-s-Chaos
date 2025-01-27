@@ -128,3 +128,37 @@ body {
         font-size: 1em;
     }
 }
+.roll-dice-container {
+    text-align: center;
+    margin: 30px auto;
+}
+
+#roll-dice-btn {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Couleurs aléatoires */
+.roll-dice-color-1 { background-color: #ffadad; color: #fff; }
+.roll-dice-color-2 { background-color: #ffd6a5; color: #fff; }
+.roll-dice-color-3 { background-color: #fdffb6; color: #000; }
+.roll-dice-color-4 { background-color: #caffbf; color: #000; }
+.roll-dice-color-5 { background-color: #9bf6ff; color: #000; }
+
+.description-container {
+    margin: 20px auto;
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+}
+
+.dice.highlight {
+    border: 3px solid #ff4500;
+    box-shadow: 0 0 10px #ff4500;
+}
