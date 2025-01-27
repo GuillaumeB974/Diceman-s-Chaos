@@ -109,3 +109,41 @@ function displayDice(mode) {
             }
         });
 }
+
+// Couleurs pour le bouton "ROLL THE DICE"
+const rollDiceColors = ["roll-dice-color-1", "roll-dice-color-2", "roll-dice-color-3", "roll-dice-color-4", "roll-dice-color-5"];
+
+// Initialisation du bouton "ROLL THE DICE"
+const rollDiceBtn = document.getElementById("roll-dice-btn");
+const randomColorClass = rollDiceColors[Math.floor(Math.random() * rollDiceColors.length)];
+rollDiceBtn.classList.add(randomColorClass);
+
+// Gestion des sons "SoundDice"
+const diceSounds = [
+    "audio/SoundDice (1).mp3",
+    "audio/SoundDice (2).mp3",
+    "audio/SoundDice (3).mp3",
+    "audio/SoundDice (4).mp3",
+    "audio/SoundDice (5).mp3",
+    "audio/SoundDice (6).mp3"
+];
+
+// Écouteur pour "ROLL THE DICE"
+rollDiceBtn.addEventListener("click", () => {
+    // Lecture d'un son aléatoire
+    const sound = new Audio(diceSounds[Math.floor(Math.random() * diceSounds.length)]);
+    sound.play();
+
+    // Choix aléatoire d'un dé
+    const randomDiceIndex = Math.floor(Math.random() * 6) + 1;
+    const selectedDice = document.querySelector(`#dice-${randomDiceIndex}`);
+    const selectedPhrase = selectedDice.querySelector(".dice-phrase").innerText;
+
+    // Mise en surbrillance du dé sélectionné
+    document.querySelectorAll(".dice").forEach(dice => dice.classList.remove("highlight"));
+    selectedDice.classList.add("highlight");
+
+    // Afficher la description associée
+    const descriptionText = selectedDice.getAttribute("data-description") || "No description available";
+    document.getElementById("dice-description").innerText = descriptionText;
+});
