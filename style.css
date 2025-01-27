@@ -6,12 +6,18 @@ body {
     text-align: center;
 }
 
+.banner-container {
+    display: flex;
+    justify-content: center; /* Centre la bannière horizontalement */
+}
+
 .banner-container img {
     width: 120%;
     height: auto;
     max-height: 300px;
     object-fit: contain;
-    margin: 10px auto;
+    margin: 10px 0; /* Ajuste l'espacement vertical */
+    transform: translateX(-10%); /* Décale l'image de -10% pour compenser l'élargissement */
 }
 
 .diceman-container img {
