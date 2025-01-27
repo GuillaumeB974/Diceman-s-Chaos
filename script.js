@@ -65,15 +65,13 @@ const generateSounds = [
     "audio/SoundGenerate (7).mp3", "audio/SoundGenerate (8).mp3"
 ];
 
+// Gestion des sons et affichage pour "Generate" et "CHAOS"
 document.getElementById("generate-btn").addEventListener("click", () => handleGenerate("generate"));
 document.getElementById("chaos-btn").addEventListener("click", () => handleGenerate("chaos"));
 
 function handleGenerate(mode) {
-    // Lecture d'un son aléatoire
     const sound = new Audio(generateSounds[Math.floor(Math.random() * generateSounds.length)]);
     sound.play();
-
-    // Masquer les boutons après 1 seconde
     setTimeout(() => {
         document.querySelector(".choices-container").style.display = "none";
         document.querySelector(".chaos-container").style.display = "none";
@@ -87,9 +85,6 @@ function displayDice(mode) {
         .then(data => {
             const rows = data.split("\n").map(row => row.split(","));
             const headers = rows.shift();
-
-            const getRandomRow = () => rows[Math.floor(Math.random() * rows.length)];
-
             const diceImages = {
                 1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg", "images/Dice1 rose.jpg", "images/Dice1 vert.jpg"],
                 2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg", "images/Dice2 rose.jpg", "images/Dice2 vert.jpg"],
@@ -100,7 +95,7 @@ function displayDice(mode) {
             };
 
             for (let i = 1; i <= 6; i++) {
-                const randomRow = getRandomRow();
+                const randomRow = mode === "generate" ? getRandomRow(rows, headers) : rows[Math.floor(Math.random() * rows.length)];
                 const phrase = `${randomRow[headers.indexOf("Verb")]} ${randomRow[headers.indexOf("Object")]} ${randomRow[headers.indexOf("Temporalité")]}`;
                 const randomImage = diceImages[i][Math.floor(Math.random() * diceImages[i].length)];
 
@@ -108,6 +103,17 @@ function displayDice(mode) {
                 document.querySelector(`#dice-${i} .dice-phrase`).innerText = phrase;
             }
         });
+}
+
+function getRandomRow(rows, headers) {
+    const category = document.getElementById("category").value;
+    const difficulty = document.getElementById("difficulty").value;
+    return rows.filter(row =>
+        row[headers.indexOf("Category")] === category &&
+        row[headers.indexOf("Difficulty")] === difficulty
+    )[Math.floor(Math.random() * rows.length)];
+}
+
 }
 
 // Couleurs pour le bouton "ROLL THE DICE"
