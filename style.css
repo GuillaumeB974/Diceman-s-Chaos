@@ -1,3 +1,4 @@
+/* Base styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -6,19 +7,39 @@ body {
     text-align: center;
 }
 
+/* Bannière */
 .banner-container {
     display: flex;
     justify-content: center; /* Centre la bannière horizontalement */
 }
-
 .banner-container img {
-    width: 120%;
-    height: auto;
+    width: 100%;
     max-height: 300px;
     object-fit: contain;
-    margin: 10px 0; /* Ajuste l'espacement vertical */
 }
 
+/* Contrôle de la musique */
+.music-control {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espace entre les boutons */
+    margin: 20px auto;
+}
+.music-control button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.music-control button:hover {
+    background-color: #555; /* Couleur au survol */
+}
+
+/* DiceMan */
 .diceman-container img {
     width: 50%;
     max-height: 400px;
@@ -26,112 +47,67 @@ body {
     margin: 20px auto;
 }
 
+/* Phrase */
 .phrase-container p {
-    margin: 10px auto;
-    margin-bottom: 100px; /* Ajoute plus d'espace en bas */
+    margin: 20px auto;
     font-size: 1.5em;
     font-style: italic;
-    font-weight: bold; /* Texte en gras */
+    font-weight: bold;
+    color: #555;
 }
 
-.choices-container {
+/* Choices */
+.choices-container, .chaos-container {
     margin: 30px auto;
     text-align: center;
 }
-
 .choices-container select,
-.choices-container button {
+.choices-container button,
+#chaos-btn {
     margin: 10px;
     padding: 10px 20px;
     font-size: 1em;
+    border-radius: 5px;
 }
-
-.chaos-container p {
-    margin: 20px 0 10px;
-    font-size: 1.5em;
-    font-style: italic;
-}
-
 #chaos-btn {
     background-color: #ff4d4d;
     color: white;
-    border: none;
     font-size: 2.5em;
     padding: 30px 60px;
-    border-radius: 10px;
     cursor: pointer;
 }
-
 #chaos-btn:hover {
     background-color: #ff1a1a;
 }
 
-.music-control {
-    display: flex;
-    justify-content: center; /* Centrer les boutons */
-    gap: 20px; /* Espacement entre les boutons */
-    margin: 20px auto; /* Espacement entre la bannière et le DiceMan */
-}
-
-.music-control button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.music-control button:hover {
-    background-color: #555; /* Couleur au survol */
-}
-
+/* Dés */
 .dice-container {
-    display: flex;
+    display: none; /* Masqué par défaut */
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 40px auto; /* Plus d'espace au-dessus et en dessous */
     max-width: 800px;
+    margin: 40px auto;
 }
-
 .dice {
     text-align: center;
-    margin: 20px; /* Plus d'espace autour de chaque dé */
+    margin: 20px;
 }
-
 .dice img {
-    width: 100px; /* Taille des images des dés */
+    width: 100px;
     height: 100px;
     object-fit: contain;
 }
-
 .dice-phrase {
-    max-width: 120px; /* Limite la largeur des phrases */
-    margin: 10px auto;
     font-size: 1em;
     font-weight: bold;
-    text-align: center;
-    word-wrap: break-word; /* Casse les mots longs */
+    margin: 10px 0;
 }
 
-/* Responsivité pour petits écrans */
-@media (max-width: 600px) {
-    .dice img {
-        width: 80px; /* Réduit la taille des dés */
-        height: 80px;
-    }
-
-    .music-control button {
-        padding: 10px 20px; /* Réduit la taille des boutons */
-        font-size: 1em;
-    }
-}
+/* Roll the Dice */
 .roll-dice-container {
-    text-align: center;
+    display: none; /* Masqué par défaut */
     margin: 30px auto;
 }
-
 #roll-dice-btn {
     padding: 15px 30px;
     font-size: 1.5em;
@@ -141,23 +117,35 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
-/* Couleurs aléatoires */
 .roll-dice-color-1 { background-color: #ffadad; color: #fff; }
 .roll-dice-color-2 { background-color: #ffd6a5; color: #fff; }
 .roll-dice-color-3 { background-color: #fdffb6; color: #000; }
 .roll-dice-color-4 { background-color: #caffbf; color: #000; }
 .roll-dice-color-5 { background-color: #9bf6ff; color: #000; }
 
+/* Description */
 .description-container {
+    display: none; /* Masqué par défaut */
     margin: 20px auto;
     font-size: 1.5em;
     font-style: italic;
     font-weight: bold;
-    text-align: center;
 }
 
+/* Highlighted dice */
 .dice.highlight {
     border: 3px solid #ff4500;
     box-shadow: 0 0 10px #ff4500;
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .dice img {
+        width: 80px;
+        height: 80px;
+    }
+    .music-control button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
 }
