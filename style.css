@@ -27,9 +27,9 @@ body {
     margin: 20px auto;
 }
 
-#buy-me-button {
-    background-color: #FFDD00;
-    color: #333;
+#ko-fi-button {
+    background-color: #FBAA19;
+    color: #fff;
     text-decoration: none;
     font-size: 1em;
     font-weight: bold;
@@ -39,8 +39,8 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#buy-me-button:hover {
-    background-color: #FFC700;
+#ko-fi-button:hover {
+    background-color: #FFA500;
     transform: translateY(-2px);
 }
 
