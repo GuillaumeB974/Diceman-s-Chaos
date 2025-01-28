@@ -121,11 +121,11 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-.roll-dice-color-1 { background-color: #ffadad; color: #fff; }
-.roll-dice-color-2 { background-color: #ffd6a5; color: #fff; }
-.roll-dice-color-3 { background-color: #fdffb6; color: #000; }
-.roll-dice-color-4 { background-color: #caffbf; color: #000; }
-.roll-dice-color-5 { background-color: #9bf6ff; color: #000; }
+.roll-dice-color-1 { background-color: #deb135; color: #000; }
+.roll-dice-color-2 { background-color: #9c8264; color: #000; }
+.roll-dice-color-3 { background-color: #e5eb21; color: #000; }
+.roll-dice-color-4 { background-color: #42c427; color: #000; }
+.roll-dice-color-5 { background-color: #5cd4e0; color: #000; }
 
 /* Description */
 .description-container {
