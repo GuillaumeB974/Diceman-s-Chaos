@@ -184,7 +184,7 @@ rollDiceBtn.addEventListener("click", () => {
             descriptionElement.style.marginTop = "20px";
         }, 1000); // 1 seconde
         
-       // Liste des textes dynamiques pour le bouton
+     // Liste des textes dynamiques pour le bouton Ko-fi
 const buyOptions = [
     "Buy Me a Coffee",
     "Buy Me a Tea",
@@ -198,15 +198,12 @@ const buyOptions = [
 // Fonction pour mettre à jour dynamiquement le texte du bouton
 function updateBuyButton() {
     const buyButton = document.getElementById("buy-me-button");
-    if (buyButton) {
-        const randomText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
-        buyButton.innerText = randomText;
-    } else {
-        console.error("Bouton 'buy-me-button' introuvable.");
-    }
+    const randomText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
+    buyButton.innerText = randomText;
 }
 
-// Met à jour le texte du bouton après le chargement de la page
+// Mettre à jour le bouton après le chargement de la page
 document.addEventListener("DOMContentLoaded", updateBuyButton);
+
     };
 });
