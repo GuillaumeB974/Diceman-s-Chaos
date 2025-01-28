@@ -184,7 +184,7 @@ rollDiceBtn.addEventListener("click", () => {
             descriptionElement.style.marginTop = "20px";
         }, 1000); // 1 seconde
         
-     // Liste des textes dynamiques pour le bouton Ko-fi
+    // Liste des textes dynamiques pour le bouton "Buy Me a Coffee"
 const buyOptions = [
     "Buy Me a Coffee",
     "Buy Me a Tea",
@@ -198,12 +198,20 @@ const buyOptions = [
 // Fonction pour mettre à jour dynamiquement le texte du bouton
 function updateBuyButton() {
     const buyButton = document.getElementById("buy-me-button");
-    const randomText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
-    buyButton.innerText = randomText;
+    if (buyButton) {
+        const randomText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
+        buyButton.innerText = randomText;
+    } else {
+        console.error("Le bouton 'Buy Me a Coffee' est introuvable !");
+    }
 }
 
-// Mettre à jour le bouton après le chargement de la page
-document.addEventListener("DOMContentLoaded", updateBuyButton);
+// Ajout d'un lien vers votre page Ko-fi au clic
+document.getElementById("buy-me-button").addEventListener("click", () => {
+    window.open("https://ko-fi.com/dicemanschaos", "_blank");
+});
 
+// Mettre à jour le texte du bouton après le chargement de la page
+document.addEventListener("DOMContentLoaded", updateBuyButton);
     };
 });
