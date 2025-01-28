@@ -115,4 +115,4 @@ rollDiceBtn.addEventListener("click", () => {
     const selectedDice = document.querySelector(`#dice-${randomDiceIndex}`);
     document.querySelectorAll(".dice").forEach(dice => dice.classList.remove("highlight"));
     selectedDice.classList.add("highlight");
-   
+});
