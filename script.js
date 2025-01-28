@@ -138,7 +138,7 @@ rollDiceBtn.addEventListener("click", () => {
     const sound = new Audio(diceSounds[Math.floor(Math.random() * diceSounds.length)]);
     sound.play();
 
-    // Attendre 2 secondes après la fin du son pour mettre en surbrillance le dé
+    // Attendre 1 seconde après la fin du son pour mettre en surbrillance le dé
     sound.onended = () => {
         setTimeout(() => {
             const randomDiceIndex = Math.floor(Math.random() * 6) + 1;
@@ -152,15 +152,17 @@ rollDiceBtn.addEventListener("click", () => {
 
             // Afficher la description associée
             const descriptionText = selectedDice.getAttribute("data-description") || "No description available";
-            const descriptionElement = document.getElementById("dice-description");
 
-            descriptionElement.innerText = descriptionText;
+            // Remplacer le bouton "ROLL THE DICE" par la phrase de description
+            const rollDiceContainer = document.querySelector(".roll-dice-container");
+            rollDiceContainer.innerHTML = `<p id="dice-description">${descriptionText}</p>`;
 
             // Appliquer les styles de la phrase d'accroche
+            const descriptionElement = document.getElementById("dice-description");
             descriptionElement.style.fontSize = "1.5em";
             descriptionElement.style.fontStyle = "italic";
             descriptionElement.style.fontWeight = "bold";
             descriptionElement.style.marginTop = "20px";
-        }, 2000);
+        }, 1000); // 1 seconde
     };
 });
