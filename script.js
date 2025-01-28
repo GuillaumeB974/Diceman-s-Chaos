@@ -84,15 +84,58 @@ function displayDice(mode) {
         .then(data => {
             const rows = data.split("\n").map(row => row.split(","));
             const headers = rows.shift();
+
             const diceImages = {
-                1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg", "images/Dice1 rose.jpg", "images/Dice1 vert.jpg"],
-                2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg", "images/Dice2 rose.jpg", "images/Dice2 vert.jpg"]
-                // Continuez pour les dés 3 à 6
+                1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg"],
+                2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg"],
+                3: ["images/Dice3 blanc.jpg", "images/Dice3 bleu.jpg"],
+                4: ["images/Dice4 blanc.jpg", "images/Dice4 bleu.jpg"],
+                5: ["images/Dice5 blanc.jpg", "images/Dice5 bleu.jpg"],
+                6: ["images/Dice6 blanc.jpg", "images/Dice6 bleu.jpg"]
             };
-            // Logique pour les dés...
+
+            for (let i = 1; i <= 6; i++) {
+                const filteredRows = mode === "generate" ? filterRows(rows, headers) : rows;
+                const randomRow = filteredRows[Math.floor(Math.random() * filteredRows.length)];
+                const phrase = `${randomRow[headers.indexOf("Verb")]} ${randomRow[headers.indexOf("Object")]} ${randomRow[headers.indexOf("Temp")]}`;
+                const randomImage = diceImages[i][Math.floor(Math.random() * diceImages[i].length)];
+
+                // Mettre à jour l'image et la phrase du dé
+                document.querySelector(`#dice-${i} .dice-image`).src = randomImage;
+                document.querySelector(`#dice-${i} .dice-phrase`).innerText = phrase;
+                document.querySelector(`#dice-${i}`).setAttribute("data-description", randomRow[headers.indexOf("Desc")]);
+            }
         })
         .catch(error => console.error("Erreur lors du chargement des dés :", error));
 }
+
+function filterRows(rows, headers) {
+    const category = document.getElementById("category").value;
+    const difficulty = document.getElementById("difficulty").value;
+    return rows.filter(row =>
+        row[headers.indexOf("Category")] === category &&
+        row[headers.indexOf("Difficulty")] === difficulty
+    );
+}
+
+// === Gestion du bouton "ROLL THE DICE" ===
+const rollDiceBtn = document.getElementById("roll-dice-btn");
+rollDiceBtn.classList.add(`roll-dice-color-${Math.floor(Math.random() * 5) + 1}`);
+rollDiceBtn.addEventListener("click", () => {
+    const sound = new Audio(diceSounds[Math.floor(Math.random() * diceSounds.length)]);
+    sound.play();
+    sound.onended = () => {
+        setTimeout(() => {
+            const randomDiceIndex = Math.floor(Math.random() * 6) + 1;
+            const selectedDice = document.querySelector(`#dice-${randomDiceIndex}`);
+            document.querySelectorAll(".dice").forEach(dice => dice.classList.remove("highlight"));
+            selectedDice.classList.add("highlight");
+            const descriptionText = selectedDice.getAttribute("data-description") || "No description available";
+            const rollDiceContainer = document.querySelector(".roll-dice-container");
+            rollDiceContainer.innerHTML = `<p id="dice-description">${descriptionText}</p>`;
+        }, 1000);
+    };
+});
 
 // === Bouton "Buy Me a Coffee" Dynamique ===
 document.addEventListener("DOMContentLoaded", () => {
@@ -106,5 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
             "Roll Me a Coffee"
         ];
         buyButton.innerText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
+        buyButton.addEventListener("click", () => {
+            window.open("https://ko-fi.com/dicemanschaos", "_blank");
+        });
+    } else {
+        console.error("Le bouton 'Buy Me a Coffee' est introuvable !");
     }
 });
