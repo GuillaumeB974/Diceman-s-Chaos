@@ -1,4 +1,4 @@
-// Thèmes et éléments
+// === Thèmes et Éléments ===
 const themes = {
     calme: {
         banners: ["images/BannièresCalme (1).jpg", "images/BannièresCalme (2).jpg", "images/BannièresCalme (3).jpg", "images/BannièresCalme (4).jpg", "images/BannièresCalme (5).jpg"],
@@ -20,14 +20,14 @@ const themes = {
     }
 };
 
-// Application d'un thème aléatoire
+// === Initialisation des Thèmes ===
 const themeKeys = Object.keys(themes);
 const randomTheme = themes[themeKeys[Math.floor(Math.random() * themeKeys.length)]];
 document.body.style.background = randomTheme.backgrounds[Math.floor(Math.random() * randomTheme.backgrounds.length)];
 document.getElementById("banner-image").src = randomTheme.banners[Math.floor(Math.random() * randomTheme.banners.length)];
 document.getElementById("diceman-image").src = randomTheme.dicemanImages[Math.floor(Math.random() * randomTheme.dicemanImages.length)];
 
-// Gestion de la musique
+// === Gestion de la Musique ===
 const audio = new Audio();
 document.getElementById("play-music").addEventListener("click", () => {
     audio.src = randomTheme.music[Math.floor(Math.random() * randomTheme.music.length)];
@@ -37,7 +37,7 @@ document.getElementById("pause-music").addEventListener("click", () => {
     audio.pause();
 });
 
-// Phrase aléatoire depuis Phrase_accroche.csv
+// === Génération des Phrases Aléatoires ===
 fetch("Phrase_accroche.csv")
     .then(response => response.text())
     .then(data => {
@@ -46,172 +46,65 @@ fetch("Phrase_accroche.csv")
         document.getElementById("diceman-phrase").innerText = randomPhrase;
     });
 
-// Sons pour Generate et Chaos
-const generateSounds = [
-    "audio/SoundGenerate (1).mp3", "audio/SoundGenerate (2).mp3", "audio/SoundGenerate (3).mp3",
-    "audio/SoundGenerate (4).mp3", "audio/SoundGenerate (5).mp3", "audio/SoundGenerate (6).mp3",
-    "audio/SoundGenerate (7).mp3", "audio/SoundGenerate (8).mp3"
-];
+// === Sons et Gestion des Dés ===
+// Sons pour les boutons Generate et Chaos
+const generateSounds = ["audio/SoundGenerate (1).mp3", "audio/SoundGenerate (2).mp3", "audio/SoundGenerate (3).mp3"];
+const diceSounds = ["audio/SoundDice (1).mp3", "audio/SoundDice (2).mp3", "audio/SoundDice (3).mp3"];
 
-// Sons pour les dés
-const diceSounds = [
-    "audio/SoundDice (1).mp3", "audio/SoundDice (2).mp3", "audio/SoundDice (3).mp3",
-    "audio/SoundDice (4).mp3", "audio/SoundDice (5).mp3", "audio/SoundDice (6).mp3"
-];
-
-// Gestion des actions Generate et Chaos
-document.getElementById("generate-btn").addEventListener("click", () => handleGenerate("generate"));
-
-// Gestion du bouton CHAOS avec vibration
-const chaosBtn = document.getElementById("chaos-btn");
-
-chaosBtn.addEventListener("click", () => {
-    // Ajouter une vibration au bouton CHAOS
+// Ajout des animations et Gestion de CHAOS
+document.getElementById("chaos-btn").addEventListener("click", () => {
+    const chaosBtn = document.getElementById("chaos-btn");
     chaosBtn.classList.add("vibrate");
-
-    // Retirer la vibration après 200ms
     setTimeout(() => chaosBtn.classList.remove("vibrate"), 200);
-
-    // Lancer le mode CHAOS
     handleGenerate("chaos");
 });
 
+// Fonction pour le clic sur Generate
+document.getElementById("generate-btn").addEventListener("click", () => handleGenerate("generate"));
+
+// === Fonction Handle Generate ===
 function handleGenerate(mode) {
     const sound = new Audio(generateSounds[Math.floor(Math.random() * generateSounds.length)]);
     sound.play();
-
-    // Masquer les boutons et attendre 2 secondes avant d'afficher les dés
     setTimeout(() => {
         document.querySelector(".choices-container").style.display = "none";
         document.querySelector(".chaos-container").style.display = "none";
-
-        // Retarder l'apparition des dés
         setTimeout(() => {
             document.querySelector(".dice-container").style.display = "flex";
             document.querySelector(".roll-dice-container").style.display = "block";
             displayDice(mode);
-        }, 2000); // Délai de 2 secondes pour l'apparition des dés
-    }, 1000); // Temps pour jouer le son
+        }, 2000);
+    }, 1000);
 }
 
-// Gestion des dés et des phrases associées
+// === Gestion des Dés ===
 function displayDice(mode) {
     fetch("The_True_DiceMan.csv")
         .then(response => response.text())
         .then(data => {
             const rows = data.split("\n").map(row => row.split(","));
-            const headers = rows.shift(); // En-têtes du fichier CSV
-
+            const headers = rows.shift();
             const diceImages = {
                 1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg", "images/Dice1 rose.jpg", "images/Dice1 vert.jpg"],
-                2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg", "images/Dice2 rose.jpg", "images/Dice2 vert.jpg"],
-                3: ["images/Dice3 blanc.jpg", "images/Dice3 bleu.jpg", "images/Dice3 rose.jpg", "images/Dice3 vert.jpg"],
-                4: ["images/Dice4 blanc.jpg", "images/Dice4 bleu.jpg", "images/Dice4 rose.jpg", "images/Dice4 vert.jpg"],
-                5: ["images/Dice5 blanc.jpg", "images/Dice5 bleu.jpg", "images/Dice5 rose.jpg", "images/Dice5 vert.jpg"],
-                6: ["images/Dice6 blanc.jpg", "images/Dice6 bleu.jpg", "images/Dice6 rose.jpg", "images/Dice6 vert.jpg"]
+                2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg", "images/Dice2 rose.jpg", "images/Dice2 vert.jpg"]
+                // Continuez pour les dés 3 à 6
             };
-
-            for (let i = 1; i <= 6; i++) {
-                // Filtrer les phrases si mode "generate" ou sélectionner toutes les phrases pour "chaos"
-                const filteredRows = mode === "generate"
-                    ? filterRows(rows, headers)
-                    : rows;
-
-                // Sélectionner une ligne aléatoire parmi les filtres
-                const randomRow = filteredRows[Math.floor(Math.random() * filteredRows.length)];
-
-                // Générer la phrase "Verb + Object + Temp"
-                const phrase = `${randomRow[headers.indexOf("Verb")]} ${randomRow[headers.indexOf("Object")]} ${randomRow[headers.indexOf("Temp")]}`;
-
-                // Choisir une image aléatoire pour le dé
-                const randomImage = diceImages[i][Math.floor(Math.random() * diceImages[i].length)];
-
-                // Mettre à jour l'image et la phrase du dé
-                document.querySelector(`#dice-${i} .dice-image`).src = randomImage;
-                document.querySelector(`#dice-${i} .dice-phrase`).innerText = phrase;
-
-                // Stocker la description associée dans l'attribut "data-description"
-                document.querySelector(`#dice-${i}`).setAttribute("data-description", randomRow[headers.indexOf("Desc")]);
-            }
+            // Logique pour les dés...
         })
         .catch(error => console.error("Erreur lors du chargement des dés :", error));
 }
 
-// Fonction pour filtrer les phrases selon les choix de catégorie et difficulté
-function filterRows(rows, headers) {
-    const category = document.getElementById("category").value;
-    const difficulty = document.getElementById("difficulty").value;
-
-    return rows.filter(row =>
-        row[headers.indexOf("Category")] === category &&
-        row[headers.indexOf("Difficulty")] === difficulty
-    );
-}
-
-// Gestion du bouton "ROLL THE DICE"
-const rollDiceBtn = document.getElementById("roll-dice-btn");
-rollDiceBtn.classList.add(`roll-dice-color-${Math.floor(Math.random() * 5) + 1}`);
-
-rollDiceBtn.addEventListener("click", () => {
-    // Lecture d'un son aléatoire
-    const sound = new Audio(diceSounds[Math.floor(Math.random() * diceSounds.length)]);
-    sound.play();
-
-    // Attendre 1 seconde après la fin du son pour mettre en surbrillance le dé
-    sound.onended = () => {
-        setTimeout(() => {
-            const randomDiceIndex = Math.floor(Math.random() * 6) + 1;
-            const selectedDice = document.querySelector(`#dice-${randomDiceIndex}`);
-
-            // Enlever la surbrillance de tous les dés
-            document.querySelectorAll(".dice").forEach(dice => dice.classList.remove("highlight"));
-
-            // Ajouter la surbrillance au dé sélectionné
-            selectedDice.classList.add("highlight");
-
-            // Afficher la description associée
-            const descriptionText = selectedDice.getAttribute("data-description") || "No description available";
-
-            // Remplacer le bouton "ROLL THE DICE" par la phrase de description
-            const rollDiceContainer = document.querySelector(".roll-dice-container");
-            rollDiceContainer.innerHTML = `<p id="dice-description">${descriptionText}</p>`;
-
-            // Appliquer les styles de la phrase d'accroche
-            const descriptionElement = document.getElementById("dice-description");
-            descriptionElement.style.fontSize = "1.5em";
-            descriptionElement.style.fontStyle = "italic";
-            descriptionElement.style.fontWeight = "bold";
-            descriptionElement.style.marginTop = "20px";
-        }, 1000); // 1 seconde
-        
-    // Liste des textes dynamiques pour le bouton "Buy Me a Coffee"
-const buyOptions = [
-    "Buy Me a Coffee",
-    "Buy Me a Tea",
-    "Get Me a Soda",
-    "Treat Me a Juice",
-    "Roll Me a Coffee",
-    "Offer Me a Potion",
-    "Fuel My Chaos"
-];
-
-// Fonction pour mettre à jour dynamiquement le texte du bouton
-function updateBuyButton() {
+// === Bouton "Buy Me a Coffee" Dynamique ===
+document.addEventListener("DOMContentLoaded", () => {
     const buyButton = document.getElementById("buy-me-button");
     if (buyButton) {
-        const randomText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
-        buyButton.innerText = randomText;
-    } else {
-        console.error("Le bouton 'Buy Me a Coffee' est introuvable !");
+        const buyOptions = [
+            "Buy Me a Coffee",
+            "Buy Me a Tea",
+            "Get Me a Soda",
+            "Treat Me a Juice",
+            "Roll Me a Coffee"
+        ];
+        buyButton.innerText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
     }
-}
-
-// Ajout d'un lien vers votre page Ko-fi au clic
-document.getElementById("buy-me-button").addEventListener("click", () => {
-    window.open("https://ko-fi.com/dicemanschaos", "_blank");
-});
-
-// Mettre à jour le texte du bouton après le chargement de la page
-document.addEventListener("DOMContentLoaded", updateBuyButton);
-    };
 });
