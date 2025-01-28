@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="favicon.ico.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Diceman's Chaos</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,13 +14,13 @@
             <img id="banner-image" src="" alt="Bannière thématique">
         </div>
         
-      <div class="music-control">
-    <button id="play-music">▶️ Play Music</button>
-    <button id="pause-music">⏸ Pause Music</button>
-    <button id="buy-me-button">Buy Me a Coffee</button>
-</div>
+        <!-- Contrôles de musique et contribution -->
+        <div class="music-control">
+            <button id="play-music">▶️ Play Music</button>
+            <button id="pause-music">⏸ Pause Music</button>
+            <button id="buy-me-button">Buy Me a Coffee</button>
+        </div>
 
-        
         <!-- Image du DiceMan -->
         <div class="diceman-container">
             <img id="diceman-image" src="" alt="Image du DiceMan">
@@ -89,9 +89,10 @@
 
         <!-- Section pour la phrase Description -->
         <div class="description-container">
-            <p id="dice-description">...</p>
+            <p id="dice-description" class="hidden">...</p>
         </div>
-    
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
