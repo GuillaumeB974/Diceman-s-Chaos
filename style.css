@@ -27,20 +27,20 @@ body {
     margin: 20px auto;
 }
 
-#ko-fi-button {
-    background-color: #FBAA19;
-    color: #fff;
-    text-decoration: none;
+#buy-me-button {
+    background-color: #FFDD00;
+    color: #333;
     font-size: 1em;
     font-weight: bold;
     padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#ko-fi-button:hover {
-    background-color: #FFA500;
+#buy-me-button:hover {
+    background-color: #FFC700;
     transform: translateY(-2px);
 }
 
