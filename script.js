@@ -177,5 +177,25 @@ rollDiceBtn.addEventListener("click", () => {
             descriptionElement.style.fontWeight = "bold";
             descriptionElement.style.marginTop = "20px";
         }, 1000); // 1 seconde
+        // Liste des textes dynamiques pour le bouton
+const buyOptions = [
+    "Buy Me a Coffee",
+    "Buy Me a Tea",
+    "Get Me a Soda",
+    "Treat Me a Juice",
+    "Roll Me a Coffee",
+    "Offer Me a Potion",
+    "Fuel My Chaos"
+];
+
+// Fonction pour mettre à jour dynamiquement le texte
+function updateBuyButton() {
+    const buyButton = document.getElementById("buy-me-button");
+    const randomText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
+    buyButton.innerText = randomText;
+}
+
+// Met à jour le bouton après le chargement de la page
+document.addEventListener("DOMContentLoaded", updateBuyButton);
     };
 });
