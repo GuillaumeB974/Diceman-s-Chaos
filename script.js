@@ -79,13 +79,19 @@ chaosBtn.addEventListener("click", () => {
 function handleGenerate(mode) {
     const sound = new Audio(generateSounds[Math.floor(Math.random() * generateSounds.length)]);
     sound.play();
+
+    // Masquer les boutons et attendre 2 secondes avant d'afficher les dés
     setTimeout(() => {
         document.querySelector(".choices-container").style.display = "none";
         document.querySelector(".chaos-container").style.display = "none";
-        document.querySelector(".dice-container").style.display = "flex";
-        document.querySelector(".roll-dice-container").style.display = "block";
-        displayDice(mode);
-    }, 1000);
+
+        // Retarder l'apparition des dés
+        setTimeout(() => {
+            document.querySelector(".dice-container").style.display = "flex";
+            document.querySelector(".roll-dice-container").style.display = "block";
+            displayDice(mode);
+        }, 2000); // Délai de 2 secondes pour l'apparition des dés
+    }, 1000); // Temps pour jouer le son
 }
 
 // Gestion des dés et des phrases associées
