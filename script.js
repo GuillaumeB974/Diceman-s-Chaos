@@ -81,38 +81,86 @@ function displayDice(mode) {
         .then(response => response.text())
         .then(data => {
             const rows = data.split("\n").map(row => row.split(","));
-            const headers = rows.shift();
+            const headers = rows.shift(); // En-têtes du fichier CSV
+
+            const diceImages = {
+                1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg", "images/Dice1 rose.jpg", "images/Dice1 vert.jpg"],
+                2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg", "images/Dice2 rose.jpg", "images/Dice2 vert.jpg"],
+                3: ["images/Dice3 blanc.jpg", "images/Dice3 bleu.jpg", "images/Dice3 rose.jpg", "images/Dice3 vert.jpg"],
+                4: ["images/Dice4 blanc.jpg", "images/Dice4 bleu.jpg", "images/Dice4 rose.jpg", "images/Dice4 vert.jpg"],
+                5: ["images/Dice5 blanc.jpg", "images/Dice5 bleu.jpg", "images/Dice5 rose.jpg", "images/Dice5 vert.jpg"],
+                6: ["images/Dice6 blanc.jpg", "images/Dice6 bleu.jpg", "images/Dice6 rose.jpg", "images/Dice6 vert.jpg"]
+            };
 
             for (let i = 1; i <= 6; i++) {
+                // Filtrer les phrases si mode "generate" ou sélectionner toutes les phrases pour "chaos"
                 const filteredRows = mode === "generate"
                     ? filterRows(rows, headers)
                     : rows;
+
+                // Sélectionner une ligne aléatoire parmi les filtres
                 const randomRow = filteredRows[Math.floor(Math.random() * filteredRows.length)];
+
+                // Générer la phrase "Verb + Object + Temp"
                 const phrase = `${randomRow[headers.indexOf("Verb")]} ${randomRow[headers.indexOf("Object")]} ${randomRow[headers.indexOf("Temp")]}`;
-                document.querySelector(`#dice-${i} .dice-image`).src = `images/Dice${i} blanc.jpg`;
+
+                // Choisir une image aléatoire pour le dé
+                const randomImage = diceImages[i][Math.floor(Math.random() * diceImages[i].length)];
+
+                // Mettre à jour l'image et la phrase du dé
+                document.querySelector(`#dice-${i} .dice-image`).src = randomImage;
                 document.querySelector(`#dice-${i} .dice-phrase`).innerText = phrase;
-                document.querySelector(`#dice-${i}`).setAttribute("data-description", randomRow[headers.indexOf("Description")]);
+
+                // Stocker la description associée dans l'attribut "data-description"
+                document.querySelector(`#dice-${i}`).setAttribute("data-description", randomRow[headers.indexOf("Desc")]);
             }
-        });
+        })
+        .catch(error => console.error("Erreur lors du chargement des dés :", error));
 }
 
+// Fonction pour filtrer les phrases selon les choix de catégorie et difficulté
 function filterRows(rows, headers) {
     const category = document.getElementById("category").value;
     const difficulty = document.getElementById("difficulty").value;
+
     return rows.filter(row =>
         row[headers.indexOf("Category")] === category &&
         row[headers.indexOf("Difficulty")] === difficulty
     );
 }
 
-// Gestion du bouton Roll the Dice
+// Gestion du bouton "ROLL THE DICE"
 const rollDiceBtn = document.getElementById("roll-dice-btn");
 rollDiceBtn.classList.add(`roll-dice-color-${Math.floor(Math.random() * 5) + 1}`);
+
 rollDiceBtn.addEventListener("click", () => {
+    // Lecture d'un son aléatoire
     const sound = new Audio(diceSounds[Math.floor(Math.random() * diceSounds.length)]);
     sound.play();
-    const randomDiceIndex = Math.floor(Math.random() * 6) + 1;
-    const selectedDice = document.querySelector(`#dice-${randomDiceIndex}`);
-    document.querySelectorAll(".dice").forEach(dice => dice.classList.remove("highlight"));
-    selectedDice.classList.add("highlight");
+
+    // Attendre 2 secondes après la fin du son pour mettre en surbrillance le dé
+    sound.onended = () => {
+        setTimeout(() => {
+            const randomDiceIndex = Math.floor(Math.random() * 6) + 1;
+            const selectedDice = document.querySelector(`#dice-${randomDiceIndex}`);
+
+            // Enlever la surbrillance de tous les dés
+            document.querySelectorAll(".dice").forEach(dice => dice.classList.remove("highlight"));
+
+            // Ajouter la surbrillance au dé sélectionné
+            selectedDice.classList.add("highlight");
+
+            // Afficher la description associée
+            const descriptionText = selectedDice.getAttribute("data-description") || "No description available";
+            const descriptionElement = document.getElementById("dice-description");
+
+            descriptionElement.innerText = descriptionText;
+
+            // Appliquer les styles de la phrase d'accroche
+            descriptionElement.style.fontSize = "1.5em";
+            descriptionElement.style.fontStyle = "italic";
+            descriptionElement.style.fontWeight = "bold";
+            descriptionElement.style.marginTop = "20px";
+        }, 2000);
+    };
 });
