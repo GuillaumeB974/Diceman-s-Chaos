@@ -160,3 +160,16 @@ body {
 #chaos-btn.vibrate {
     animation: vibrate 0.2s ease-in-out;
 }
+/* Animation pour la surbrillance */
+@keyframes highlight-glow {
+    0% { box-shadow: 0 0 5px rgba(255, 69, 0, 0.5); }
+    50% { box-shadow: 0 0 20px rgba(255, 69, 0, 1); }
+    100% { box-shadow: 0 0 5px rgba(255, 69, 0, 0.5); }
+}
+
+.dice.highlight {
+    border: 3px solid #ff4500;
+    animation: highlight-glow 1s infinite;
+    border-radius: 10px; /* Pour un effet plus élégant */
+    transition: all 0.5s ease;
+}
