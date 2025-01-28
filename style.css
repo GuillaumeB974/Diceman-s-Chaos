@@ -21,22 +21,27 @@ body {
 /* Contrôle de la musique */
 .music-control {
     display: flex;
-    justify-content: center;
-    gap: 20px; /* Espace entre les boutons */
+    justify-content: center; /* Centre les boutons */
+    align-items: center;
+    gap: 20px; /* Espacement entre les éléments */
     margin: 20px auto;
 }
-.music-control button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+#buy-me-button {
+    background-color: #FFDD00;
+    color: #333;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.music-control button:hover {
-    background-color: #555; /* Couleur au survol */
+
+#buy-me-button:hover {
+    background-color: #FFC700;
+    transform: translateY(-2px);
 }
 
 /* DiceMan */
