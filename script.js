@@ -130,9 +130,18 @@ rollDiceBtn.addEventListener("click", () => {
             const selectedDice = document.querySelector(`#dice-${randomDiceIndex}`);
             document.querySelectorAll(".dice").forEach(dice => dice.classList.remove("highlight"));
             selectedDice.classList.add("highlight");
-            const descriptionText = selectedDice.getAttribute("data-description") || "No description available";
-            const rollDiceContainer = document.querySelector(".roll-dice-container");
-            rollDiceContainer.innerHTML = `<p id="dice-description">${descriptionText}</p>`;
+          // Afficher la description associée
+const descriptionText = selectedDice.getAttribute("data-description") || "No description available";
+const rollDiceContainer = document.querySelector(".roll-dice-container");
+rollDiceContainer.innerHTML = `<p id="dice-description">${descriptionText}</p>`;
+
+// Appliquer les styles de la phrase d'accroche
+const descriptionElement = document.getElementById("dice-description");
+descriptionElement.style.fontSize = "1.5em";
+descriptionElement.style.fontStyle = "italic";
+descriptionElement.style.fontWeight = "bold";
+descriptionElement.style.color = "#555";
+descriptionElement.style.margin = "20px auto";
         }, 1000);
     };
 });
