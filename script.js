@@ -88,7 +88,7 @@ function displayDice(mode) {
                     ? filterRows(rows, headers)
                     : rows;
                 const randomRow = filteredRows[Math.floor(Math.random() * filteredRows.length)];
-                const phrase = `${randomRow[headers.indexOf("Verb")]} ${randomRow[headers.indexOf("Object")]} ${randomRow[headers.indexOf("Temporalité")]}`;
+                const phrase = `${randomRow[headers.indexOf("Verb")]} ${randomRow[headers.indexOf("Object")]} ${randomRow[headers.indexOf("Temp")]}`;
                 document.querySelector(`#dice-${i} .dice-image`).src = `images/Dice${i} blanc.jpg`;
                 document.querySelector(`#dice-${i} .dice-phrase`).innerText = phrase;
                 document.querySelector(`#dice-${i}`).setAttribute("data-description", randomRow[headers.indexOf("Description")]);
