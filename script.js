@@ -61,7 +61,20 @@ const diceSounds = [
 
 // Gestion des actions Generate et Chaos
 document.getElementById("generate-btn").addEventListener("click", () => handleGenerate("generate"));
-document.getElementById("chaos-btn").addEventListener("click", () => handleGenerate("chaos"));
+
+// Gestion du bouton CHAOS avec vibration
+const chaosBtn = document.getElementById("chaos-btn");
+
+chaosBtn.addEventListener("click", () => {
+    // Ajouter une vibration au bouton CHAOS
+    chaosBtn.classList.add("vibrate");
+
+    // Retirer la vibration après 200ms
+    setTimeout(() => chaosBtn.classList.remove("vibrate"), 200);
+
+    // Lancer le mode CHAOS
+    handleGenerate("chaos");
+});
 
 function handleGenerate(mode) {
     const sound = new Audio(generateSounds[Math.floor(Math.random() * generateSounds.length)]);
