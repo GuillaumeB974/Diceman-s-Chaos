@@ -58,7 +58,7 @@ body {
     font-style: italic;
     font-weight: bold;
     color: #555;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 /* Choices */
@@ -254,5 +254,5 @@ h1 {
     text-align: center; /* Centré */
     color: #444;  /* Gris foncé pour ne pas être trop agressif */
     margin-top: -10px; /* Rapprocher du DiceMan */
-    margin-bottom: 20px; /* Ajouter un léger espace avant la phrase aléatoire */
+    margin-bottom: 50px; /* Ajouter un léger espace avant la phrase aléatoire */
 }
