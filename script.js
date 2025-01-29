@@ -86,12 +86,12 @@ function displayDice(mode) {
             const headers = rows.shift();
 
             const diceImages = {
-                1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg"],
-                2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg"],
-                3: ["images/Dice3 blanc.jpg", "images/Dice3 bleu.jpg"],
-                4: ["images/Dice4 blanc.jpg", "images/Dice4 bleu.jpg"],
-                5: ["images/Dice5 blanc.jpg", "images/Dice5 bleu.jpg"],
-                6: ["images/Dice6 blanc.jpg", "images/Dice6 bleu.jpg"]
+                1: ["images/Dice1 blanc.jpg", "images/Dice1 bleu.jpg", "images/Dice1 rose.jpg", "images/Dice1 vert.jpg"],
+                2: ["images/Dice2 blanc.jpg", "images/Dice2 bleu.jpg", "images/Dice2 rose.jpg", "images/Dice2 vert.jpg"],
+                3: ["images/Dice3 blanc.jpg", "images/Dice3 bleu.jpg", "images/Dice3 rose.jpg", "images/Dice3 vert.jpg"],
+                4: ["images/Dice4 blanc.jpg", "images/Dice4 bleu.jpg", "images/Dice4 rose.jpg", "images/Dice4 vert.jpg"],
+                5: ["images/Dice5 blanc.jpg", "images/Dice5 bleu.jpg", "images/Dice5 rose.jpg", "images/Dice5 vert.jpg"],
+                6: ["images/Dice6 blanc.jpg", "images/Dice6 bleu.jpg", "images/Dice6 rose.jpg", "images/Dice6 vert.jpg"]
             };
 
             for (let i = 1; i <= 6; i++) {
@@ -146,14 +146,33 @@ descriptionElement.style.margin = "20px auto";
     };
 });
 
+// === Gestion de la bannière des cookies (Fermeture corrigée) ===
+document.addEventListener("DOMContentLoaded", function () {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptCookiesButton = document.getElementById("accept-cookies");
+
+    if (localStorage.getItem("cookiesAccepted") === "true") {
+        cookieBanner.style.display = "none";
+    } else {
+        cookieBanner.style.display = "block";
+    }
+
+    acceptCookiesButton.addEventListener("click", function () {
+        localStorage.setItem("cookiesAccepted", "true");
+        cookieBanner.style.display = "none";
+    });
+});
+
 // === Bouton "Buy Me a Coffee" Dynamique ===
 document.addEventListener("DOMContentLoaded", () => {
     const buyButton = document.getElementById("buy-me-button");
     if (buyButton) {
         const buyOptions = [
-            "Buy Me a Coffee",
+            "Fill me with Gold",
             "Buy Me a Tea",
             "Get Me a Soda",
+            "Toss Me some coins",
+            "Offer Me a Potion",
             "Treat Me a Juice",
             "Roll Me a Coffee"
         ];
@@ -164,22 +183,4 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("Le bouton 'Buy Me a Coffee' est introuvable !");
     }
-    
-// === Gestion de la bannière des cookies ===
-document.addEventListener("DOMContentLoaded", function () {
-    const cookieBanner = document.getElementById("cookie-banner");
-    const acceptCookiesButton = document.getElementById("accept-cookies");
-
-    // Vérifier si l'utilisateur a déjà accepté les cookies
-    if (localStorage.getItem("cookiesAccepted") === "true") {
-        cookieBanner.style.display = "none"; // Masquer la bannière
-    } else {
-        cookieBanner.style.display = "block"; // Afficher la bannière
-    }
-
-    // Quand on clique sur "Accept", on stocke l'acceptation et on cache la bannière
-    acceptCookiesButton.addEventListener("click", function () {
-        localStorage.setItem("cookiesAccepted", "true"); // Enregistrer l'acceptation
-        cookieBanner.style.display = "none"; // Masquer la bannière
-    });
 });
