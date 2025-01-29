@@ -241,3 +241,17 @@ footer {
 #accept-cookies:hover {
     background-color: #e6b800;
 }
+/* ✅ Cacher le <h1> */
+h1 {
+    display: none; /* Cache complètement l'élément */
+}
+
+/* ✅ Style du <h2> */
+.seo-title {
+    font-size: 1.2em;  /* Taille réduite */
+    font-style: italic; /* Texte en italique */
+    text-align: center; /* Centré */
+    color: #444;  /* Gris foncé pour ne pas être trop agressif */
+    margin-top: -10px; /* Rapprocher du DiceMan */
+    margin-bottom: 10px; /* Ajouter un léger espace avant la phrase aléatoire */
+}
