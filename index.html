@@ -1,16 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Encodage et compatibilité -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <title>Diceman's Chaos</title>
+
+    <!-- ✅ SEO : Titre et Description -->
+    <title>Diceman's Chaos - Put Your Fate in a Roll</title>
+    <meta name="description" content="Diceman's Chaos - A fun, chaotic way to let fate decide your next move! Roll the dice and embrace randomness.">
+    <meta name="keywords" content="dice, chaos, random, fate, game, fun, challenge, decision making, randomness">
+    <meta name="author" content="Diceman's Chaos Team">
+    <meta name="robots" content="index, follow"> <!-- Permet à Google d’indexer le site -->
+    <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE"> <!-- À remplacer si besoin -->
+
+    <!-- ✅ Open Graph (Facebook, Twitter & Social Sharing) -->
+    <meta property="og:title" content="Diceman's Chaos - Put Your Fate in a Roll">
+    <meta property="og:description" content="A fun, chaotic way to let fate decide your next move! Roll the dice and embrace randomness.">
+    <meta property="og:image" content="https://dicemanschaos.netlify.app/images/preview.jpg"> <!-- À mettre à jour -->
+    <meta property="og:url" content="https://dicemanschaos.netlify.app">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Diceman's Chaos - Put Your Fate in a Roll">
+    <meta name="twitter:description" content="A fun, chaotic way to let fate decide your next move! Roll the dice and embrace randomness.">
+    <meta name="twitter:image" content="https://dicemanschaos.netlify.app/images/preview.jpg">
+
+    <!-- ✅ Préchargement du CSS pour accélérer le chargement -->
+    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
+
+    <!-- ✅ Sitemap & Robots -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+    <meta name="robots" content="index, follow">
+
+    <!-- ✅ (Optionnel) Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'YOUR_GA_ID');
+    </script> -->
+
+    <!-- ✅ (Optionnel) Google AdSense -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"></script> -->
+
 </head>
+
   <body>
     <div id="app">
         <!-- Bannière -->
         <div class="banner-container">
+            <h1 class="hidden-title">Diceman’s Chaos - Put Your Fate in a Roll</h1>
             <img id="banner-image" src="" alt="Bannière thématique">
         </div>
         
@@ -26,14 +69,17 @@
             <img id="diceman-image" src="" alt="Image du DiceMan">
         </div>
 
-        <!-- Phrase d'accroche -->
-        <div class="phrase-container">
-            <p id="diceman-phrase">Loading...</p>
-        </div>
+       <!-- Phrase d'accroche fixe pour le SEO -->
+<h2 class="seo-title">A completely non-random piece of advice from Mr. Fifth :</h2>
+
+<!-- Phrase aléatoire qui change dynamiquement -->
+<div class="phrase-container">
+    <p id="diceman-phrase">Loading...</p>
+</div>
 
         <!-- Section de choix -->
         <div class="choices-container">
-            <p>Choose an easier path...</p>
+            <h3>Choose an easier path...</h3>
             <select id="category">
                 <option value="Everyday Actions">Everyday Actions</option>
                 <option value="Creative Activity">Creative Activity</option>
@@ -50,7 +96,7 @@
 
         <!-- Section Chaos -->
         <div class="chaos-container">
-            <p>Or...</p>
+            <h3>Or... Unleash the CHAOS!</h3>
             <button id="chaos-btn">CHAOS !!</button>
         </div>
 
