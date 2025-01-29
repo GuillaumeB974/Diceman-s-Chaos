@@ -183,3 +183,4 @@ document.addEventListener("DOMContentLoaded", function () {
         cookieBanner.style.display = "none"; // Masquer la bannière
     });
 });
+    
