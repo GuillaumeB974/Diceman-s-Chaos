@@ -164,4 +164,19 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("Le bouton 'Buy Me a Coffee' est introuvable !");
     }
+// ====== Gestion de la Bannière de Cookies ======
+document.addEventListener("DOMContentLoaded", () => {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptCookiesBtn = document.getElementById("accept-cookies");
+
+    // Vérifier si l'utilisateur a déjà accepté les cookies
+    if (localStorage.getItem("cookiesAccepted")) {
+        cookieBanner.style.display = "none";
+    }
+
+    // Accepter les cookies
+    acceptCookiesBtn.addEventListener("click", () => {
+        localStorage.setItem("cookiesAccepted", "true");
+        cookieBanner.style.display = "none";
+    });
 });
