@@ -54,7 +54,7 @@ body {
 /* Phrase accroche*/
 .phrase-container p {
     margin: 20px auto;
-    font-size: 1.8em;
+    font-size: 2em;
     font-style: italic;
     font-weight: bold;
     color: #555;
@@ -250,7 +250,6 @@ h1 {
 /* ✅ Style du <h2> */
 .seo-title {
     font-size: 0.8em;  /* Taille réduite */
-    font-style: italic; /* Texte en italique */
     text-align: center; /* Centré */
     color: #444;  /* Gris foncé pour ne pas être trop agressif */
     margin-top: -10px; /* Rapprocher du DiceMan */
