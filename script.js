@@ -164,19 +164,22 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         console.error("Le bouton 'Buy Me a Coffee' est introuvable !");
     }
-// ====== Gestion de la Bannière de Cookies ======
-document.addEventListener("DOMContentLoaded", () => {
+    
+// === Gestion de la bannière des cookies ===
+document.addEventListener("DOMContentLoaded", function () {
     const cookieBanner = document.getElementById("cookie-banner");
-    const acceptCookiesBtn = document.getElementById("accept-cookies");
+    const acceptCookiesButton = document.getElementById("accept-cookies");
 
     // Vérifier si l'utilisateur a déjà accepté les cookies
-    if (localStorage.getItem("cookiesAccepted")) {
-        cookieBanner.style.display = "none";
+    if (localStorage.getItem("cookiesAccepted") === "true") {
+        cookieBanner.style.display = "none"; // Masquer la bannière
+    } else {
+        cookieBanner.style.display = "block"; // Afficher la bannière
     }
 
-    // Accepter les cookies
-    acceptCookiesBtn.addEventListener("click", () => {
-        localStorage.setItem("cookiesAccepted", "true");
-        cookieBanner.style.display = "none";
+    // Quand on clique sur "Accept", on stocke l'acceptation et on cache la bannière
+    acceptCookiesButton.addEventListener("click", function () {
+        localStorage.setItem("cookiesAccepted", "true"); // Enregistrer l'acceptation
+        cookieBanner.style.display = "none"; // Masquer la bannière
     });
 });
