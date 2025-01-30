@@ -1,4 +1,6 @@
 User-agent: *
-Disallow: 
+Disallow: /admin/
+Disallow: /private/
+Allow: /
 
 Sitemap: https://dicemanschaos.netlify.app/sitemap.xml
