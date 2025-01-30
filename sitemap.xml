@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://dicemanschaos.netlify.app/</loc>
+        <loc>https://dicemans-chaos.netlify.app/</loc>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://dicemanschaos.netlify.app/mentions-legales.html</loc>
+        <loc>https://dicemans-chaos.netlify.app//mentions-legales.html</loc>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://dicemanschaos.netlify.app/cookie-policy.html</loc>
+        <loc>https://dicemans-chaos.netlify.app//cookie-policy.html</loc>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://dicemanschaos.netlify.app/privacy-policy.html</loc>
+        <loc>https://dicemans-chaos.netlify.app//privacy-policy.html</loc>
         <priority>0.8</priority>
     </url>
 </urlset>
