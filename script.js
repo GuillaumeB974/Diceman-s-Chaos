@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "Fill me with Gold",
             "Buy Me a Tea",
             "Get Me a Soda",
-            "Toss Me some coins",
+            "Toss Me some Coins",
             "Offer Me a Potion",
             "Treat Me a Juice",
             "Roll Me a Coffee"
