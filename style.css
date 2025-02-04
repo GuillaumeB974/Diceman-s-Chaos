@@ -49,7 +49,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 30px; /* Ajoute un espace entre les colonnes */
-    margin-top: 50px;
+    margin-top: 10px;
     flex-wrap: wrap;
 }
 
@@ -158,8 +158,8 @@ body {
 
     /* ✅ Taille réduite pour le Diceman sur mobile */
     #diceman-image {
-        max-width: 200px; /* Taille réduite sur mobile */
-        max-width: 70%; /* Réduit la taille sur mobile */
+        max-width: 150px; /* Taille réduite sur mobile */
+        max-width: 65%; /* Réduit la taille sur mobile */
         height: auto;
     }
     .music-control {
