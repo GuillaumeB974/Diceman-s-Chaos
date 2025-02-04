@@ -18,30 +18,42 @@ body {
     object-fit: contain;
 }
 
+/* Conteneur principal pour l'image du Diceman et les boutons */
+.diceman-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Image du Diceman */
+.diceman-image {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Conteneur des boutons */
-.music-coffee-container {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
+.button-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    position: absolute;
+    right: -150px; /* Ajustez cette valeur selon vos besoins */
 }
 
-/* Style des boutons musique */
+/* Style des boutons de musique */
 .music-button {
-    padding: 12px 20px;
-    font-size: 18px;
+    padding: 10px 15px;
+    font-size: 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
-/* Effet spécial sur Play Music */
+/* Style du bouton Play Music avec effet attractif */
 #play-music {
-    background: linear-gradient(45deg, #ff0066, #ffcc00);
+    background-color: #ff0066;
     color: white;
     font-weight: bold;
     animation: glow 1.5s infinite alternate;
@@ -49,17 +61,21 @@ body {
 
 /* Animation Glow */
 @keyframes glow {
-    0% { box-shadow: 0 0 10px rgba(255, 0, 102, 0.6); }
-    100% { box-shadow: 0 0 20px rgba(255, 204, 0, 0.9); }
+    0% {
+        box-shadow: 0 0 5px rgba(255, 0, 102, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 0, 102, 0.9);
+    }
 }
 
-/* Pause Music bouton */
+/* Style du bouton Pause Music */
 #pause-music {
     background-color: #444;
     color: white;
 }
 
-/* Buy Me a Coffee bouton */
+/* Style du bouton Buy Me a Coffee */
 .coffee-button {
     background-color: #ffcc00;
     color: black;
@@ -67,15 +83,28 @@ body {
     text-decoration: none;
     font-weight: bold;
     text-align: center;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
-/* DiceMan */
-.diceman-container img {
-    width: 50%;
-    max-height: 400px;
-    object-fit: contain;
-    margin: 20px auto;
+/* Styles pour les appareils mobiles */
+@media (max-width: 768px) {
+    .button-container {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .music-button,
+    .coffee-button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    #play-music {
+        font-size: 15px;
+    }
 }
 
 /* Phrase accroche*/
