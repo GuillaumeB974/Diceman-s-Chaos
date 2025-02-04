@@ -54,10 +54,21 @@ const diceSounds = ["audio/SoundDice (1).mp3", "audio/SoundDice (2).mp3", "audio
 // Ajout des animations et Gestion de CHAOS
 document.getElementById("chaos-btn").addEventListener("click", () => {
     const chaosBtn = document.getElementById("chaos-btn");
+
+    // Ajoute la vibration et le clignotement
     chaosBtn.classList.add("vibrate");
     setTimeout(() => chaosBtn.classList.remove("vibrate"), 200);
+
+    // Ajoute l'effet de flash sur tout le site
+    document.body.classList.add("flash-animation");
+    setTimeout(() => {
+        document.body.classList.remove("flash-animation");
+    }, 500);
+
+    // Exécute la fonction de génération en mode Chaos
     handleGenerate("chaos");
 });
+
 
 // Fonction pour le clic sur Generate
 document.getElementById("generate-btn").addEventListener("click", () => handleGenerate("generate"));
