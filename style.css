@@ -224,7 +224,7 @@ body {
     100% { transform: translate(0); }
 }
 #chaos-btn.vibrate {
-    animation: vibrate 0.2s ease-in-out;
+    animation: vibrate 0.3s infinite, blink 1.5s infinite;
 }
 
 /* Animation pour la surbrillance */
@@ -232,6 +232,19 @@ body {
     0% { box-shadow: 0 0 5px rgba(255, 69, 0, 0.5); }
     50% { box-shadow: 0 0 20px rgba(255, 69, 0, 1); }
     100% { box-shadow: 0 0 5px rgba(255, 69, 0, 0.5); }
+}
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+@keyframes flash {
+    0% { background-color: rgba(255, 0, 0, 0.5); }
+    100% { background-color: transparent; }
+}
+
+.flash-animation {
+    animation: flash 0.5s ease-out;
 }
 
 /* Responsiveness */
