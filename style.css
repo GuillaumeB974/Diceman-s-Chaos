@@ -75,7 +75,6 @@ body {
 @media (max-width: 768px) {
     .how-to-play-img {
         width: 70px; /* Réduction pour mobile */
-        left: -80px; /* Ajustement du placement */
     }
 }
 
@@ -90,16 +89,12 @@ body {
     position: relative;
 }
 
-/* Centrage parfait de l’image du Diceman sur PC */
-@media (min-width: 769px) {
-    #diceman-image {
-        max-width: 473px;
-        height: auto;
-        display: block;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+/* ✅ Correction du centrage parfait du Diceman sur PC */
+#diceman-image {
+    max-width: 473px;
+    height: auto;
+    display: block;
+    margin: auto; /* Permet un centrage naturel */
 }
 
 /* ✅ Colonne de droite (Boutons musique) */
@@ -186,6 +181,29 @@ body {
         gap: 5px;
         align-items: center;
     }
+
+    .music-button {
+        font-size: 12px;
+        padding: 6px 8px;
+        width: 80px; /* Réduction de la taille */
+    }
+}
+
+/* ✅ Colonne de droite (Boutons musique) */
+.music-control {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.music-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
     .button-container button,
     .coffee-button {
         width: 40%; /* Pour que deux boutons tiennent sur une ligne */
