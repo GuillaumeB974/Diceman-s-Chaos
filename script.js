@@ -168,15 +168,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const buyButton = document.getElementById("buy-me-button");
     if (buyButton) {
         const buyOptions = [
-            "Fill me with Gold",
-            "Buy Me a Tea",
-            "Get Me a Soda",
-            "Toss Me some Coins",
-            "Offer Me a Potion",
-            "Treat Me a Juice",
-            "Roll Me a Coffee"
+            "☕ Buy Me a Coffee",
+            "🔥 Support My Chaos",
+            "🎲 Fuel the Dice",
+            "⚡ Power the Randomness",
+            "👽 Send Coffee to Mr. Fifth",
+            "💡 Keep the Chaos Alive",
+            "✨ Fill Me with Gold",
+            "🍵 Buy Me a Tea",
+            "🥤 Get Me a Soda",
+            "💰 Toss Me some Coins",
+            "🧪 Offer Me a Potion",
+            "🧃 Treat Me a Juice",
+            "🎲 Roll Me a Coffee"
         ];
+
+        // Sélection aléatoire d'un texte parmi la liste
         buyButton.innerText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
+
+        // Ajout de l'événement pour ouvrir Ko-Fi dans un nouvel onglet
         buyButton.addEventListener("click", () => {
             window.open("https://ko-fi.com/dicemanschaos", "_blank");
         });
