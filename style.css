@@ -18,6 +18,30 @@ body {
     object-fit: contain;
 }
 
+/* ✅ Extra Image Styling */
+.extra-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 100%; /* Ne dépasse pas le container */
+    margin: 10px auto;
+}
+
+#extra-image {
+    width: 100%;
+    max-width: 600px; /* Ajuste la taille max */
+    height: auto;
+    display: block;
+}
+
+/* ✅ Adaptation pour Mobile */
+@media (max-width: 768px) {
+    #extra-image {
+        max-width: 90%; /* Réduction automatique */
+    }
+}
+
 /* ✅ Conteneur global */
 .diceman-wrapper {
     display: flex;
