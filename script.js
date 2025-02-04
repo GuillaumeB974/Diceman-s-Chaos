@@ -4,19 +4,35 @@ const themes = {
         banners: ["images/BannièresCalme (1).jpg", "images/BannièresCalme (2).jpg", "images/BannièresCalme (3).jpg", "images/BannièresCalme (4).jpg", "images/BannièresCalme (5).jpg"],
         dicemanImages: ["images/DicemanCalme (1).jpg", "images/DicemanCalme (2).jpg", "images/DicemanCalme (3).jpg", "images/DicemanCalme (4).jpg", "images/DicemanCalme (5).jpg", "images/DicemanCalme (6).jpg", "images/DicemanCalme (7).jpg", "images/DicemanCalme (8).jpg"],
         music: ["audio/SoundCalme (1).mp3", "audio/SoundCalme (2).mp3", "audio/SoundCalme (3).mp3", "audio/SoundCalme (4).mp3", "audio/SoundCalme (5).mp3", "audio/SoundCalme (6).mp3", "audio/SoundCalme (7).mp3", "audio/SoundCalme (8).mp3"],
-        backgrounds: ["linear-gradient(to bottom, #bde0fe, #caffbf)", "linear-gradient(to bottom, #d0f4de, #a9def9)", "linear-gradient(to bottom, #e3f2fd, #ffdde1)"]
+        backgrounds: ["linear-gradient(to bottom, #bde0fe, #caffbf)", "linear-gradient(to bottom, #d0f4de, #a9def9)", "linear-gradient(to bottom, #e3f2fd, #ffdde1)"],
+        extraImages: [
+            "images/extra-imageCalme (1).png",
+            "images/extra-imageCalme (2).png",
+            "images/extra-imageCalme (3).png"
+        ]
     },
     angoissant: {
         banners: ["images/BannièresAngoissant (1).jpg", "images/BannièresAngoissant (2).jpg", "images/BannièresAngoissant (3).jpg", "images/BannièresAngoissant (4).jpg"],
         dicemanImages: ["images/DicemanAngoissant (1).jpg", "images/DicemanAngoissant (2).jpg", "images/DicemanAngoissant (3).jpg", "images/DicemanAngoissant (4).jpg", "images/DicemanAngoissant (5).jpg"],
         music: ["audio/SoundAngoissant (1).mp3", "audio/SoundAngoissant (2).mp3", "audio/SoundAngoissant (3).mp3", "audio/SoundAngoissant (4).mp3", "audio/SoundAngoissant (5).mp3", "audio/SoundAngoissant (6).mp3"],
         backgrounds: ["linear-gradient(to bottom, #ffcccc, #d8bfd8)", "linear-gradient(to bottom, #ffdfba, #ffc3a0)", "linear-gradient(to bottom, #f3d5c0, #fad4c0)"]
+     extraImages: [
+    "images/extra-imageAngoissant (1).png",
+    "images/extra-imageAngoissant (2).png",
+    "images/extra-imageAngoissant (3).png"
+]
     },
     entrainant: {
         banners: ["images/BannièresEntrainant (1).jpg", "images/BannièresEntrainant (2).jpg", "images/BannièresEntrainant (3).jpg", "images/BannièresEntrainant (4).jpg", "images/BannièresEntrainant (5).jpg"],
         dicemanImages: ["images/DicemanEntrainant (1).jpg", "images/DicemanEntrainant (2).jpg", "images/DicemanEntrainant (3).jpg", "images/DicemanEntrainant (4).jpg", "images/DicemanEntrainant (5).jpg", "images/DicemanEntrainant (6).jpg", "images/DicemanEntrainant (7).jpg", "images/DicemanEntrainant (8).jpg", "images/DicemanEntrainant (9).jpg", "images/DicemanEntrainant (10).jpg", "images/DicemanEntrainant (11).jpg"],
         music: ["audio/SoundEntrainant (1).mp3", "audio/SoundEntrainant (2).mp3", "audio/SoundEntrainant (3).mp3", "audio/SoundEntrainant (4).mp3", "audio/SoundEntrainant (5).mp3", "audio/SoundEntrainant (6).mp3", "audio/SoundEntrainant (7).mp3", "audio/SoundEntrainant (8).mp3", "audio/SoundEntrainant (9).mp3", "audio/SoundEntrainant (10).mp3"],
         backgrounds: ["linear-gradient(to bottom, #ffafbd, #ffc3a0)", "linear-gradient(to bottom, #f5d0c5, #d5c8f2)", "linear-gradient(to bottom, #ffdae3, #ffc4e1)"]
+    extraImages: [
+         "images/extra-imageEntrainant (1).png",
+    "images/extra-imageEntrainant (2).png",
+    "images/extra-imageEntrainant (3).png",
+    "images/extra-imageEntrainant (4).png"
+];
     }
 };
 
@@ -26,6 +42,7 @@ const randomTheme = themes[themeKeys[Math.floor(Math.random() * themeKeys.length
 document.body.style.background = randomTheme.backgrounds[Math.floor(Math.random() * randomTheme.backgrounds.length)];
 document.getElementById("banner-image").src = randomTheme.banners[Math.floor(Math.random() * randomTheme.banners.length)];
 document.getElementById("diceman-image").src = randomTheme.dicemanImages[Math.floor(Math.random() * randomTheme.dicemanImages.length)];
+document.getElementById("extra-image").src = randomTheme.extraImages[Math.floor(Math.random() * randomTheme.extraImages.length)];
 
 // === Gestion de la Musique ===
 const audio = new Audio();
