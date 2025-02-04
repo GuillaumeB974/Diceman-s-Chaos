@@ -211,6 +211,7 @@ body {
     object-fit: contain;
 }
 .dice-phrase {
+    color: #000; /* Noir */
     font-size: 1em;
     font-weight: bold;
     margin: 10px 0;
