@@ -177,6 +177,14 @@ body {
 }
 .choices-container select,
 .choices-container button,
+
+/* ✅ Met le texte en noir */
+.choices-container h3,
+.chaos-container h3 {
+    color: #000; /* Noir */
+    font-weight: bold;
+}
+
 #chaos-btn {
     margin: 10px;
     padding: 10px 20px;
