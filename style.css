@@ -86,10 +86,11 @@ body {
     flex-direction: column;
     width: 100%;
     text-align: center;
+    position: relative;
 }
 
 #diceman-image {
-    max-width: 430px;
+    max-width: 473px;
     height: auto;
     display: block;
 }
@@ -168,14 +169,14 @@ body {
         flex-direction: row; /* Garde une disposition en ligne */
         flex-wrap: wrap; /* Permet d'aller à la ligne */
         justify-content: center; /* Centre les boutons */
-        gap: 10px; /* Espace entre eux */
+        gap: 5px; /* Espace entre eux */
     }
 
     .button-container button,
     .coffee-button {
-        width: 45%; /* Pour que deux boutons tiennent sur une ligne */
-        font-size: 14px; /* Taille adaptée */
-        padding: 8px 10px;
+        width: 40%; /* Pour que deux boutons tiennent sur une ligne */
+        font-size: 12px; /* Taille adaptée */
+        padding: 6px 8px;
     }
 }
 
