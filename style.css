@@ -32,6 +32,20 @@ body {
     height: auto;
 }
 
+/* Bouton How to Play */
+.how-to-play-img {
+    width: 90px; /* Ajuster selon la taille souhaitée */
+    height: auto;
+    position: absolute;
+    left: -120px; /* Décale l’image à gauche du Diceman */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.how-to-play-img:hover {
+    transform: scale(1.1);
+}
+
 /* Conteneur des boutons */
 .button-container {
     display: flex;
