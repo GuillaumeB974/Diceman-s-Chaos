@@ -26,7 +26,6 @@ body {
     width: 100%;
     max-width: 100%; /* Ne dépasse pas le container */
     margin-top: 5px;
-    margin-bottom: 2px;
 }
 
 #extra-image {
@@ -50,7 +49,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 30px; /* Ajoute un espace entre les colonnes */
-    margin-top: 20px;
+    margin-top: 50px;
     flex-wrap: wrap;
 }
 
