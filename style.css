@@ -36,7 +36,7 @@ body {
 }
 
 .how-to-play-img {
-    width: 90px;
+    width: 200px;
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
@@ -53,7 +53,7 @@ body {
 }
 
 #diceman-image {
-    max-width: 550px;
+    max-width: 450px;
     height: auto;
     display: block;
 }
@@ -105,11 +105,16 @@ body {
     display: block;
 }
 
-/* ✅ Ajustement Responsive */
+/* ✅ Ajustement Responsive Mobile */
 @media (max-width: 768px) {
     .diceman-wrapper {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+    }
+
+    /* ✅ Taille réduite pour le Diceman sur mobile */
+    #diceman-image {
+        max-width: 250px; /* Taille réduite sur mobile */
     }
     .music-control {
         flex-direction: row;
