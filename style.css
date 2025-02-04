@@ -95,7 +95,7 @@ body {
 
 /* ✅ Correction du centrage parfait du Diceman sur PC */
 #diceman-image {
-    max-width: 473px;
+    max-width: 500px;
     height: auto;
     display: block;
     margin: auto; /* Permet un centrage naturel */
@@ -169,10 +169,13 @@ body {
         width: 70px;
     }
 
-    /* ✅ Réduction du bouton Buy Me a Coffee sur mobile */
+    /* ✅ Ajustement du bouton "Buy Me a Coffee" sur 2 lignes */
     .coffee-button {
         font-size: 14px;
         padding: 8px 12px;
+        width: 100px;
+        text-align: center;
+        white-space: normal; /* Permet le retour à la ligne */
     }
 
     /* ✅ Alignement des boutons musique sur 2 lignes */
@@ -210,19 +213,62 @@ body {
     margin-bottom: 50px;
 }
 
-/* Choices */
-.choices-container, .chaos-container {
-    margin: 30px auto;
+/* ✅ Agrandissement de la "choices-container" */
+.choices-container {
+    margin: 40px auto;
     text-align: center;
+    padding: 20px;
 }
-.choices-container select,
-.choices-container button,
 
-/* ✅ Met le texte en noir */
-.choices-container h3,
-.chaos-container h3 {
-    color: #000; /* Noir */
+/* ✅ Augmentation de la taille du texte pour "Choose an easier path" */
+.choices-container h3 {
+    font-size: 1.8em;
     font-weight: bold;
+    color: #000; /* Noir pour plus de contraste */
+}
+
+/* ✅ Agrandir les éléments du choix */
+.choices-container select {
+    font-size: 1.5em;  /* Texte plus grand */
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+/* ✅ Agrandir le bouton "Generate" */
+#generate-btn {
+    background-color: #007bff;
+    color: white;
+    font-size: 1.8em; /* Texte plus grand */
+    font-weight: bold;
+    padding: 15px 30px; /* Bouton plus large */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* ✅ Effet au survol */
+#generate-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* ✅ Ajustement Responsive Mobile */
+@media (max-width: 768px) {
+    .choices-container h3 {
+        font-size: 1.5em;
+    }
+
+    .choices-container select {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    #generate-btn {
+        font-size: 1.5em;
+        padding: 12px 25px;
+    }
 }
 
 #chaos-btn {
