@@ -72,14 +72,18 @@ body {
     transform: scale(1.1);
 }
 
-/* ✅ Image du Diceman */
+/* ✅ Centrer l'image du Diceman horizontalement */
 .diceman-container {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement si nécessaire */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
 }
 
 #diceman-image {
-    max-width: 450px;
+    max-width: 430px;
     height: auto;
     display: block;
 }
@@ -88,7 +92,7 @@ body {
 .music-control {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .music-button {
@@ -140,7 +144,7 @@ body {
 
     /* ✅ Taille réduite pour le Diceman sur mobile */
     #diceman-image {
-        max-width: 250px; /* Taille réduite sur mobile */
+        max-width: 200px; /* Taille réduite sur mobile */
     }
     .music-control {
         flex-direction: row;
