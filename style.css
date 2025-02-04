@@ -43,14 +43,17 @@ body {
     }
 }
 
-/* ✅ Conteneur global */
+/* ✅ Conteneur global en 3 colonnes */
 .diceman-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 30px; /* Ajoute un espace entre les colonnes */
+    justify-content: space-between; /* Garde l'organisation en 3 colonnes */
+    gap: 30px;
     margin-top: 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Empêche le passage en ligne */
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ✅ Colonne de gauche (How to Play + Buy Me a Coffee) */
@@ -58,7 +61,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    flex: 1;
 }
 
 .how-to-play-img {
@@ -78,13 +82,13 @@ body {
     }
 }
 
-/* ✅ Centrer et Ajuster l'image du Diceman */
+/* ✅ Centrage parfait de l’image du Diceman */
 .diceman-container {
     display: flex;
-    justify-content: center; /* Centre horizontalement */
+    justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 100%;
+    flex: 1;
     text-align: center;
     position: relative;
 }
@@ -101,11 +105,13 @@ body {
 .music-control {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
 }
 
 .music-button {
-    padding: 10px 15px;
+    padding: 12px 18px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -136,89 +142,62 @@ body {
 .coffee-button {
     background-color: #ffcc00;
     color: black;
-    padding: 10px 15px;
+    padding: 12px 18px;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
     border-radius: 5px;
     display: block;
+    font-size: 18px;
 }
 
 /* ✅ Ajustement Responsive Mobile */
 @media (max-width: 768px) {
     .diceman-wrapper {
-        flex-direction: column;
+        flex-direction: column; /* Colonne unique sur mobile */
         align-items: center;
     }
 
     /* ✅ Taille réduite pour le Diceman sur mobile */
     #diceman-image {
-        max-width: 130px; /* Taille réduite sur mobile */
-        max-width: 60%; /* Réduit la taille sur mobile */
+        max-width: 60%; 
         height: auto;
     }
-    .music-control {
-        flex-direction: row;
-        justify-content: center;
+
+    /* ✅ Réduction de l'image How to Play */
+    .how-to-play-img {
+        width: 70px;
     }
+
+    /* ✅ Réduction du bouton Buy Me a Coffee sur mobile */
     .coffee-button {
         font-size: 14px;
         padding: 8px 12px;
     }
-}
-@media (max-width: 768px) {
-    .button-container {
-        flex-direction: row; /* Garde une disposition en ligne */
-        flex-wrap: wrap; /* Permet d'aller à la ligne */
-        justify-content: center; /* Centre les boutons */
-        gap: 5px; /* Espace entre eux */
-    }
-    
+
     /* ✅ Alignement des boutons musique sur 2 lignes */
     .music-control {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap; /* Permet d'aller sur 2 lignes */
+        justify-content: center;
         gap: 5px;
-        align-items: center;
     }
 
     .music-button {
         font-size: 12px;
         padding: 6px 8px;
-        width: 60px; /* Réduction de la taille */
-    }
-}
-
-/* ✅ Colonne de droite (Boutons musique) */
-.music-control {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.music-button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-    .button-container button,
-    .coffee-button {
-        width: 60%; /* Pour que deux boutons tiennent sur une ligne */
-        font-size: 12px; /* Taille adaptée */
-        padding: 6px 8px;
+        width: 70px; /* Réduction de la taille */
     }
 }
 
 /* ✅ Déplacement vers le bas de la phrase SEO sous l’image du Diceman */
 .seo-title {
-    font-size: 0.8em;  /* Taille réduite */
-    text-align: center; /* Centré */
-    color: #444;  /* Gris foncé */
-    margin-top: 80px; /* Décalage vers le bas */
-    margin-bottom: 35px; /* Espacement avant la phrase aléatoire */
+    font-size: 0.8em;
+    text-align: center;
+    color: #444;
+    margin-top: 80px;
+    margin-bottom: 35px;
 }
 
 /* Phrase accroche*/
