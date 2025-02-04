@@ -7,7 +7,7 @@ body {
     text-align: center;
 }
 
-/* Bannière */
+/* 🎲 Bannière */
 .banner-container {
     display: flex;
     justify-content: center;
@@ -18,34 +18,26 @@ body {
     object-fit: contain;
 }
 
-/* Conteneur principal pour l'image du Diceman et les boutons */
-.diceman-container {
+/* ✅ Conteneur global */
+.diceman-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    gap: 30px; /* Ajoute un espace entre les colonnes */
+    margin-top: 20px;
 }
 
-/* Réduction et adaptation de la taille de l'image du Diceman */
-#diceman-image {
-    max-width: 550px; /* Ajuste cette valeur selon ton design */
-    height: auto; /* Garde les proportions */
-    display: block;
-    margin: 0 auto; /* Centre l'image */
+/* ✅ Colonne de gauche (How to Play + Buy Me a Coffee) */
+.how-to-play-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-@media (max-width: 600px) {
-    #diceman-image {
-        max-width: 150px; /* Plus petit sur mobile */
-    }
-}
-
-/* Bouton How to Play */
 .how-to-play-img {
-    width: 90px; /* Ajuster selon la taille souhaitée */
+    width: 90px;
     height: auto;
-    position: absolute;
-    left: -120px; /* Décale l’image à gauche du Diceman */
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
 }
@@ -54,16 +46,25 @@ body {
     transform: scale(1.1);
 }
 
-/* Conteneur des boutons */
-.button-container {
+/* ✅ Image du Diceman */
+.diceman-container {
+    display: flex;
+    justify-content: center;
+}
+
+#diceman-image {
+    max-width: 550px;
+    height: auto;
+    display: block;
+}
+
+/* ✅ Colonne de droite (Boutons musique) */
+.music-control {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    position: absolute;
-    right: -150px; /* Ajustez cette valeur selon vos besoins */
 }
 
-/* Style des boutons de musique */
 .music-button {
     padding: 10px 15px;
     font-size: 16px;
@@ -73,7 +74,7 @@ body {
     transition: background-color 0.3s;
 }
 
-/* Style du bouton Play Music avec effet attractif */
+/* 🎵 Effet Glow sur Play Music */
 #play-music {
     background-color: #ff0066;
     color: white;
@@ -81,23 +82,18 @@ body {
     animation: glow 1.5s infinite alternate;
 }
 
-/* Animation Glow */
 @keyframes glow {
-    0% {
-        box-shadow: 0 0 5px rgba(255, 0, 102, 0.6);
-    }
-    100% {
-        box-shadow: 0 0 15px rgba(255, 0, 102, 0.9);
-    }
+    0% { box-shadow: 0 0 5px rgba(255, 0, 102, 0.6); }
+    100% { box-shadow: 0 0 15px rgba(255, 0, 102, 0.9); }
 }
 
-/* Style du bouton Pause Music */
+/* 🎵 Pause Music */
 #pause-music {
     background-color: #444;
     color: white;
 }
 
-/* Style du bouton Buy Me a Coffee */
+/* ☕ Buy Me a Coffee */
 .coffee-button {
     background-color: #ffcc00;
     color: black;
@@ -106,26 +102,22 @@ body {
     font-weight: bold;
     text-align: center;
     border-radius: 5px;
+    display: block;
 }
 
-/* Styles pour les appareils mobiles */
+/* ✅ Ajustement Responsive */
 @media (max-width: 768px) {
-    .button-container {
-        position: static;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 10px;
+    .diceman-wrapper {
+        flex-direction: column;
+        gap: 20px;
     }
-
-    .music-button,
+    .music-control {
+        flex-direction: row;
+        justify-content: center;
+    }
     .coffee-button {
         font-size: 14px;
         padding: 8px 12px;
-    }
-
-    #play-music {
-        font-size: 15px;
     }
 }
 
