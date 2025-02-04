@@ -106,32 +106,39 @@
 
   <body>
     <div id="app">
-        <!-- Bannière -->
+         <!-- Bannière -->
         <div class="banner-container">
             <h1 class="hidden-title">Diceman’s Chaos - Put Your Fate in a Roll</h1>
             <img id="banner-image" src="" alt="Bannière thématique">
         </div>
-        
-      <!-- Contrôles de musique et contribution -->
-<div class="diceman-container">
-    <!-- Bouton How to Play à gauche -->
-    <a href="how-to-play.html">
-        <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
-    </a>
 
-<!-- Image du DiceMan -->
-        <div class="diceman-container">
-            <img id="diceman-image" src="" alt="Image du DiceMan">
-        </div
-            
-    <!-- Boutons à droite -->
-    <div class="button-container">
-        <button id="play-music" class="music-button">🎵 Play Music</button>
-        <button id="pause-music" class="music-button">⏸ Pause Music</button>
-        <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">☕ Buy Me a Coffee</a>
-    </div>
-</div>
+        <!-- Espace réservé pour une future image -->
+        <div class="extra-image-container">
+            <img src="images/extra-image.jpg" alt="Extra Image" class="extra-image">
+        </div>
 
+        <!-- Conteneur principal pour Diceman, boutons et How to Play -->
+        <div class="diceman-wrapper">
+
+            <!-- Bouton How to Play et Buy Me a Coffee (À gauche) -->
+            <div class="how-to-play-container">
+                <a href="how-to-play.html">
+                    <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
+                </a>
+                <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">☕ Buy Me a Coffee</a>
+            </div>
+
+            <!-- Image du DiceMan (Centré) -->
+            <div class="diceman-container">
+                <img id="diceman-image" src="" alt="Image du DiceMan">
+            </div>
+
+            <!-- Boutons Play/Pause Music (À droite) -->
+            <div class="music-control">
+                <button id="play-music" class="music-button">🎵 Play Music</button>
+                <button id="pause-music" class="music-button">⏸ Pause Music</button>
+            </div>
+        </div>
 
        <!-- Phrase d'accroche fixe pour le SEO -->
 <h2 class="seo-title">A completely non-random piece of advice from Mr. Fifth :</h2>
