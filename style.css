@@ -28,7 +28,7 @@ body {
 
 /* Réduction et adaptation de la taille de l'image du Diceman */
 #diceman-image {
-    max-width: 600px; /* Ajuste cette valeur selon ton design */
+    max-width: 550px; /* Ajuste cette valeur selon ton design */
     height: auto; /* Garde les proportions */
     display: block;
     margin: 0 auto; /* Centre l'image */
