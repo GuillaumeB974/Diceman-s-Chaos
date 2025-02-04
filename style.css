@@ -34,6 +34,12 @@ body {
     margin: 0 auto; /* Centre l'image */
 }
 
+@media (max-width: 600px) {
+    #diceman-image {
+        max-width: 150px; /* Plus petit sur mobile */
+    }
+}
+
 /* Bouton How to Play */
 .how-to-play-img {
     width: 90px; /* Ajuster selon la taille souhaitée */
