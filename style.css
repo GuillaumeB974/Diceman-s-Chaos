@@ -153,8 +153,8 @@ body {
 
     /* ✅ Taille réduite pour le Diceman sur mobile */
     #diceman-image {
-        max-width: 150px; /* Taille réduite sur mobile */
-        max-width: 65%; /* Réduit la taille sur mobile */
+        max-width: 130px; /* Taille réduite sur mobile */
+        max-width: 60%; /* Réduit la taille sur mobile */
         height: auto;
     }
     .music-control {
@@ -185,7 +185,7 @@ body {
     .music-button {
         font-size: 12px;
         padding: 6px 8px;
-        width: 80px; /* Réduction de la taille */
+        width: 60px; /* Réduction de la taille */
     }
 }
 
@@ -193,20 +193,20 @@ body {
 .music-control {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 
 .music-button {
     padding: 10px 15px;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
     .button-container button,
     .coffee-button {
-        width: 40%; /* Pour que deux boutons tiennent sur une ligne */
+        width: 60%; /* Pour que deux boutons tiennent sur une ligne */
         font-size: 12px; /* Taille adaptée */
         padding: 6px 8px;
     }
