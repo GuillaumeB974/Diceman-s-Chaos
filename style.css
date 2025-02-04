@@ -25,7 +25,8 @@ body {
     align-items: center;
     width: 100%;
     max-width: 100%; /* Ne dépasse pas le container */
-    margin: 10px auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #extra-image {
