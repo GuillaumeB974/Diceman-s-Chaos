@@ -224,7 +224,7 @@ body {
     100% { transform: translate(0); }
 }
 #chaos-btn.vibrate {
-    animation: vibrate 0.3s infinite, blink 1.5s infinite;
+   animation: vibrate 0.3s infinite, blink 1.5s infinite, highlight-glow 2s infinite;
 }
 
 /* Animation pour la surbrillance */
