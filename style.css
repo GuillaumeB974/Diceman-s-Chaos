@@ -194,13 +194,23 @@ body {
     }
 }
 
-/* ✅ Déplacement vers le bas de la phrase SEO sous l’image du Diceman */
+/* ✅ Correction de l'affichage de la phrase SEO */
 .seo-title {
-    font-size: 0.8em;
-    text-align: center;
-    color: #444;
-    margin-top: 80px;
-    margin-bottom: 35px;
+    font-size: 1.2em;  /* Taille légèrement augmentée */
+    text-align: center; /* Centrage du texte */
+    color: #444;  /* Gris foncé */
+    margin-top: 40px; /* Augmentation de l'espace avec l'image du Diceman */
+    margin-bottom: 20px; /* Espacement avant la phrase aléatoire */
+    font-weight: bold;
+}
+
+/* ✅ Ajustement Responsive Mobile */
+@media (max-width: 768px) {
+    .seo-title {
+        font-size: 1em; /* Réduction de la taille du texte sur mobile */
+        margin-top: 30px; /* Espacement ajusté pour mobile */
+        margin-bottom: 15px;
+    }
 }
 
 /* Phrase accroche*/
