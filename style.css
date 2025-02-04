@@ -26,7 +26,7 @@ body {
     width: 100%;
     max-width: 100%; /* Ne dépasse pas le container */
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 #extra-image {
@@ -34,6 +34,7 @@ body {
     max-width: 600px; /* Ajuste la taille max */
     height: auto;
     display: block;
+    margin-bottom: 2px;
 }
 
 /* ✅ Adaptation pour Mobile */
@@ -156,8 +157,8 @@ body {
     font-size: 0.8em;  /* Taille réduite */
     text-align: center; /* Centré */
     color: #444;  /* Gris foncé */
-    margin-top: 35px; /* Décalage vers le bas */
-    margin-bottom: 50px; /* Espacement avant la phrase aléatoire */
+    margin-top: 50px; /* Décalage vers le bas */
+    margin-bottom: 35px; /* Espacement avant la phrase aléatoire */
 }
 
 /* Phrase accroche*/
