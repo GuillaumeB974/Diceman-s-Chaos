@@ -43,16 +43,15 @@ body {
     }
 }
 
-/* ✅ Conteneur général bien structuré en 3 colonnes */
+/* ✅ Conteneur général bien structuré en 3 colonnes sur PC */
 .diceman-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-around; /* Répartit bien les 3 colonnes */
+    justify-content: space-between; /* Assure un bon équilibre des colonnes */
     gap: 40px;
-    margin-top: 10px;
     max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
+    flex-wrap: nowrap; /* Évite les retours à la ligne sur PC */
 }
 
 /* ✅ Colonne de gauche : How to Play + Buy Me a Coffee */
@@ -61,7 +60,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    width: 200px; /* Assure une largeur homogène */
+    flex: 1;
+    min-width: 200px;
 }
 
 /* ✅ Bouton How to Play */
@@ -80,13 +80,13 @@ body {
 .coffee-button {
     background-color: #ffcc00;
     color: black;
-    padding: 12px 18px;
+    padding: 12px 20px;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
     border-radius: 5px;
     display: block;
-    font-size: 18px;
+    font-size: 16px;
     width: 180px; /* Aligné avec How to Play */
 }
 
@@ -96,14 +96,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    flex-grow: 1;
+    flex: 2;
     text-align: center;
     position: relative;
 }
 
 /* ✅ Correction du centrage parfait du Diceman */
 #diceman-image {
-    max-width: 450px;
+    max-width: 500px;
     height: auto;
     display: block;
     margin: auto;
@@ -115,7 +115,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    width: 200px; /* Assure une largeur homogène */
+    flex: 1;
+    min-width: 200px;
 }
 
 .music-button {
