@@ -43,26 +43,25 @@ body {
     }
 }
 
-/* ✅ Conteneur global organisé en 3 colonnes */
+/* ✅ Conteneur général bien structuré en 3 colonnes */
 .diceman-wrapper {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centre les éléments */
+    justify-content: space-around; /* Répartit bien les 3 colonnes */
     gap: 40px;
     margin-top: 10px;
-    flex-wrap: nowrap; /* Empêche le passage en ligne */
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* ✅ Colonne de gauche (How to Play + Buy Me a Coffee) */
+/* ✅ Colonne de gauche : How to Play + Buy Me a Coffee */
 .controls-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    width: 200px; /* Largeur fixe pour bien aligner */
+    width: 200px; /* Assure une largeur homogène */
 }
 
 /* ✅ Bouton How to Play */
@@ -88,34 +87,35 @@ body {
     border-radius: 5px;
     display: block;
     font-size: 16px;
-    width: 180px; /* Même largeur que How to Play */
+    width: 180px; /* Aligné avec How to Play */
 }
 
-/* ✅ Centrage parfait de l’image du Diceman */
+/* ✅ Colonne centrale : Diceman */
 .diceman-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    flex-grow: 1;
     text-align: center;
-    flex-grow: 1; /* Fait en sorte que cette colonne prenne le plus d’espace */
+    position: relative;
 }
 
-/* ✅ Ajustement du Diceman sur PC */
+/* ✅ Correction du centrage parfait du Diceman */
 #diceman-image {
-    max-width: 500px;
+    max-width: 450px;
     height: auto;
     display: block;
-    margin: auto; /* Centre bien */
+    margin: auto;
 }
 
-/* ✅ Colonne de droite (Boutons musique) */
+/* ✅ Colonne de droite : Boutons musique */
 .music-control {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    width: 200px; /* Largeur fixe pour bien aligner */
+    width: 200px; /* Assure une largeur homogène */
 }
 
 .music-button {
@@ -147,46 +147,50 @@ body {
     color: white;
 }
 
+/* ✅ Phrase SEO : Correction du positionnement */
+.seo-title {
+    font-size: 1.2em;
+    text-align: center;
+    color: #444;
+    margin-top: 50px !important; /* FORCE le décalage vers le bas */
+    margin-bottom: 30px;
+    font-weight: bold;
+    clear: both; /* Assure qu'elle ne chevauche aucun élément */
+}
+
 /* ✅ Ajustement Responsive Mobile */
 @media (max-width: 768px) {
-    /* ✅ Ajustement du wrapper en colonne */
+    /* ✅ Passage en colonne unique */
     .diceman-wrapper {
         flex-direction: column;
         align-items: center;
         gap: 10px;
     }
 
-    /* ✅ Image du Diceman plus grande en mobile */
+    /* ✅ Image du Diceman plus grande sur mobile */
     #diceman-image {
         max-width: 75%;
         height: auto;
     }
 
-    /* ✅ Boutons alignés sous l’extra image */
+    /* ✅ Alignement des boutons sous l’extra image */
     .controls-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         gap: 5px;
         width: 100%;
         max-width: 90%;
         margin: auto;
     }
 
-    /* ✅ Ajustement du bouton "Buy Me a Coffee" */
+    /* ✅ Ajustement de la taille des boutons pour uniformiser */
+    .how-to-play-img,
+    .music-button,
     .coffee-button {
-        font-size: 12px;
-        padding: 8px 10px;
         width: 80px;
-        text-align: center;
-        white-space: normal; /* Permet le retour à la ligne */
-    }
-
-    /* ✅ Ajustement de la taille de How to Play pour être aligné */
-    .how-to-play-img {
-        width: 80px; /* Même hauteur que les autres boutons */
-        height: 50px; /* Hauteur fixe pour être uniforme */
-        object-fit: contain; /* Assure un bon affichage */
+        height: 50px;
+        object-fit: contain;
     }
 
     /* ✅ Alignement des boutons musique */
@@ -201,26 +205,7 @@ body {
     .music-button {
         font-size: 12px;
         padding: 6px 8px;
-        width: 80px; /* Réduction de la taille */
-    }
-}
-
-/* ✅ Correction de l'affichage de la phrase SEO */
-.seo-title {
-    font-size: 1.2em;  /* Taille légèrement augmentée */
-    text-align: center; /* Centrage du texte */
-    color: #444;  /* Gris foncé */
-    margin-top: 50px; /* Augmentation de l'espace avec l'image du Diceman */
-    margin-bottom: 20px; /* Espacement avant la phrase aléatoire */
-    font-weight: bold;
-}
-
-/* ✅ Ajustement Responsive Mobile */
-@media (max-width: 768px) {
-    .seo-title {
-        font-size: 1em; /* Réduction de la taille du texte sur mobile */
-        margin-top: 40px; /* Espacement ajusté pour mobile */
-        margin-bottom: 15px;
+        width: 80px;
     }
 }
 
