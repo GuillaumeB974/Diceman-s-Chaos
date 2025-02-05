@@ -222,3 +222,25 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Le bouton 'Buy Me a Coffee' est introuvable !");
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const howToPlayButton = document.getElementById("random-how-to-play");
+
+    // Liste des différentes pages "How to Play"
+    const howToPlayPages = [
+        "how-to-play-1.html",
+        "how-to-play-2.html",
+        "how-to-play-3.html",
+        "how-to-play-4.html"
+    ];
+
+    // Écouteur d'événement pour cliquer sur l'image
+    howToPlayButton.addEventListener("click", function (event) {
+        event.preventDefault(); // Empêche le comportement par défaut du lien
+
+        // Sélection aléatoire d'une page
+        const randomPage = howToPlayPages[Math.floor(Math.random() * howToPlayPages.length)];
+
+        // Redirection vers la page choisie aléatoirement
+        window.location.href = randomPage;
+    });
+});
