@@ -47,8 +47,8 @@ body {
 .diceman-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Garde l'organisation en 3 colonnes */
-    gap: 30px;
+    justify-content: center; /* Centre les éléments */
+    gap: 40px;
     margin-top: 10px;
     flex-wrap: nowrap; /* Empêche le passage en ligne */
     max-width: 90%;
@@ -62,7 +62,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    flex: 1;
+    width: 200px; /* Largeur fixe pour bien aligner */
 }
 
 /* ✅ Bouton How to Play */
@@ -88,6 +88,7 @@ body {
     border-radius: 5px;
     display: block;
     font-size: 16px;
+    width: 180px; /* Même largeur que How to Play */
 }
 
 /* ✅ Centrage parfait de l’image du Diceman */
@@ -96,9 +97,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    flex: 1;
     text-align: center;
-    position: relative;
+    flex-grow: 1; /* Fait en sorte que cette colonne prenne le plus d’espace */
 }
 
 /* ✅ Ajustement du Diceman sur PC */
@@ -115,7 +115,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    flex: 1;
+    width: 200px; /* Largeur fixe pour bien aligner */
 }
 
 .music-button {
@@ -125,6 +125,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 180px; /* Aligné avec les autres boutons */
 }
 
 /* 🎵 Effet Glow sur Play Music */
