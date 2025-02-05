@@ -164,13 +164,24 @@ body {
         align-items: center;
         gap: 10px;
     }
-
-    /* ✅ Les boutons passent en ligne sur mobile */
+    
+  /* ✅ Alignement des boutons sous l’extra image */
     .controls-container {
         display: flex;
-        flex-direction: row; /* Aligne How to Play, Music Buttons et Coffee en ligne */
-        flex-wrap: nowrap; /* Empêche le retour à la ligne */
+        flex-direction: row;
         justify-content: center;
+        gap: 5px;
+        width: 100%;
+        max-width: 90%;
+        margin: auto;
+    }
+    
+     /* ✅ Aligner tous les boutons en ligne */
+    .controls-container {
+        display: flex;
+        flex-direction: row; /* Aligner les éléments horizontalement */
+        justify-content: center;
+        flex-wrap: wrap; /* Permet de forcer les retours à la ligne si besoin */
         gap: 5px;
         width: 100%;
         max-width: 90%;
@@ -183,18 +194,7 @@ body {
         height: auto;
     }
 
-    /* ✅ Alignement des boutons sous l’extra image */
-    .controls-container {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        gap: 5px;
-        width: 100%;
-        max-width: 90%;
-        margin: auto;
-    }
-
-    /* ✅ Ajustement de la taille des boutons pour uniformiser */
+      /* ✅ Ajustement de la taille des boutons pour uniformiser */
     .how-to-play-img,
     .music-button,
     .coffee-button {
