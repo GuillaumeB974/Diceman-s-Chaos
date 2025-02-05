@@ -177,9 +177,16 @@ body {
     .coffee-button {
         font-size: 12px;
         padding: 8px 10px;
-        width: 85px;
+        width: 80px;
         text-align: center;
         white-space: normal; /* Permet le retour à la ligne */
+    }
+
+    /* ✅ Ajustement de la taille de How to Play pour être aligné */
+    .how-to-play-img {
+        width: 80px; /* Même hauteur que les autres boutons */
+        height: 50px; /* Hauteur fixe pour être uniforme */
+        object-fit: contain; /* Assure un bon affichage */
     }
 
     /* ✅ Alignement des boutons musique */
@@ -194,7 +201,7 @@ body {
     .music-button {
         font-size: 12px;
         padding: 6px 8px;
-        width: 70px; /* Réduction de la taille */
+        width: 80px; /* Réduction de la taille */
     }
 }
 
