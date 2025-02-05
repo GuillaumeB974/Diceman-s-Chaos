@@ -80,13 +80,13 @@ body {
 .coffee-button {
     background-color: #ffcc00;
     color: black;
-    padding: 10px 15px;
+    padding: 12px 18px;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
     border-radius: 5px;
     display: block;
-    font-size: 16px;
+    font-size: 18px;
     width: 180px; /* Aligné avec How to Play */
 }
 
@@ -152,7 +152,7 @@ body {
     font-size: 1.2em;
     text-align: center;
     color: #444;
-    margin-top: 50px !important; /* FORCE le décalage vers le bas */
+    margin-top: 10px !important; /* FORCE le décalage vers le bas */
     margin-bottom: 30px;
     font-weight: bold;
     clear: both; /* Assure qu'elle ne chevauche aucun élément */
