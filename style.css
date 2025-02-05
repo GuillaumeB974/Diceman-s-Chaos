@@ -204,13 +204,6 @@ body {
         font-size: 12px;
         padding: 6px 8px;
         width: 80px;
-
-    /* ✅ Ajustement du bouton "Buy Me a Coffee" sur mobile */
-@media (max-width: 768px) {
-    .coffee-button {
-        font-size: 12px; /* Réduction de la taille du texte */
-        padding: 6px 10px; /* Ajustement de l'espace intérieur */
-        width: 90px; /* Taille légèrement réduite */
     }
 }
 
