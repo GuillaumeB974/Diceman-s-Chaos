@@ -44,7 +44,6 @@ body {
 }
 
 /* ✅ Mise en page PC : 3 Colonnes */
-@media (min-width: 769px) {
     .diceman-wrapper {
     display: flex;
     align-items: center;
