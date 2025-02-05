@@ -114,31 +114,26 @@
 
        <!-- Extra Image sous la bannière -->
 <div class="extra-image-container">
-    <img id="extra-image" src="" alt="Put Your Fate In A Roll">
+    <img id="extra-image" src="" alt="Extra Image" class="extra-image">
 </div>
 
         <!-- Conteneur principal pour Diceman, boutons et How to Play -->
         <div class="diceman-wrapper">
 
-            <!-- Bouton How to Play et Buy Me a Coffee (À gauche) -->
-            <div class="how-to-play-container">
-                <a href="how-to-play.html">
-                    <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
-                </a>
-                <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">☕ Buy Me a Coffee</a>
-            </div>
+           <!-- Nouvelle disposition des boutons -->
+<div class="controls-container">
+    <a href="how-to-play.html">
+        <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
+    </a>
+    <button id="play-music" class="music-button">🎵 Play Music</button>
+    <button id="pause-music" class="music-button">⏸ Pause Music</button>
+    <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">☕ Buy Me a Coffee</a>
+</div>
 
-            <!-- Image du DiceMan (Centré) -->
-            <div class="diceman-container">
-                <img id="diceman-image" src="" alt="Image du DiceMan">
-            </div>
-
-            <!-- Boutons Play/Pause Music (À droite) -->
-            <div class="music-control">
-                <button id="play-music" class="music-button">🎵 Play Music</button>
-                <button id="pause-music" class="music-button">⏸ Pause Music</button>
-            </div>
-        </div>
+<!-- Image du Diceman sous les boutons -->
+<div class="diceman-container">
+    <img id="diceman-image" src="" alt="Image du DiceMan">
+</div>
 
        <!-- Phrase d'accroche fixe pour le SEO -->
 <h2 class="seo-title">A completely non-random piece of advice from Mr. Fifth :</h2>
@@ -148,28 +143,29 @@
     <p id="diceman-phrase">Loading...</p>
 </div>
 
-        <!-- Section de choix -->
-        <div class="choices-container">
-            <h3>Choose an easier path...</h3>
-            <select id="category">
-                <option value="Everyday Actions">Everyday Actions</option>
-                <option value="Creative Activity">Creative Activity</option>
-                <option value="Social Interaction">Social Interaction</option>
-                <option value="Physical Activity">Physical Activity</option>
-                <option value="Nature & Adventure">Nature & Adventure</option>
-            </select>
-            <select id="difficulty">
-                <option value="Easy">Easy</option>
-                <option value="Hard">Hard</option>
-            </select>
-            <button id="generate-btn">Generate</button>
-        </div>
+       <!-- Section de choix -->
+<div class="choices-container">
+    <h3 class="choices-title">Choose an Easier Path...</h3>
+    <select id="category">
+        <option value="Everyday Actions">Everyday Actions</option>
+        <option value="Creative Activity">Creative Activity</option>
+        <option value="Social Interaction">Social Interaction</option>
+        <option value="Physical Activity">Physical Activity</option>
+        <option value="Nature & Adventure">Nature & Adventure</option>
+    </select>
+    <select id="difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Hard">Hard</option>
+    </select>
+    <button id="generate-btn">Generate</button>
+</div>
 
-        <!-- Section Chaos -->
-        <div class="chaos-container">
-            <h3>Or... Unleash the CHAOS!</h3>
-            <button id="chaos-btn">CHAOS !!</button>
-        </div>
+<!-- Section Chaos -->
+<div class="chaos-container">
+    <h3 class="choices-title">Or... Unleash the Chaos!</h3>
+    <button id="chaos-btn">CHAOS !!</button>
+</div>
+
 
         <!-- Dés et phrases associées -->
         <div class="dice-container" id="dice-container">
