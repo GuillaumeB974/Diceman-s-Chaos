@@ -280,6 +280,22 @@ body {
         padding: 12px 25px;
     }
 }
+/* ✅ Uniformisation des titres "Choose an Easier Path" et "Or... Unleash the Chaos" */
+.choices-title {
+    font-size: 1.8em;  /* Augmenter la taille pour une meilleure visibilité */
+    font-weight: bold;  /* Rendre le texte plus impactant */
+    text-align: center; /* Centrage du texte */
+    color: #222;  /* Couleur noir pour une meilleure lisibilité */
+    margin-bottom: 20px; /* Espacement avant les boutons */
+}
+
+/* ✅ Ajustement Responsive Mobile */
+@media (max-width: 768px) {
+    .choices-title {
+        font-size: 1.5em; /* Ajuster la taille sur mobile */
+        margin-bottom: 15px;
+    }
+}
 
 #chaos-btn {
     margin: 10px;
