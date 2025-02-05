@@ -43,8 +43,9 @@ body {
     }
 }
 
-/* ✅ Conteneur global (3 Colonnes sur PC) */
-.diceman-wrapper {
+/* ✅ Mise en page PC : 3 Colonnes */
+@media (min-width: 769px) {
+    .diceman-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Assure la séparation en colonnes */
