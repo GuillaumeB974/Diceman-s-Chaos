@@ -43,30 +43,31 @@ body {
     }
 }
 
-/* ✅ Conteneur général bien structuré en 3 colonnes sur PC */
+/* ✅ Conteneur global (3 Colonnes sur PC) */
 .diceman-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Assure un bon équilibre des colonnes */
-    gap: 40px;
-    max-width: 90%;
-    margin: auto;
-    flex-wrap: nowrap; /* Évite les retours à la ligne sur PC */
+    justify-content: space-between; /* Répartit les colonnes équitablement */
+    gap: 30px;
+    margin-top: 10px;
+    flex-wrap: nowrap; /* Empêche les éléments de passer en ligne */
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* ✅ Colonne de gauche : How to Play + Buy Me a Coffee */
-.controls-container {
+/* ✅ Colonne de gauche (How to Play + Buy Me a Coffee) */
+.how-to-play-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    flex: 1;
-    min-width: 200px;
+    flex: 1; /* Fait en sorte que cette colonne prenne 1/3 de l’espace */
 }
 
-/* ✅ Bouton How to Play */
+/* ✅ Ajustement de la taille du bouton How to Play */
 .how-to-play-img {
-    width: 180px;
+    width: 150px;
     height: auto;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
@@ -76,32 +77,31 @@ body {
     transform: scale(1.1);
 }
 
-/* ✅ Correction de la taille du bouton Buy Me a Coffee */
+/* ✅ Bouton Buy Me a Coffee */
 .coffee-button {
     background-color: #ffcc00;
     color: black;
-    padding: 12px 24px;
+    padding: 12px 18px;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
     border-radius: 5px;
     display: block;
-    font-size: 16px;
-    width: 180px; /* Aligné avec How to Play */
+    font-size: 18px;
 }
 
-/* ✅ Colonne centrale : Diceman */
+/* ✅ Colonne centrale (Image du Diceman) */
 .diceman-container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    flex: 2;
+    flex: 2; /* Cette colonne prend 2/3 de l’espace */
     text-align: center;
     position: relative;
 }
 
-/* ✅ Correction du centrage parfait du Diceman */
+/* ✅ Correction du centrage de l’image Diceman */
 #diceman-image {
     max-width: 500px;
     height: auto;
@@ -109,16 +109,16 @@ body {
     margin: auto;
 }
 
-/* ✅ Colonne de droite : Boutons musique */
+/* ✅ Colonne de droite (Boutons Musique) */
 .music-control {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    flex: 1;
-    min-width: 200px;
+    flex: 1; /* Cette colonne prend 1/3 de l’espace */
 }
 
+/* ✅ Ajustement des boutons musique */
 .music-button {
     padding: 12px 18px;
     font-size: 16px;
@@ -126,7 +126,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    width: 180px; /* Aligné avec les autres boutons */
 }
 
 /* 🎵 Effet Glow sur Play Music */
