@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Play - Fun Version</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎲 How to Play - The Fun & Wacky Guide! 🎲</h1>
+    </header>
+    <main>
+        <p>So you want to play? Buckle up, because things are about to get RANDOM!</p>
+        <p>Step 1: Breathe in. Breathe out. Embrace the chaos.</p>
+        <p>Step 2: Click the button below and accept your fate.</p>
+        <p>Step 3: Don't question the dice. Just roll.</p>
+        <button onclick="rollTheDice()">🎲 Click to Roll</button>
+        <p id="result"></p>
+    </main>
+    <script>
+        function rollTheDice() {
+            const messages = [
+                "🔥 The dice has spoken! Accept your destiny!",
+                "😂 Oops... this might not go as planned!",
+                "🚀 You're on a wild ride now!",
+                "😱 Too late to turn back!",
+                "💀 Welp... good luck!"
+            ];
+            document.getElementById("result").innerText = messages[Math.floor(Math.random() * messages.length)];
+        }
+    </script>
+</body>
+</html>
