@@ -156,13 +156,25 @@ body {
     clear: both; /* Assure qu'elle ne chevauche aucun élément */
 }
 
-/* ✅ Ajustement Responsive Mobile */
+/* ✅ Mise en page Mobile : 1 Colonne */
 @media (max-width: 768px) {
-    /* ✅ Passage en colonne unique */
     .diceman-wrapper {
-        flex-direction: column;
+        display: flex;
+        flex-direction: column; /* Colonne unique */
         align-items: center;
         gap: 10px;
+    }
+
+    /* ✅ Les boutons passent en ligne sur mobile */
+    .controls-container {
+        display: flex;
+        flex-direction: row; /* Aligne How to Play, Music Buttons et Coffee en ligne */
+        flex-wrap: nowrap; /* Empêche le retour à la ligne */
+        justify-content: center;
+        gap: 5px;
+        width: 100%;
+        max-width: 90%;
+        margin: auto;
     }
 
     /* ✅ Image du Diceman plus grande sur mobile */
