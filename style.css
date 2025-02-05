@@ -193,7 +193,7 @@ body {
 
     .coffee-button {
         font-size: 15px; /* Réduction de la taille du texte */
-        padding: 6px 9px; /* Ajustement de l'espace intérieur */
+        padding: 5px 9px; /* Ajustement de l'espace intérieur */
         width: 90px; /* Taille légèrement réduite */
     }
     
