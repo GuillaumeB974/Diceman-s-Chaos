@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Play - Interactive Story</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎲 How to Play - Choose Your Own Chaos</h1>
+    </header>
+    <main>
+        <p>You wake up in a mysterious room. A glowing dice floats before you.</p>
+        <p>What do you do?</p>
+        <button onclick="makeChoice('roll')">🎲 Roll the Dice</button>
+        <button onclick="makeChoice('ignore')">🚪 Ignore the Dice</button>
+        <p id="story"></p>
+    </main>
+    <script>
+        function makeChoice(choice) {
+            if (choice === 'roll') {
+                document.getElementById("story").innerText = "The dice glows brighter... your fate is sealed!";
+            } else {
+                document.getElementById("story").innerText = "You ignore the dice... but it follows you. Forever.";
+            }
+        }
+    </script>
+</body>
+</html>
