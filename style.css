@@ -191,6 +191,12 @@ body {
         object-fit: contain;
     }
 
+    .coffee-button {
+        font-size: 12px; /* Réduction de la taille du texte */
+        padding: 6px 10px; /* Ajustement de l'espace intérieur */
+        width: 90px; /* Taille légèrement réduite */
+    }
+    
     /* ✅ Alignement des boutons musique */
     .music-control {
         display: flex;
