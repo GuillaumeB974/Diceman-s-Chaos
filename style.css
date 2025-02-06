@@ -152,6 +152,16 @@ h1,
   margin: 20px auto;
 }
 
+/* =================== TITRE SEO (H2) =================== */
+.seo-title {
+  font-size: 0.8em;
+  text-align: center;
+  color: #444;
+  margin-top: -10px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  clear: both;
+}
 /* =================== MEDIA QUERIES POUR MOBILE =================== */
 @media (max-width: 768px) {
   /* Réorganisation du layout principal en colonne */
@@ -176,16 +186,6 @@ h1,
     flex-direction: row;
     gap: 10px;
   }
-}
-/* =================== TITRE SEO (H2) =================== */
-.seo-title {
-  font-size: 0.8em;
-  text-align: center;
-  color: #444;
-  margin-top: -10px;
-  margin-bottom: 50px;
-  font-weight: bold;
-  clear: both;
 }
 
 /* =================== PHRASE ET CHOIX =================== */
