@@ -1,0 +1,487 @@
+/* =================== BASE ET LAYOUT =================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* =================== LAYOUT PC (3 Colonnes) =================== */
+.diceman-wrapper {
+  display: flex;
+  flex-direction: row; /* Par défaut : disposition en ligne pour PC */
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin: 10px auto;
+  max-width: 80%;
+}
+
+/* Attribution de l'ordre dans le layout PC */
+.left-container {
+  order: 1;
+  flex: 1;
+}
+
+.diceman-container {
+  order: 2;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-container {
+  order: 3;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Les contrôles musicaux sont dans #music-controls, qui se trouve dans la colonne de droite en PC */
+
+/* =================== BOUTONS ET ÉLÉMENTS DIVERS =================== */
+
+/* Bouton "How to Play" */
+.how-to-play-img {
+  width: 150px; /* Taille par défaut sur PC */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.how-to-play-img:hover {
+  transform: scale(1.1);
+}
+
+/* Pour la redirection "How to Play" (sur PC, vérifiez que le lien est bien cliquable) */
+#random-how-to-play, #random-how-to-play-pc {
+  display: inline-block; /* Assure que toute la zone est cliquable */
+}
+
+/* Bouton "Buy Me a Coffee" */
+.coffee-button {
+  background-color: #ffcc00;
+  color: black;
+  padding: 12px 18px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 5px;
+  display: block;
+  font-size: 18px;
+}
+
+/* =================== CONTROLES MUSICAUX =================== */
+#music-controls {
+  /* Ce conteneur est placé dans la colonne de droite sur PC */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Centré dans la colonne */
+  justify-content: center;
+  align-items: center;
+}
+
+.music-button {
+  padding: 12px 18px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Bouton Play Music */
+#play-music {
+  background-color: #ff0066;
+  color: white;
+  font-weight: bold;
+  animation: glow 1.5s infinite alternate;
+}
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(255, 0, 102, 0.6); }
+  100% { box-shadow: 0 0 15px rgba(255, 0, 102, 0.9); }
+}
+
+/* Bouton Pause Music */
+#pause-music {
+  background-color: #444;
+  color: white;
+}
+
+/* =================== MEDIA QUERIES POUR MOBILE =================== */
+@media (max-width: 768px) {
+  .diceman-wrapper {
+    flex-direction: column; /* Passage en colonne sur mobile */
+  }
+  
+  /* Réordonner les éléments pour que les contrôles musicaux apparaissent au-dessus de l'image du Diceman */
+  .left-container {
+    order: 1;
+  }
+  .right-container {
+    order: 2;  /* La colonne de droite (contenant #music-controls) se place ici */
+  }
+  .diceman-container {
+    order: 3;
+  }
+  
+  /* Agrandir le bouton "How to Play" sur mobile */
+  .how-to-play-img {
+    width: 250px; /* Augmentation de la taille pour une meilleure visibilité */
+  }
+  
+  /* Réduire la taille du texte du bouton "Buy Me a Coffee" sur mobile */
+  .coffee-button {
+    font-size: 14px;
+  }
+  
+  /* Pour les contrôles musicaux, on adapte la disposition en ligne */
+  #music-controls {
+    flex-direction: row; /* Affichage en ligne sur mobile */
+    gap: 10px;
+  }
+}
+
+
+/* =================== PHRASE ET CHOIX =================== */
+.phrase-container p {
+  margin: 20px auto;
+  font-size: 2em;
+  font-style: italic;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+.choices-container {
+  margin: 40px auto;
+  text-align: center;
+  padding: 20px;
+}
+.choices-container h3,
+.choices-title {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+}
+.choices-container select {
+  font-size: 1.5em;
+  padding: 12px;
+  border-radius: 8px;
+  margin: 10px;
+}
+#generate-btn {
+  background-color: #007bff;
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#generate-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Bouton Chaos */
+#chaos-btn {
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 2.5em;
+  padding: 30px 60px;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+#chaos-btn:hover {
+  background-color: #ff1a1a;
+}
+
+/* =================== DÉS ET ROLL =================== */
+.dice-container {
+  display: none; /* Masqué par défaut */
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 40px auto;
+}
+.dice {
+  text-align: center;
+  margin: 20px;
+}
+.dice img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+.dice-phrase {
+  color: #000;
+  font-size: 1em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.roll-dice-container {
+  display: none;
+  margin: 30px auto;
+}
+#roll-dice-btn {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.roll-dice-color-1 { background-color: #deb135; color: #000; }
+.roll-dice-color-2 { background-color: #9c8264; color: #000; }
+.roll-dice-color-3 { background-color: #e5eb21; color: #000; }
+.roll-dice-color-4 { background-color: #42c427; color: #000; }
+.roll-dice-color-5 { background-color: #5cd4e0; color: #000; }
+
+/* =================== DESCRIPTION =================== */
+.description-container {
+  display: none;
+  margin: 20px auto;
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* =================== ANIMATIONS =================== */
+.dice.highlight {
+  border: 3px solid #ff4500;
+  animation: highlight-glow 1s infinite;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+}
+@keyframes highlight-glow {
+  0% { box-shadow: 0 0 5px rgba(255, 69, 0, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(255, 69, 0, 1); }
+  100% { box-shadow: 0 0 5px rgba(255, 69, 0, 0.5); }
+}
+@keyframes vibrate {
+  0% { transform: translate(0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-2px, -2px); }
+  100% { transform: translate(0); }
+}
+#chaos-btn.vibrate {
+  animation: vibrate 0.3s infinite, blink 1.5s infinite, highlight-glow 2s infinite;
+}
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+@keyframes flash {
+  0% { background-color: rgba(255, 0, 0, 0.5); }
+  100% { background-color: transparent; }
+}
+.flash-animation {
+  animation: flash 0.5s ease-out;
+}
+
+/* =================== FOOTER =================== */
+footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  margin-top: 30px;
+  opacity: 0.8;
+}
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.footer-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+.footer-section a {
+  color: #ffcc00;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: bold;
+}
+.footer-section a:hover {
+  color: #ff0066;
+}
+.footer-highlight a {
+  font-size: 18px;
+  font-weight: bold;
+  color: #4CAF50;
+}
+.footer-highlight a:hover {
+  color: #ff0066;
+}
+.footer-slogan {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+#about-section {
+  font-size: 1em;
+  margin-top: 15px;
+  color: #ffcc00;
+}
+
+/* =================== COOKIE BANNER =================== */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  z-index: 9999;
+}
+#cookie-banner p {
+  display: inline;
+  margin-right: 10px;
+  font-size: 14px;
+}
+#cookie-banner a {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+#accept-cookies {
+  background-color: #ffcc00;
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+#accept-cookies:hover {
+  background-color: #e6b800;
+}
+
+/* =================== SECTIONS SUPPLÉMENTAIRES =================== */
+/* Mystery Message */
+.mystery-message h2 {
+  font-size: 28px;
+  color: #ff0066;
+}
+.mystery-message p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Support Section */
+.support-section h3 {
+  font-size: 24px;
+  color: #4CAF50;
+}
+.support-section p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+.support-section a {
+  color: #ffcc00;
+  font-weight: bold;
+  text-decoration: none;
+}
+.support-section a:hover {
+  color: #ff0066;
+}
+
+/* Mystery Image */
+.mystery-image img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+}
+
+/* =================== RESPONSIVE MOBILE =================== */
+@media (max-width: 768px) {
+  .diceman-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  /* Affichage du conteneur mobile */
+  .mobile-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+  /* On masque les colonnes PC */
+  .left-container,
+  .right-container {
+    display: none;
+  }
+  /* Uniformisation des tailles sur mobile */
+  .how-to-play-img,
+  .music-button,
+  .coffee-button {
+    width: 70px;
+    height: 50px;
+    font-size: 14px;
+    padding: 8px;
+    object-fit: contain;
+  }
+  .diceman-container {
+    margin-top: 10px;
+  }
+  #diceman-image {
+    max-width: 80%;
+    height: auto;
+  }
+  .choices-container h3,
+  .choices-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+  .choices-container select {
+    font-size: 1.2em;
+    padding: 10px;
+  }
+  #generate-btn {
+    font-size: 1.5em;
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dice img {
+    width: 80px;
+    height: 80px;
+  }
+  .music-control button {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
