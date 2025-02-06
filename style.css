@@ -242,7 +242,16 @@ body {
         padding: 8px;
         object-fit: contain;
     }
-
+    
+    /* ✅ Ajustement du bouton "Buy Me a Coffee" sur 2 lignes */
+    .coffee-button {
+        font-size: 14px;
+        padding: 8px 12px;
+        width: 100px;
+        text-align: center;
+        white-space: normal; /* Permet le retour à la ligne */
+    }
+    
     /* ✅ Diceman centré en dessous */
     .diceman-container {
         margin-top: 10px;
