@@ -117,30 +117,58 @@
             <img id="extra-image" src="" alt="Extra Image" class="extra-image">
         </div>
 
-       <!-- ✅ Conteneur principal (3 colonnes sur PC) -->
-<div class="diceman-wrapper">
+       <body>
+    <div id="app">
+        <!-- ✅ Bannière -->
+        <div class="banner-container">
+            <h1 class="hidden-title">Diceman’s Chaos - Put Your Fate in a Roll</h1>
+            <img id="banner-image" src="" alt="Bannière thématique">
+        </div>
 
-    <!-- ✅ Colonne de gauche : How to Play + Buy Me a Coffee -->
-    <div class="left-container">
-       <a href="#" id="random-how-to-play">
-    <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
-</a>
+        <!-- ✅ Extra Image sous la bannière -->
+        <div class="extra-image-container">
+            <img id="extra-image" src="" alt="Extra Image" class="extra-image">
+        </div>
 
-        <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">☕ Buy Me a Coffee</a>
+        <!-- ✅ CONTENEUR POUR LES BOUTONS SUR MOBILE (s'affiche SEULEMENT sur mobile) -->
+        <div class="mobile-controls">
+            <a href="how-to-play.html">
+                <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
+            </a>
+            <button id="play-music" class="music-button">🎵</button>
+            <button id="pause-music" class="music-button">⏸</button>
+            <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">☕</a>
+        </div>
+
+        <!-- ✅ Conteneur principal (3 colonnes sur PC) -->
+        <div class="diceman-wrapper">
+            
+            <!-- ✅ Colonne de gauche : How to Play & Buy Me a Coffee (PC) -->
+            <div class="left-container">
+                <a href="how-to-play.html">
+                    <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
+                </a>
+                <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">
+                    ☕ Buy Me a Coffee
+                </a>
+            </div>
+
+            <!-- ✅ Colonne du centre : Image du Diceman -->
+            <div class="diceman-container">
+                <img id="diceman-image" src="" alt="Image du DiceMan">
+            </div>
+
+            <!-- ✅ Colonne de droite : Boutons musique (PC) -->
+            <div class="right-container">
+                <button id="play-music" class="music-button">🎵 Play Music</button>
+                <button id="pause-music" class="music-button">⏸ Pause Music</button>
+            </div>
+
+        </div> <!-- Fin de diceman-wrapper -->
+
+        <!-- ✅ Phrase d'accroche fixe pour le SEO -->
+        <h2 class="seo-title">A completely non-random piece of advice from Mr. Fifth :</h2>
     </div>
-
-    <!-- ✅ Colonne centrale : Image du Diceman -->
-    <div class="diceman-container">
-        <img id="diceman-image" src="" alt="Image du DiceMan">
-    </div>
-
-    <!-- ✅ Colonne de droite : Boutons de musique -->
-    <div class="right-container">
-        <button id="play-music" class="music-button">🎵 Play Music</button>
-        <button id="pause-music" class="music-button">⏸ Pause Music</button>
-    </div>
-
-</div> <!-- Fin de diceman-wrapper -->
 
         <!-- ✅ Phrase d'accroche fixe pour le SEO -->
         <h2 class="seo-title">A completely non-random piece of advice from Mr. Fifth :</h2>
