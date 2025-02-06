@@ -236,7 +236,7 @@ body {
     .how-to-play-img,
     .music-button,
     .coffee-button {
-        width: 80px;
+        width: 90px;
         height: 50px;
         font-size: 14px;
         padding: 8px;
@@ -246,11 +246,10 @@ body {
     /* ✅ Ajustement du bouton "Buy Me a Coffee" sur 2 lignes */
     .coffee-button {
         font-size: 14px;
-        padding: 8px 12px;
+        padding: 8px 16px;
         width: 100px;
         text-align: center;
-        white-space: normal; /* Permet le retour à la ligne */
-    }
+       }
     
     /* ✅ Diceman centré en dessous */
     .diceman-container {
