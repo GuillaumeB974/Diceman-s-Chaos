@@ -116,6 +116,11 @@ body {
     flex: 1;
 }
 
+/* ✅ CONTENEUR MOBILE : Regroupe How to Play + Musique + Coffee */
+.mobile-controls {
+    display: none; /* Caché sur PC */
+}
+
 /* ✅ Ajustement des boutons musique */
 .music-button {
     padding: 12px 18px;
@@ -156,72 +161,96 @@ body {
     clear: both; /* Assure qu'elle ne chevauche aucun élément */
 }
 
-/* ✅ Mise en page Mobile : 1 Colonne */
+/* ✅ Conteneur global : 3 colonnes sur PC */
+.diceman-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    margin: auto;
+    gap: 30px;
+}
+
+/* ✅ Colonne de gauche (PC) */
+.left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ✅ Colonne centrale (Diceman) */
+.diceman-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#diceman-image {
+    max-width: 500px;
+    height: auto;
+}
+
+/* ✅ Colonne de droite (PC) */
+.right-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ✅ CONTENEUR MOBILE : Regroupe How to Play + Musique + Coffee */
+.mobile-controls {
+    display: none; /* Caché sur PC */
+}
+
+/* ✅ Ajustement Responsive Mobile */
 @media (max-width: 768px) {
     .diceman-wrapper {
-        display: flex;
-        flex-direction: column; /* Colonne unique */
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
     }
-    
-  /* ✅ Alignement des boutons sous l’extra image */
-    .controls-container {
+
+    /* ✅ Afficher le conteneur mobile et masquer les éléments individuels du PC */
+    .mobile-controls {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        gap: 5px;
+        align-items: center;
+        gap: 10px;
         width: 100%;
         max-width: 90%;
         margin: auto;
-    }
-    
-     /* ✅ Aligner tous les boutons en ligne */
-    .controls-container {
-        display: flex;
-        flex-direction: row; /* Aligner les éléments horizontalement */
-        justify-content: center;
-        flex-wrap: wrap; /* Permet de forcer les retours à la ligne si besoin */
-        gap: 5px;
-        width: 100%;
-        max-width: 90%;
-        margin: auto;
+        margin-bottom: 10px;
     }
 
-    /* ✅ Image du Diceman plus grande sur mobile */
-    #diceman-image {
-        max-width: 75%;
-        height: auto;
+    .left-container,
+    .right-container {
+        display: none; /* On cache les colonnes qui sont pour PC */
     }
 
-      /* ✅ Ajustement de la taille des boutons pour uniformiser */
+    /* ✅ Uniformisation des tailles des boutons et images */
     .how-to-play-img,
     .music-button,
     .coffee-button {
         width: 80px;
         height: 50px;
+        font-size: 14px;
+        padding: 8px;
         object-fit: contain;
     }
 
-    .coffee-button {
-        font-size: 15px; /* Réduction de la taille du texte */
-        padding: 5px 9px; /* Ajustement de l'espace intérieur */
-        width: 90px; /* Taille légèrement réduite */
-    }
-    
-    /* ✅ Alignement des boutons musique */
-    .music-control {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 5px;
+    /* ✅ Diceman centré en dessous */
+    .diceman-container {
+        margin-top: 10px;
     }
 
-    .music-button {
-        font-size: 12px;
-        padding: 6px 8px;
-        width: 80px;
+    #diceman-image {
+        max-width: 80%;
+        height: auto;
     }
 }
 
