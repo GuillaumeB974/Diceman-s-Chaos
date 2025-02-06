@@ -13,9 +13,18 @@ body {
   padding: 20px;
 }
 
+/* Bannière et Extra Image */
+.banner-container {
+  margin-bottom: 20px;
+}
+.extra-image-container {
+  margin-bottom: 20px;
+}
+
 /* =================== LAYOUT PC (3 Colonnes) =================== */
 .diceman-wrapper {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 30px;
@@ -41,7 +50,7 @@ body {
 .how-to-play-img:hover {
   transform: scale(1.1);
 }
-/* S'assurer que l'image et son lien couvrent bien toute la zone */
+/* Assurer que les liens couvrent toute la zone */
 #random-how-to-play, #random-how-to-play-pc {
   display: inline-block;
 }
@@ -73,23 +82,19 @@ body {
   margin: auto;
 }
 
-/* Colonne de droite */
-/* (Ici, la colonne de droite peut contenir d'autres éléments, mais nous n'y mettons pas les contrôles musicaux) */
+/* Colonne de droite (vide ici) */
 .right-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  flex: 1;
   justify-content: center;
+  flex: 1;
 }
 
-/* =================== CONTROLES MUSICAUX (UNIQUE) =================== */
-/* Créez un conteneur unique pour les boutons de musique. Ce conteneur doit être placé dans votre HTML EN DEHORS des blocs mobiles et PC séparés.
-   Par exemple, dans le header ou juste en dessous de la bannière, ou encore dans la section principale si vous le souhaitez. */
+/* =================== MUSIC CONTROLS (Unique) =================== */
 #music-controls {
   display: flex;
-  flex-direction: column; /* En PC, affiche les boutons en colonne */
+  flex-direction: column; /* Affichage en colonne sur PC */
   align-items: center;
   gap: 15px;
   margin: 20px auto;
@@ -104,8 +109,6 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
-/* Bouton Play Music */
 #play-music {
   background-color: #ff0066;
   color: white;
@@ -116,8 +119,6 @@ body {
   0% { box-shadow: 0 0 5px rgba(255, 0, 102, 0.6); }
   100% { box-shadow: 0 0 15px rgba(255, 0, 102, 0.9); }
 }
-
-/* Bouton Pause Music */
 #pause-music {
   background-color: #444;
   color: white;
@@ -134,18 +135,28 @@ body {
   clear: both;
 }
 
-/* Pour PC : s'assurer que les boutons de musique restent affichés */
-@media screen and (min-width: 769px) {
-  #play-music, #pause-music {
-    display: inline-block;
-  }
+/* =================== MOBILE CONTROLS (How to Play & Coffee) =================== */
+.mobile-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px auto;
 }
 
 /* =================== MEDIA QUERIES POUR MOBILE =================== */
 @media (max-width: 768px) {
+  /* Réorganisation du layout principal en colonne */
+  .diceman-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
   /* Agrandir l'image "How to Play" sur mobile */
   .how-to-play-img {
-    width: 250px; /* Augmentation pour mobile */
+    width: 250px;
   }
   
   /* Réduire la taille du texte du bouton "Buy Me a Coffee" sur mobile */
@@ -153,35 +164,10 @@ body {
     font-size: 14px;
   }
   
-  /* Pour le layout mobile, la disposition passe en colonne */
-  .diceman-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  /* Repositionner les éléments par ordre :
-     - On veut que les contrôles musicaux apparaissent au-dessus de l'image du Diceman.
-     Pour cela, dans votre HTML, placez le conteneur #music-controls dans le flux 
-     et utilisez éventuellement l'ordre avec Flexbox.
-     Voici un exemple si vous avez plusieurs blocs dans .diceman-wrapper : */
-  .left-container {
-    order: 1;
-  }
-  /* Nous plaçons le conteneur de musique ensuite */
+  /* Adapter les music controls pour s'afficher en ligne sur mobile */
   #music-controls {
-    order: 2;
-    flex-direction: row; /* En mobile, on affiche les boutons en ligne */
+    flex-direction: row;
     gap: 10px;
-    margin-bottom: 15px;
-  }
-  .diceman-container {
-    order: 3;
-  }
-  
-  /* Masquer tout bloc redondant si présent (par ex. ancien .mobile-controls) */
-  .mobile-controls {
-    display: none;
   }
 }
 
