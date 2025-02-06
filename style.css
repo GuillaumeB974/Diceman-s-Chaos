@@ -41,11 +41,11 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 20px;
 }
 .control-button {
-  padding: 8px 14px;
+  padding: 10px 12px;
   font-size: 12px;
   border: none;
   border-radius: 3px;
@@ -56,7 +56,7 @@ body {
 
 /* Bouton "How to Play" */
 .how-to-play-img {
-  width: 20px; /* Taille par défaut sur PC */
+  width: 40px; /* Taille par défaut sur PC */
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
