@@ -56,7 +56,7 @@ body {
 
 /* Bouton "How to Play" */
 .how-to-play-img {
-  width: 150px; /* Taille par défaut sur PC */
+  width: 20px; /* Taille par défaut sur PC */
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
