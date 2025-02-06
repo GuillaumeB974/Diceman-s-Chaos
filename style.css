@@ -45,8 +45,8 @@ body {
   margin-bottom: 20px;
 }
 .control-button {
-  padding: 10px 16px;
-  font-size: 14px;
+  padding: 8px 14px;
+  font-size: 12px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
