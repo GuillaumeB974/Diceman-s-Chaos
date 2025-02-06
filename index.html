@@ -102,7 +102,7 @@
      crossorigin="anonymous"></script>
 </head>
 <body>
-  <div id="app">
+<div id="app">
     <!-- Bannière -->
     <header class="banner-container">
       <h1 class="hidden-title">Diceman’s Chaos - Put Your Fate in a Roll</h1>
@@ -114,28 +114,29 @@
       <img id="extra-image" src="images/extra.jpg" alt="Extra Image" class="extra-image">
     </section>
     
-    <!-- Contrôles mobiles pour "How to Play" et "Buy Me a Coffee" (affichés UNIQUEMENT sur mobile) -->
+    <!-- SECTION MOBILE : visible uniquement sur mobile -->
     <nav class="mobile-controls">
+      <!-- Bouton "How to Play" sur mobile (image agrandie) -->
       <a href="#" class="mobile-link" id="random-how-to-play">
         <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
       </a>
+      <!-- Boutons musique pour mobile -->
+      <button id="play-music-mobile" class="music-button">🎵 Play Music</button>
+      <button id="pause-music-mobile" class="music-button">⏸ Pause Music</button>
+      <!-- Bouton "Buy Me a Coffee" sur mobile avec texte réduit -->
       <a href="https://ko-fi.com/dicemanschaos" target="_blank" id="buy-me-button-mobile" class="coffee-button">☕</a>
     </nav>
     
-    <!-- Contrôles musicaux uniques (affichés sur toutes les plateformes) -->
-    <div id="music-controls">
-      <button id="play-music" class="music-button">🎵 Play Music</button>
-      <button id="pause-music" class="music-button">⏸ Pause Music</button>
-    </div>
-    
-    <!-- Contenu principal pour PC -->
+    <!-- SECTION PC : visible uniquement sur PC -->
     <main class="diceman-wrapper">
       <!-- Colonne de gauche -->
       <div class="left-container">
+        <!-- Bouton "How to Play" sur PC -->
         <a href="#" class="pc-link" id="random-how-to-play-pc">
           <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
         </a>
-        <a href="https://ko-fi.com/dicemanschaos" target="_blank" id="buy-me-button" class="coffee-button">☕ Buy Me a Coffee</a>
+        <!-- Bouton "Buy Me a Coffee" sur PC -->
+        <a href="https://ko-fi.com/dicemanschaos" target="_blank" id="buy-me-button-pc" class="coffee-button">☕ Buy Me a Coffee</a>
       </div>
       
       <!-- Colonne centrale (Image du Diceman) -->
@@ -143,9 +144,10 @@
         <img id="diceman-image" src="images/diceman.jpg" alt="Image du DiceMan">
       </div>
       
-      <!-- Colonne de droite (vide, car les contrôles musicaux sont déjà affichés) -->
+      <!-- Colonne de droite (Contrôles musicaux PC) -->
       <div class="right-container">
-        <!-- Vous pouvez y placer d'autres contenus si nécessaire -->
+        <button id="play-music-pc" class="music-button">🎵 Play Music</button>
+        <button id="pause-music-pc" class="music-button">⏸ Pause Music</button>
       </div>
     </main>
     
