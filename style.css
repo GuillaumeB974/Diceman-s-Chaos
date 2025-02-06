@@ -1,11 +1,9 @@
-/* =================== RESET =================== */
+/* =================== BASE & GLOBAL STYLES =================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-/* =================== BASE STYLES =================== */
 body {
   font-family: Arial, sans-serif;
   background-color: #222;
@@ -14,118 +12,55 @@ body {
   padding: 20px;
 }
 
-/* Cache le <h1> et tout élément portant la classe .hidden-title */
-h1,
-.hidden-title {
-  display: none !important;
-}
-
-/* =================== BANNIÈRE ET EXTRA IMAGE =================== */
+/* =================== BANNIÈRE =================== */
 .banner-container {
-  display: flex;
-  justify-content: center;
+  margin-bottom: 20px;
 }
-.banner-container img {
+.hidden-title {
+  display: none;
+}
+#banner-image {
   width: 100%;
   max-height: 300px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
+/* =================== EXTRA IMAGE =================== */
 .extra-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
+  margin-bottom: 20px;
 }
-#extra-image {
+.extra-image {
   width: 100%;
   max-width: 600px;
   height: auto;
-  display: block;
-  margin-bottom: 2px;
 }
 
-/* =================== LAYOUT PC (3 Colonnes) =================== */
-.diceman-wrapper {
+/* =================== CONTROLES (4 BOUTONS EN LIGNE) =================== */
+#controls {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  margin: 10px auto;
-  max-width: 80%;
-}
-
-/* Colonne de gauche */
-.left-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  flex: 1;
-}
-
-/* Bouton "How to Play" */
-.how-to-play-img {
-  width: 150px;
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
-}
-.how-to-play-img:hover {
-  transform: scale(1.1);
-}
-
-/* Bouton "Buy Me a Coffee" */
-.coffee-button {
-  background-color: #ffcc00;
-  color: black;
-  padding: 12px 18px;
-  text-decoration: none;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 5px;
-  display: block;
-  font-size: 18px;
-}
-
-/* Colonne centrale (Image du Diceman) */
-.diceman-container {
-  flex: 1;
-  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-#diceman-image {
-  max-width: 500px;
-  height: auto;
-  display: block;
-  margin: auto;
-}
-
-/* Colonne de droite (Boutons Musique) */
-.right-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: 15px;
-  flex: 1;
+  margin-bottom: 20px;
 }
-
-/* =================== CONTROLE MOBILE =================== */
-/* Par défaut, on masque la version mobile (visible en mobile via media query) */
-.mobile-controls {
-  display: none;
-}
-
-/* =================== BOUTONS MUSIQUE =================== */
-.music-button {
+.control-button {
   padding: 12px 18px;
   font-size: 16px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  text-decoration: none;  /* Pour le lien Coffee */
   transition: background-color 0.3s;
 }
 
+/* Bouton "How to Play" */
+#random-how-to-play {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Bouton "Play Music" */
 #play-music {
   background-color: #ff0066;
   color: white;
@@ -137,55 +72,37 @@ h1,
   100% { box-shadow: 0 0 15px rgba(255, 0, 102, 0.9); }
 }
 
+/* Bouton "Pause Music" */
 #pause-music {
   background-color: #444;
   color: white;
 }
 
-/* =================== MOBILE CONTROLS (How to Play & Coffee) =================== */
-.mobile-controls {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 20px auto;
+/* Bouton "Coffee" */
+.coffee-button {
+  background-color: #ffcc00;
+  color: black;
+  font-weight: bold;
 }
 
-/* =================== TITRE SEO (H2) =================== */
-.seo-title {
-  font-size: 0.8em;
-  text-align: center;
-  color: #444;
-  margin-top: -10px;
-  margin-bottom: 50px;
-  font-weight: bold;
-  clear: both;
+/* =================== IMAGE DU DICEMAN =================== */
+.diceman-container {
+  margin-bottom: 20px;
 }
-/* =================== MEDIA QUERIES POUR MOBILE =================== */
-@media (max-width: 768px) {
-  /* Réorganisation du layout principal en colonne */
-  .diceman-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-  
-  /* Agrandir l'image "How to Play" sur mobile */
-  .how-to-play-img {
-    width: 250px;
-  }
-  
-  /* Réduire la taille du texte du bouton "Buy Me a Coffee" sur mobile */
-  .coffee-button {
-    font-size: 14px;
-  }
-  
-  /* Adapter les music controls pour s'afficher en ligne sur mobile */
-  #music-controls {
-    flex-direction: row;
-    gap: 10px;
-  }
+#diceman-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+/* =================== TITRE SEO =================== */
+.seo-title {
+  font-size: 1em;
+  text-align: center;
+  color: #ccc;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 /* =================== PHRASE ET CHOIX =================== */
