@@ -55,9 +55,13 @@ body {
 }
 
 /* Bouton "How to Play" */
-#random-how-to-play {
-  background-color: #007bff;
-  color: white;
+.how-to-play-img {
+  width: 150px; /* Taille par défaut sur PC */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.how-to-play-img:hover {
+  transform: scale(1.1);
 }
 
 /* Bouton "Play Music" */
