@@ -174,7 +174,7 @@ descriptionElement.style.margin = "20px auto";
     };
 });
 
-// === Gestion de la bannière des cookies (Fermeture corrigée) ===
+// === Gestion de la bannière des cookies ===
 document.addEventListener("DOMContentLoaded", function () {
     const cookieBanner = document.getElementById("cookie-banner");
     const acceptCookiesButton = document.getElementById("accept-cookies");
@@ -191,41 +191,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// === Bouton "Buy Me a Coffee" Dynamique ===
+// === Gestion du bouton Buy Me a Coffee ===
 document.addEventListener("DOMContentLoaded", () => {
-    const buyButton = document.getElementById("buy-me-button");
-    if (buyButton) {
-        const buyOptions = [
-            "☕ Buy Me a Coffee",
-            "🔥 Support My Chaos",
-            "🎲 Fuel the Dice",
-            "⚡ Power the Randomness",
-            "👽 Send Coffee to Mr. Fifth",
-            "💡 Keep the Chaos Alive",
-            "✨ Fill Me with Gold",
-            "🍵 Buy Me a Tea",
-            "🥤 Get Me a Soda",
-            "💰 Toss Me some Coins",
-            "🧪 Offer Me a Potion",
-            "🧃 Treat Me a Juice",
-            "🎲 Roll Me a Coffee"
-        ];
+    const buyButtons = document.querySelectorAll("#buy-me-button");
+    const buyOptions = [
+        "☕ Buy Me a Coffee",
+        "🔥 Support My Chaos",
+        "🎲 Fuel the Dice",
+        "⚡ Power the Randomness",
+        "👽 Send Coffee to Mr. Fifth",
+        "💡 Keep the Chaos Alive",
+        "✨ Fill Me with Gold",
+        "🍵 Buy Me a Tea",
+        "🥤 Get Me a Soda",
+        "💰 Toss Me some Coins",
+        "🧪 Offer Me a Potion",
+        "🧃 Treat Me a Juice",
+        "🎲 Roll Me a Coffee"
+    ];
 
-        // Sélection aléatoire d'un texte parmi la liste
-        buyButton.innerText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
-
-        // Ajout de l'événement pour ouvrir Ko-Fi dans un nouvel onglet
-        buyButton.addEventListener("click", () => {
-            window.open("https://ko-fi.com/dicemanschaos", "_blank");
+    if (buyButtons.length > 0) {
+        buyButtons.forEach(button => {
+            button.innerText = buyOptions[Math.floor(Math.random() * buyOptions.length)];
+            button.addEventListener("click", () => {
+                window.open("https://ko-fi.com/dicemanschaos", "_blank");
+            });
         });
-    } else {
-        console.error("Le bouton 'Buy Me a Coffee' est introuvable !");
     }
 });
-document.addEventListener("DOMContentLoaded", function () {
-    const howToPlayButton = document.getElementById("random-how-to-play");
 
-    // Liste des différentes pages "How to Play"
+// === Redirection aléatoire des boutons "How to Play" ===
+document.addEventListener("DOMContentLoaded", function () {
+    const howToPlayButtons = document.querySelectorAll("#random-how-to-play");
+
     const howToPlayPages = [
         "how-to-play-1.html",
         "how-to-play-2.html",
@@ -233,14 +231,39 @@ document.addEventListener("DOMContentLoaded", function () {
         "how-to-play-4.html"
     ];
 
-    // Écouteur d'événement pour cliquer sur l'image
-    howToPlayButton.addEventListener("click", function (event) {
-        event.preventDefault(); // Empêche le comportement par défaut du lien
+    if (howToPlayButtons.length > 0) {
+        howToPlayButtons.forEach(button => {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                const randomPage = howToPlayPages[Math.floor(Math.random() * howToPlayPages.length)];
+                console.log("Redirection vers :", randomPage);
+                window.location.href = randomPage;
+            });
+        });
+    }
+});
 
-        // Sélection aléatoire d'une page
-        const randomPage = howToPlayPages[Math.floor(Math.random() * howToPlayPages.length)];
+// === Gestion de la musique (Correction du bug avec randomTheme.music) ===
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = new Audio();
+    const playButton = document.getElementById("play-music");
+    const pauseButton = document.getElementById("pause-music");
 
-        // Redirection vers la page choisie aléatoirement
-        window.location.href = randomPage;
-    });
+    if (playButton && pauseButton) {
+        playButton.addEventListener("click", () => {
+            if (typeof randomTheme !== "undefined" && randomTheme.music && randomTheme.music.length > 0) {
+                const randomIndex = Math.floor(Math.random() * randomTheme.music.length);
+                audio.src = randomTheme.music[randomIndex];
+                console.log("Lecture de :", audio.src);
+                audio.play().catch(err => console.error("Erreur de lecture audio :", err));
+            } else {
+                console.error("randomTheme.music est vide ou non défini !");
+            }
+        });
+
+        pauseButton.addEventListener("click", () => {
+            console.log("Musique en pause");
+            audio.pause();
+        });
+    }
 });
