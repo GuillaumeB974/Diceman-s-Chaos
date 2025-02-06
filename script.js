@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
+    function checkViewport() {
+        const isMobile = window.innerWidth <= 768;
+        document.body.classList.toggle("mobile-view", isMobile);
+        document.body.classList.toggle("desktop-view", !isMobile);
+    }
+
+    checkViewport();
+    window.addEventListener("resize", checkViewport);
+});
 // === Thèmes et Éléments ===
 const themes = {
     calme: {
