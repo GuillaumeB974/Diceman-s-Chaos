@@ -166,6 +166,7 @@ h1,
   #play-music, #pause-music {
     display: inline-block;
   }
+}
 
 /* =================== MEDIA QUERIES POUR MOBILE =================== */
 @media (max-width: 768px) {
@@ -199,7 +200,6 @@ h1,
   .right-container {
     /* Selon votre design, ajustez ici si vous devez masquer certains éléments sur mobile */
   }
-}
 
 /* =================== PHRASE ET CHOIX =================== */
 .phrase-container p {
