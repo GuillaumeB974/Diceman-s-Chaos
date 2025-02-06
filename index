@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diceman's Chaos - Put Your Fate in a Roll</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <!-- Préchargement et inclusion du CSS -->
+  <link rel="preload" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- (Autres meta tags SEO, Open Graph, etc. peuvent rester inchangés) -->
+</head>
+<body>
+  <div id="app">
+    <!-- Bannière -->
+    <header class="banner-container">
+      <h1 class="hidden-title">Diceman’s Chaos - Put Your Fate in a Roll</h1>
+      <img id="banner-image" src="images/banner.jpg" alt="Bannière thématique">
+    </header>
+
+    <!-- Extra image sous la bannière -->
+    <section class="extra-image-container">
+      <img id="extra-image" src="images/extra.jpg" alt="Extra Image" class="extra-image">
+    </section>
+
+    <!-- CONTROLE MOBILE (affiché uniquement sur mobile) -->
+    <nav class="mobile-controls">
+      <a href="#" class="mobile-link" id="random-how-to-play">
+        <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
+      </a>
+      <button id="play-music-mobile" class="music-button">🎵</button>
+      <button id="pause-music-mobile" class="music-button">⏸</button>
+      <a href="https://ko-fi.com/dicemanschaos" target="_blank" id="buy-me-mobile" class="coffee-button">☕</a>
+    </nav>
+
+    <!-- CONTENU PRINCIPAL POUR PC -->
+    <main class="diceman-wrapper">
+      <!-- Colonne de gauche -->
+      <div class="left-container">
+        <a href="#" class="pc-link" id="random-how-to-play-pc">
+          <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
+        </a>
+        <a href="https://ko-fi.com/dicemanschaos" target="_blank" id="buy-me-pc" class="coffee-button">☕ Buy Me a Coffee</a>
+      </div>
+
+      <!-- Colonne centrale -->
+      <div class="diceman-container">
+        <img id="diceman-image" src="images/diceman.jpg" alt="Image du DiceMan">
+      </div>
+
+      <!-- Colonne de droite -->
+      <div class="right-container">
+        <button id="play-music-pc" class="music-button">🎵 Play Music</button>
+        <button id="pause-music-pc" class="music-button">⏸ Pause Music</button>
+      </div>
+    </main>
+
+    <!-- Phrase d'accroche (SEO) -->
+    <h2 class="seo-title">A completely non-random piece of advice from Mr. Fifth :</h2>
+
+    <!-- Autres sections -->
+    <section class="phrase-container">
+      <p id="diceman-phrase">Loading...</p>
+    </section>
+
+    <section class="choices-container">
+      <h3 class="choices-title">Choose an Easier Path...</h3>
+      <select id="category">
+        <option value="Everyday Actions">Everyday Actions</option>
+        <option value="Creative Activity">Creative Activity</option>
+        <option value="Social Interaction">Social Interaction</option>
+        <option value="Physical Activity">Physical Activity</option>
+        <option value="Nature & Adventure">Nature & Adventure</option>
+      </select>
+      <select id="difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Hard">Hard</option>
+      </select>
+      <button id="generate-btn">Generate</button>
+    </section>
+
+    <section class="chaos-container">
+      <h3 class="choices-title">Or... Unleash the Chaos!</h3>
+      <button id="chaos-btn">CHAOS !!</button>
+    </section>
+
+    <!-- Conteneur des dés -->
+    <section class="dice-container" id="dice-container">
+      <div class="dice" id="dice-1">
+        <img src="images/dice1.png" alt="Dice 1" class="dice-image">
+        <p class="dice-phrase"></p>
+      </div>
+      <!-- Ajoutez ici les autres dés si nécessaire -->
+    </section>
+
+    <!-- Bouton Roll the Dice -->
+    <section class="roll-dice-container">
+      <button id="roll-dice-btn">ROLL THE DICE</button>
+    </section>
+
+    <!-- Description -->
+    <section class="description-container">
+      <p id="dice-description" class="hidden">...</p>
+    </section>
+  </div> <!-- Fin de #app -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <a href="chaos-stories.html">📖 Chaos Stories</a> |
+        <a href="faq.html">❓ FAQ</a>
+      </div>
+      <div class="footer-section footer-highlight">
+        <a href="https://www.facebook.com/DiceMansChaos" target="_blank">📘 Follow us on Facebook</a> |
+        <a href="dicemen-project.html">🎭 Dicemen Project</a>
+      </div>
+      <div class="footer-section">
+        <a href="legal-notices.html">📜 Legal Notice</a> |
+        <a href="cookie-policy.html">🍪 Cookie Policy</a> |
+        <a href="privacy-policy.html">🔒 Privacy Policy</a>
+      </div>
+      <div class="footer-section footer-slogan">
+        <p>🎲 About Diceman’s Chaos 🎲</p>
+        <p>Put your fate in a roll! Embrace the randomness and let destiny guide your choices.</p>
+      </div>
+      <div class="footer-section">
+        <p>© 2025 Diceman's Chaos - All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bannière de cookies (placée en dehors de #app) -->
+  <div id="cookie-banner" style="display: none;">
+    <p>This website uses cookies to ensure you get the best experience. 
+      <a href="cookie-policy.html">Learn more</a>
+    </p>
+    <button id="accept-cookies">Accept</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
