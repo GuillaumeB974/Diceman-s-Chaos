@@ -189,9 +189,13 @@ h1,
 
   /* Agrandir le bouton "How to Play" sur mobile */
   .how-to-play-img {
-    width: 200px; /* Augmentation de la taille pour mobile */
+    width: 250px; /* Augmentation de la taille pour mobile */
   }
-
+  
+  .coffee-button {
+    font-size: 14px; /* Modification : passage de 18px à 14px pour un texte plus petit sur mobile */
+  }
+  
   /* On masque la version PC si nécessaire (par exemple, la colonne droite) */
   .diceman-wrapper {
     flex-direction: column;
