@@ -1,10 +1,9 @@
-/* =================== BASE & LAYOUT =================== */
+/* =================== BASE & GLOBAL STYLES =================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, sans-serif;
   background-color: #222;
@@ -21,17 +20,74 @@ body {
   margin-bottom: 20px;
 }
 
-/* =================== LAYOUT PC (3 Colonnes) =================== */
-.diceman-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  margin: 10px auto;
-  max-width: 80%;
+/* =================== SECTION MOBILE =================== */
+/* Par défaut, on masque la section mobile sur PC */
+.mobile-controls {
+  display: none;
 }
 
+/* Styles pour la version mobile */
+@media (max-width: 768px) {
+  .mobile-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto;
+  }
+  /* Agrandir l'image "How to Play" sur mobile */
+  .how-to-play-img {
+    width: 250px;
+  }
+  /* Réduire la taille du texte du bouton "Buy Me a Coffee" sur mobile */
+  .coffee-button {
+    font-size: 14px;
+  }
+  
+  /* Les contrôles musicaux mobiles utilisent ces IDs :
+     #play-music-mobile et #pause-music-mobile, avec le même style que la version PC */
+  #play-music-mobile {
+    background-color: #ff0066;
+    color: white;
+    font-weight: bold;
+    animation: glow 1.5s infinite alternate;
+  }
+  #pause-music-mobile {
+    background-color: #444;
+    color: white;
+  }
+  .music-button {
+    padding: 12px 18px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  /* Masquer la section PC */
+  .diceman-wrapper {
+    display: none;
+  }
+}
+
+/* =================== SECTION PC =================== */
+/* Par défaut, on masque la section PC sur mobile */
+@media (min-width: 769px) {
+  .diceman-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    margin: 10px auto;
+    max-width: 80%;
+  }
+  .mobile-controls {
+    display: none;
+  }
+}
+
+/* =================== LAYOUT PC (3 Colonnes) =================== */
 /* Colonne de gauche */
 .left-container {
   display: flex;
@@ -40,22 +96,21 @@ body {
   gap: 15px;
   flex: 1;
 }
-
-/* Bouton "How to Play" */
+/* "How to Play" image pour PC */
 .how-to-play-img {
-  width: 150px; /* Taille par défaut sur PC */
+  width: 150px; /* Taille par défaut pour PC */
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 .how-to-play-img:hover {
   transform: scale(1.1);
 }
-/* Assurer que les liens couvrent toute la zone */
+/* S'assurer que les liens couvrent toute la zone */
 #random-how-to-play, #random-how-to-play-pc {
   display: inline-block;
 }
 
-/* Bouton "Buy Me a Coffee" */
+/* Bouton "Buy Me a Coffee" pour PC */
 .coffee-button {
   background-color: #ffcc00;
   color: black;
@@ -82,25 +137,17 @@ body {
   margin: auto;
 }
 
-/* Colonne de droite (vide ici) */
+/* Colonne de droite (Contrôles musicaux PC) */
 .right-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-
-/* =================== MUSIC CONTROLS (Unique) =================== */
-#music-controls {
-  display: flex;
-  flex-direction: column; /* Affichage en colonne sur PC */
-  align-items: center;
   gap: 15px;
-  margin: 20px auto;
+  flex: 1;
+  justify-content: center;
 }
 
-/* Boutons musique */
+/* =================== BOUTONS MUSICAUX (PC) =================== */
 .music-button {
   padding: 12px 18px;
   font-size: 16px;
@@ -109,7 +156,7 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-#play-music {
+#play-music-pc {
   background-color: #ff0066;
   color: white;
   font-weight: bold;
@@ -119,7 +166,7 @@ body {
   0% { box-shadow: 0 0 5px rgba(255, 0, 102, 0.6); }
   100% { box-shadow: 0 0 15px rgba(255, 0, 102, 0.9); }
 }
-#pause-music {
+#pause-music-pc {
   background-color: #444;
   color: white;
 }
