@@ -1,9 +1,11 @@
-/* =================== BASE & GLOBAL STYLES =================== */
+/* =================== RESET =================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* =================== BASE STYLES =================== */
 body {
   font-family: Arial, sans-serif;
   background-color: #222;
@@ -12,82 +14,47 @@ body {
   padding: 20px;
 }
 
-/* Bannière et Extra Image */
+/* Cache le <h1> et tout élément portant la classe .hidden-title */
+h1,
+.hidden-title {
+  display: none !important;
+}
+
+/* =================== BANNIÈRE ET EXTRA IMAGE =================== */
 .banner-container {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
+.banner-container img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
 .extra-image-container {
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
 }
-
-/* =================== SECTION MOBILE =================== */
-/* Par défaut, on masque la section mobile sur PC */
-.mobile-controls {
-  display: none;
-}
-
-/* Styles pour la version mobile */
-@media (max-width: 768px) {
-  .mobile-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    margin: 20px auto;
-  }
-  /* Agrandir l'image "How to Play" sur mobile */
-  .how-to-play-img {
-    width: 250px;
-  }
-  /* Réduire la taille du texte du bouton "Buy Me a Coffee" sur mobile */
-  .coffee-button {
-    font-size: 14px;
-  }
-  
-  /* Les contrôles musicaux mobiles utilisent ces IDs :
-     #play-music-mobile et #pause-music-mobile, avec le même style que la version PC */
-  #play-music-mobile {
-    background-color: #ff0066;
-    color: white;
-    font-weight: bold;
-    animation: glow 1.5s infinite alternate;
-  }
-  #pause-music-mobile {
-    background-color: #444;
-    color: white;
-  }
-  .music-button {
-    padding: 12px 18px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  /* Masquer la section PC */
-  .diceman-wrapper {
-    display: none;
-  }
-}
-
-/* =================== SECTION PC =================== */
-/* Par défaut, on masque la section PC sur mobile */
-@media (min-width: 769px) {
-  .diceman-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    margin: 10px auto;
-    max-width: 80%;
-  }
-  .mobile-controls {
-    display: none;
-  }
+#extra-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin-bottom: 2px;
 }
 
 /* =================== LAYOUT PC (3 Colonnes) =================== */
+.diceman-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  margin: 10px auto;
+  max-width: 80%;
+}
+
 /* Colonne de gauche */
 .left-container {
   display: flex;
@@ -96,21 +63,18 @@ body {
   gap: 15px;
   flex: 1;
 }
-/* "How to Play" image pour PC */
+
+/* Bouton "How to Play" */
 .how-to-play-img {
-  width: 150px; /* Taille par défaut pour PC */
+  width: 150px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 .how-to-play-img:hover {
   transform: scale(1.1);
 }
-/* S'assurer que les liens couvrent toute la zone */
-#random-how-to-play, #random-how-to-play-pc {
-  display: inline-block;
-}
 
-/* Bouton "Buy Me a Coffee" pour PC */
+/* Bouton "Buy Me a Coffee" */
 .coffee-button {
   background-color: #ffcc00;
   color: black;
@@ -137,17 +101,22 @@ body {
   margin: auto;
 }
 
-/* Colonne de droite (Contrôles musicaux PC) */
+/* Colonne de droite (Boutons Musique) */
 .right-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 15px;
   flex: 1;
-  justify-content: center;
 }
 
-/* =================== BOUTONS MUSICAUX (PC) =================== */
+/* =================== CONTROLE MOBILE =================== */
+/* Par défaut, on masque la version mobile (visible en mobile via media query) */
+.mobile-controls {
+  display: none;
+}
+
+/* =================== BOUTONS MUSIQUE =================== */
 .music-button {
   padding: 12px 18px;
   font-size: 16px;
@@ -156,7 +125,8 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
 }
-#play-music-pc {
+
+#play-music {
   background-color: #ff0066;
   color: white;
   font-weight: bold;
@@ -166,20 +136,10 @@ body {
   0% { box-shadow: 0 0 5px rgba(255, 0, 102, 0.6); }
   100% { box-shadow: 0 0 15px rgba(255, 0, 102, 0.9); }
 }
-#pause-music-pc {
+
+#pause-music {
   background-color: #444;
   color: white;
-}
-
-/* =================== TITRE SEO (H2) =================== */
-.seo-title {
-  font-size: 0.8em;
-  text-align: center;
-  color: #444;
-  margin-top: -10px;
-  margin-bottom: 50px;
-  font-weight: bold;
-  clear: both;
 }
 
 /* =================== MOBILE CONTROLS (How to Play & Coffee) =================== */
@@ -216,6 +176,16 @@ body {
     flex-direction: row;
     gap: 10px;
   }
+}
+/* =================== TITRE SEO (H2) =================== */
+.seo-title {
+  font-size: 0.8em;
+  text-align: center;
+  color: #444;
+  margin-top: -10px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  clear: both;
 }
 
 /* =================== PHRASE ET CHOIX =================== */
