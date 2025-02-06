@@ -54,16 +54,6 @@ document.getElementById("banner-image").src = randomTheme.banners[Math.floor(Mat
 document.getElementById("diceman-image").src = randomTheme.dicemanImages[Math.floor(Math.random() * randomTheme.dicemanImages.length)];
 document.getElementById("extra-image").src = randomTheme.extraImages[Math.floor(Math.random() * randomTheme.extraImages.length)];
 
-// === Gestion de la Musique ===
-const audio = new Audio();
-document.getElementById("play-music").addEventListener("click", () => {
-    audio.src = randomTheme.music[Math.floor(Math.random() * randomTheme.music.length)];
-    audio.play().catch(err => console.error("Erreur de lecture audio :", err));
-});
-document.getElementById("pause-music").addEventListener("click", () => {
-    audio.pause();
-});
-
 // === Génération des Phrases Aléatoires ===
 fetch("Phrase_accroche.csv")
     .then(response => response.text())
@@ -253,15 +243,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// === Gestion de la musique (Correction du bug avec randomTheme.music) ===
+// === Gestion de la musique (Correction des doublons et compatibilité PC/Mobile) ===
 document.addEventListener("DOMContentLoaded", function () {
-    const audio = new Audio();
+    let audio = new Audio(); // ✅ Un seul objet audio global pour éviter les conflits
     const playButton = document.getElementById("play-music");
     const pauseButton = document.getElementById("pause-music");
 
     if (playButton && pauseButton) {
         playButton.addEventListener("click", () => {
             if (typeof randomTheme !== "undefined" && randomTheme.music && randomTheme.music.length > 0) {
+                if (!audio.paused) {
+                    audio.pause(); // ✅ Stopper la piste en cours avant d'en jouer une nouvelle
+                }
                 const randomIndex = Math.floor(Math.random() * randomTheme.music.length);
                 audio.src = randomTheme.music[randomIndex];
                 console.log("Lecture de :", audio.src);
