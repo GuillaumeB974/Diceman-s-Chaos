@@ -117,39 +117,31 @@
             <img id="extra-image" src="" alt="Extra Image" class="extra-image">
         </div>
 
-            <!-- ✅ CONTENEUR POUR LES BOUTONS SUR MOBILE (s'affiche SEULEMENT sur mobile) -->
-        <div class="mobile-controls">
-            <a href="#" id="random-how-to-play">
-                <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
-            </a>
-            <button id="play-music" class="music-button">🎵</button>
-            <button id="pause-music" class="music-button">⏸</button>
-            <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">☕</a>
-        </div>
+           <!-- CONTENU PRINCIPAL POUR PC ET MOBILE -->
+<main class="diceman-wrapper">
+  <!-- Colonne de gauche -->
+  <div class="left-container">
+    <a href="#" class="pc-link" id="random-how-to-play-pc">
+      <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
+    </a>
+    <a href="https://ko-fi.com/dicemanschaos" target="_blank" id="buy-me-button" class="coffee-button">
+      ☕ Buy Me a Coffee
+    </a>
+  </div>
 
-        <!-- ✅ Conteneur principal (3 colonnes sur PC) -->
-        <div class="diceman-wrapper">
-            
-            <!-- ✅ Colonne de gauche : How to Play & Buy Me a Coffee (PC) -->
-            <div class="left-container">
-                <a href="#" id="random-how-to-play">
-                    <img src="images/dice-how-to-play.png" alt="How to Play" class="how-to-play-img">
-                </a>
-                <a id="buy-me-button" href="https://ko-fi.com/dicemanschaos" target="_blank" class="coffee-button">☕ Buy Me a Coffee</a>
-            </div>
+  <!-- Colonne centrale (Image du Diceman) -->
+  <div class="diceman-container">
+    <img id="diceman-image" src="images/diceman.jpg" alt="Image du DiceMan">
+  </div>
 
-            <!-- ✅ Colonne du centre : Image du Diceman -->
-            <div class="diceman-container">
-                <img id="diceman-image" src="" alt="Image du DiceMan">
-            </div>
-
-            <!-- ✅ Colonne de droite : Boutons musique (PC) -->
-            <div class="right-container">
-                <button id="play-music" class="music-button">🎵 Play Music</button>
-                <button id="pause-music" class="music-button">⏸ Pause Music</button>
-            </div>
-
-        </div> <!-- Fin de diceman-wrapper -->
+  <!-- Colonne de droite (Boutons de musique) -->
+  <div class="right-container">
+    <div id="music-controls">
+      <button id="play-music" class="music-button">🎵 Play Music</button>
+      <button id="pause-music" class="music-button">⏸ Pause Music</button>
+    </div>
+  </div>
+</main>
 
         <!-- ✅ Phrase d'accroche fixe pour le SEO -->
         <h2 class="seo-title">A completely non-random piece of advice from Mr. Fifth :</h2>
