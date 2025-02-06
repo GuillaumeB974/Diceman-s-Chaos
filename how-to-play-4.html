@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Play - Interactive Story</title>
     <link rel="stylesheet" href="style.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1516412260411948"
-     crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -15,40 +13,40 @@
     <main>
         <p>You wake up in a mysterious room. A glowing dice floats before you.</p>
         <p>What do you do?</p>
-        <button onclick="makeChoice('roll')">🎲 Roll the Dice</button>
-        <button onclick="makeChoice('ignore')">🚪 Ignore the Dice</button>
+        <button onclick="makeFirstChoice('roll')">🎲 Roll the Dice</button>
+        <button onclick="makeFirstChoice('ignore')">🚪 Ignore the Dice</button>
         <p id="story"></p>
     </main>
     <script>
-        function makeChoice(choice) {
+        function makeFirstChoice(choice) {
             let storyElement = document.getElementById("story");
             if (choice === 'roll') {
                 storyElement.innerHTML = "The dice glows brighter... your fate is sealed!<br>" +
                     "You are transported into a strange, floating castle filled with glowing symbols. A cloaked figure approaches you.<br>" +
-                    "<button onclick=makeChoice('speak')>🗣️ Speak to them</button> " +
-                    "<button onclick=makeChoice('run')>🏃‍♂️ Run away</button>";
+                    "<button onclick=makeNextChoice('speak')>🗣️ Speak to them</button> " +
+                    "<button onclick=makeNextChoice('run')>🏃‍♂️ Run away</button>";
             } else {
                 storyElement.innerHTML = "You ignore the dice... but it follows you. Forever.<br>" +
                     "After hours of avoiding it, you find a locked door. A note says: 'Roll the dice to proceed'.<br>" +
-                    "<button onclick=makeChoice('give_in')>🎲 Give in and roll</button> " +
-                    "<button onclick=makeChoice('break_door')>🔨 Try to break the door</button>";
+                    "<button onclick=makeNextChoice('give_in')>🎲 Give in and roll</button> " +
+                    "<button onclick=makeNextChoice('break_door')>🔨 Try to break the door</button>";
             }
         }
 
-        function makeChoice(choice) {
+        function makeNextChoice(choice) {
             let storyElement = document.getElementById("story");
             switch (choice) {
                 case 'speak':
                     storyElement.innerHTML = "The figure whispers, 'Your fate is bound to the dice. Choose wisely.'<br>" +
                         "A table appears with two dice, one glowing red and the other blue.<br>" +
-                        "<button onclick=makeChoice('red_dice')>🔴 Roll the red dice</button> " +
-                        "<button onclick=makeChoice('blue_dice')>🔵 Roll the blue dice</button>";
+                        "<button onclick=makeFinalChoice('red_dice')>🔴 Roll the red dice</button> " +
+                        "<button onclick=makeFinalChoice('blue_dice')>🔵 Roll the blue dice</button>";
                     break;
                 case 'run':
                     storyElement.innerHTML = "You sprint through endless hallways until you reach a room filled with mirrors. <br>" +
                         "Each mirror reflects a different version of yourself.<br>" +
-                        "<button onclick=makeChoice('step_through')>🚪 Step through a mirror</button> " +
-                        "<button onclick=makeChoice('stay')>⏳ Stay and observe</button>";
+                        "<button onclick=makeFinalChoice('step_through')>🚪 Step through a mirror</button> " +
+                        "<button onclick=makeFinalChoice('stay')>⏳ Stay and observe</button>";
                     break;
                 case 'give_in':
                     storyElement.innerHTML = "You roll the dice and the door unlocks, revealing a bright light.<br>" +
@@ -61,6 +59,12 @@
                         "You pick up the dice... it's time to play.<br>" +
                         "<a href='index.html'>▶️ Begin Your Adventure</a>";
                     break;
+            }
+        }
+
+        function makeFinalChoice(choice) {
+            let storyElement = document.getElementById("story");
+            switch (choice) {
                 case 'red_dice':
                     storyElement.innerHTML = "The red dice reveals your inner chaos! The room spins as you are thrown into an unpredictable adventure.<br>" +
                         "<a href='index.html'>🎲 Ready to embrace the randomness?</a>";
@@ -82,14 +86,5 @@
             }
         }
     </script>
-
-    <footer>
-    <p>&copy; 2025 Diceman's Chaos - All rights reserved.</p>
-    <a href="index.html">Back to Home</a> | 
-    <a href="mentions-legales.html">Legal Notice</a> | 
-    <a href="cookie-policy.html">Cookie Policy</a> | 
-    <a href="privacy-policy.html">Privacy Policy</a>
-</footer>
-    
 </body>
 </html>
