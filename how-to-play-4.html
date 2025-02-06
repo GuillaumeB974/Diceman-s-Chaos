@@ -19,10 +19,64 @@
     </main>
     <script>
         function makeChoice(choice) {
+            let storyElement = document.getElementById("story");
             if (choice === 'roll') {
-                document.getElementById("story").innerText = "The dice glows brighter... your fate is sealed!";
+                storyElement.innerHTML = "The dice glows brighter... your fate is sealed!<br>" +
+                    "You are transported into a strange, floating castle filled with glowing symbols. A cloaked figure approaches you.<br>" +
+                    "<button onclick=makeChoice('speak')>🗣️ Speak to them</button> " +
+                    "<button onclick=makeChoice('run')>🏃‍♂️ Run away</button>";
             } else {
-                document.getElementById("story").innerText = "You ignore the dice... but it follows you. Forever.";
+                storyElement.innerHTML = "You ignore the dice... but it follows you. Forever.<br>" +
+                    "After hours of avoiding it, you find a locked door. A note says: 'Roll the dice to proceed'.<br>" +
+                    "<button onclick=makeChoice('give_in')>🎲 Give in and roll</button> " +
+                    "<button onclick=makeChoice('break_door')>🔨 Try to break the door</button>";
+            }
+        }
+
+        function makeChoice(choice) {
+            let storyElement = document.getElementById("story");
+            switch (choice) {
+                case 'speak':
+                    storyElement.innerHTML = "The figure whispers, 'Your fate is bound to the dice. Choose wisely.'<br>" +
+                        "A table appears with two dice, one glowing red and the other blue.<br>" +
+                        "<button onclick=makeChoice('red_dice')>🔴 Roll the red dice</button> " +
+                        "<button onclick=makeChoice('blue_dice')>🔵 Roll the blue dice</button>";
+                    break;
+                case 'run':
+                    storyElement.innerHTML = "You sprint through endless hallways until you reach a room filled with mirrors. <br>" +
+                        "Each mirror reflects a different version of yourself.<br>" +
+                        "<button onclick=makeChoice('step_through')>🚪 Step through a mirror</button> " +
+                        "<button onclick=makeChoice('stay')>⏳ Stay and observe</button>";
+                    break;
+                case 'give_in':
+                    storyElement.innerHTML = "You roll the dice and the door unlocks, revealing a bright light.<br>" +
+                        "As you step through, you find yourself at the beginning again.<br>" +
+                        "It's time to play for real now!<br>" +
+                        "<a href='index.html'>▶️ Start Your Journey</a>";
+                    break;
+                case 'break_door':
+                    storyElement.innerHTML = "You smash the door open, but behind it is only darkness. A voice whispers: 'Only those who embrace the dice may pass.'<br>" +
+                        "You pick up the dice... it's time to play.<br>" +
+                        "<a href='index.html'>▶️ Begin Your Adventure</a>";
+                    break;
+                case 'red_dice':
+                    storyElement.innerHTML = "The red dice reveals your inner chaos! The room spins as you are thrown into an unpredictable adventure.<br>" +
+                        "<a href='index.html'>🎲 Ready to embrace the randomness?</a>";
+                    break;
+                case 'blue_dice':
+                    storyElement.innerHTML = "The blue dice stabilizes your path. You feel a sense of control... but is it real?<br>" +
+                        "<a href='index.html'>🎲 Time to find out!</a>";
+                    break;
+                case 'step_through':
+                    storyElement.innerHTML = "You step into a reflection of yourself from another universe. Everything is the same... except one crucial difference.<br>" +
+                        "What is it? You'll only know if you play.<br>" +
+                        "<a href='index.html'>🎲 Take the first roll</a>";
+                    break;
+                case 'stay':
+                    storyElement.innerHTML = "You watch the mirrors as they shift and change. Each version of you has rolled the dice... except one.<br>" +
+                        "Will you be the one who changes fate?<br>" +
+                        "<a href='index.html'>🎲 Roll and find out</a>";
+                    break;
             }
         }
     </script>
