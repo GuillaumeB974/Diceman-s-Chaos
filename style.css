@@ -74,6 +74,12 @@ h1,
   transform: scale(1.1);
 }
 
+/* Pour s'assurer que l'élément cliquable redirige bien vers les pages "how to play" */
+/* On cible l'anchor qui entoure l'image, assurez-vous que l'élément HTML porte l'id "random-how-to-play" */
+#random-how-to-play {
+  display: inline-block; /* Pour couvrir toute la zone de l'image */
+}
+
 /* Bouton "Buy Me a Coffee" */
 .coffee-button {
   background-color: #ffcc00;
@@ -108,6 +114,7 @@ h1,
   align-items: center;
   gap: 15px;
   flex: 1;
+  justify-content: center;
 }
 
 /* =================== CONTROLE MOBILE =================== */
@@ -152,6 +159,47 @@ h1,
   font-weight: bold;
   clear: both;
 }
+/* IMPORTANT : Pour la version PC, on s'assure que les boutons de musique sont bien affichés */
+/* Vous pouvez ajouter une media query pour s'assurer que ces boutons ne sont pas masqués */
+@media screen and (min-width: 769px) {
+  /* Ces règles forcent l'affichage en PC */
+  #play-music, #pause-music {
+    display: inline-block;
+  }
+}
+
+/* =================== MEDIA QUERIES POUR MOBILE =================== */
+@media (max-width: 768px) {
+  /* Dans le layout mobile, on peut redéfinir certains styles */
+
+  /* Agrandir le bouton "How to Play" sur mobile */
+  .how-to-play-img {
+    width: 200px; /* Augmentation de la taille pour mobile */
+  }
+
+  /* On masque la version PC si nécessaire (par exemple, la colonne droite) */
+  .diceman-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  /* Afficher le conteneur mobile (si vous l'utilisez pour d'autres contrôles) */
+  .mobile-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  /* Dans le layout mobile, vous pouvez éventuellement masquer les colonnes spécifiques à PC */
+  .left-container,
+  .right-container {
+    /* Selon votre design, ajustez ici si vous devez masquer certains éléments sur mobile */
+  }
 
 /* =================== PHRASE ET CHOIX =================== */
 .phrase-container p {
