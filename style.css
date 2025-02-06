@@ -1,3 +1,15 @@
+.mobile-view .diceman-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.desktop-view .diceman-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 /* Base styles */
 body {
     margin: 0;
