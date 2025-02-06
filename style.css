@@ -1,48 +1,16 @@
-/* =================== RESET =================== */
+/* =================== BASE & LAYOUT =================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* =================== BASE STYLES =================== */
 body {
   font-family: Arial, sans-serif;
   background-color: #222;
   color: white;
   text-align: center;
   padding: 20px;
-}
-
-/* Cache le <h1> et tout élément portant la classe .hidden-title */
-h1,
-.hidden-title {
-  display: none !important;
-}
-
-/* =================== BANNIÈRE ET EXTRA IMAGE =================== */
-.banner-container {
-  display: flex;
-  justify-content: center;
-}
-.banner-container img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-}
-
-.extra-image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5px;
-}
-#extra-image {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  display: block;
-  margin-bottom: 2px;
 }
 
 /* =================== LAYOUT PC (3 Colonnes) =================== */
@@ -66,18 +34,16 @@ h1,
 
 /* Bouton "How to Play" */
 .how-to-play-img {
-  width: 150px;
+  width: 150px; /* Taille par défaut sur PC */
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 }
 .how-to-play-img:hover {
   transform: scale(1.1);
 }
-
-/* Pour s'assurer que l'élément cliquable redirige bien vers les pages "how to play" */
-/* On cible l'anchor qui entoure l'image, assurez-vous que l'élément HTML porte l'id "random-how-to-play" */
-#random-how-to-play {
-  display: inline-block; /* Pour couvrir toute la zone de l'image */
+/* S'assurer que l'image et son lien couvrent bien toute la zone */
+#random-how-to-play, #random-how-to-play-pc {
+  display: inline-block;
 }
 
 /* Bouton "Buy Me a Coffee" */
@@ -107,7 +73,8 @@ h1,
   margin: auto;
 }
 
-/* Colonne de droite (Boutons Musique) */
+/* Colonne de droite */
+/* (Ici, la colonne de droite peut contenir d'autres éléments, mais nous n'y mettons pas les contrôles musicaux) */
 .right-container {
   display: flex;
   flex-direction: column;
@@ -116,29 +83,19 @@ h1,
   flex: 1;
   justify-content: center;
 }
-#play-music {
-  background-color: #ff0066;
-  color: white;
-  font-weight: bold;
-  animation: glow 1.5s infinite alternate;
-}
-@keyframes glow {
-  0% { box-shadow: 0 0 5px rgba(255, 0, 102, 0.6); }
-  100% { box-shadow: 0 0 15px rgba(255, 0, 102, 0.9); }
+
+/* =================== CONTROLES MUSICAUX (UNIQUE) =================== */
+/* Créez un conteneur unique pour les boutons de musique. Ce conteneur doit être placé dans votre HTML EN DEHORS des blocs mobiles et PC séparés.
+   Par exemple, dans le header ou juste en dessous de la bannière, ou encore dans la section principale si vous le souhaitez. */
+#music-controls {
+  display: flex;
+  flex-direction: column; /* En PC, affiche les boutons en colonne */
+  align-items: center;
+  gap: 15px;
+  margin: 20px auto;
 }
 
-#pause-music {
-  background-color: #444;
-  color: white;
-}
-
-/* =================== CONTROLE MOBILE =================== */
-/* Par défaut, on masque la version mobile (visible en mobile via media query) */
-.mobile-controls {
-  display: none;
-}
-
-/* =================== BOUTONS MUSIQUE =================== */
+/* Boutons musique */
 .music-button {
   padding: 12px 18px;
   font-size: 16px;
@@ -148,6 +105,7 @@ h1,
   transition: background-color 0.3s;
 }
 
+/* Bouton Play Music */
 #play-music {
   background-color: #ff0066;
   color: white;
@@ -159,6 +117,7 @@ h1,
   100% { box-shadow: 0 0 15px rgba(255, 0, 102, 0.9); }
 }
 
+/* Bouton Pause Music */
 #pause-music {
   background-color: #444;
   color: white;
@@ -174,10 +133,9 @@ h1,
   font-weight: bold;
   clear: both;
 }
-/* IMPORTANT : Pour la version PC, on s'assure que les boutons de musique sont bien affichés */
-/* Vous pouvez ajouter une media query pour s'assurer que ces boutons ne sont pas masqués */
+
+/* Pour PC : s'assurer que les boutons de musique restent affichés */
 @media screen and (min-width: 769px) {
-  /* Ces règles forcent l'affichage en PC */
   #play-music, #pause-music {
     display: inline-block;
   }
@@ -185,41 +143,47 @@ h1,
 
 /* =================== MEDIA QUERIES POUR MOBILE =================== */
 @media (max-width: 768px) {
-  /* Dans le layout mobile, on peut redéfinir certains styles */
-
-  /* Agrandir le bouton "How to Play" sur mobile */
+  /* Agrandir l'image "How to Play" sur mobile */
   .how-to-play-img {
-    width: 250px; /* Augmentation de la taille pour mobile */
+    width: 250px; /* Augmentation pour mobile */
   }
   
+  /* Réduire la taille du texte du bouton "Buy Me a Coffee" sur mobile */
   .coffee-button {
-    font-size: 14px; /* Modification : passage de 18px à 14px pour un texte plus petit sur mobile */
+    font-size: 14px;
   }
   
-  /* On masque la version PC si nécessaire (par exemple, la colonne droite) */
+  /* Pour le layout mobile, la disposition passe en colonne */
   .diceman-wrapper {
     flex-direction: column;
     align-items: center;
     gap: 15px;
   }
   
-  /* Afficher le conteneur mobile (si vous l'utilisez pour d'autres contrôles) */
-  .mobile-controls {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  /* Repositionner les éléments par ordre :
+     - On veut que les contrôles musicaux apparaissent au-dessus de l'image du Diceman.
+     Pour cela, dans votre HTML, placez le conteneur #music-controls dans le flux 
+     et utilisez éventuellement l'ordre avec Flexbox.
+     Voici un exemple si vous avez plusieurs blocs dans .diceman-wrapper : */
+  .left-container {
+    order: 1;
+  }
+  /* Nous plaçons le conteneur de musique ensuite */
+  #music-controls {
+    order: 2;
+    flex-direction: row; /* En mobile, on affiche les boutons en ligne */
     gap: 10px;
-    margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
-
-  /* Dans le layout mobile, vous pouvez éventuellement masquer les colonnes spécifiques à PC */
-  .left-container,
-  .right-container {
-    /* Selon votre design, ajustez ici si vous devez masquer certains éléments sur mobile */
+  .diceman-container {
+    order: 3;
   }
-} 
+  
+  /* Masquer tout bloc redondant si présent (par ex. ancien .mobile-controls) */
+  .mobile-controls {
+    display: none;
+  }
+}
 
 /* =================== PHRASE ET CHOIX =================== */
 .phrase-container p {
