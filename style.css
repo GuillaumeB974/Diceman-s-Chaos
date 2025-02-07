@@ -13,8 +13,15 @@ body {
 }
 
 /* =================== BANNIÈRE =================== */
+/* ✅ Correction du conteneur de la bannière */
 .banner-container {
-  margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Assure que l'image est bien centrée verticalement */
+    width: 100%;
+    max-width: 100vw;
+    height: auto; /* Permet à la hauteur de s’adapter au contenu */
+    overflow: hidden; /* Évite tout débordement */
 }
 .hidden-title {
   display: none;
