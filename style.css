@@ -27,9 +27,9 @@ body {
   display: none;
 }
 #banner-image {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
+  width: 100%; /* S’assure que l’image prend toute la largeur du conteneur */
+    max-height: 400px; /* Augmenté pour éviter qu’elle ne soit trop écrasée */
+    object-fit: cover; /* Recadre l’image pour qu’elle prenne toute la place */
 }
 
 /* =================== EXTRA IMAGE =================== */
